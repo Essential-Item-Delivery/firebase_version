@@ -5,6 +5,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+img.mb-4 {
+    padding: 10px 10px 10px
+}
+
 .form-control {
     height: 40px;
     box-shadow: none;
