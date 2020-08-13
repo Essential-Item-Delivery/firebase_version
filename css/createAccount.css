@@ -6,7 +6,11 @@ body {
 }
 
 img.mb-4 {
-    padding: 10px 10px 10px
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    width: 50%;
 }
 
 .form-control {
