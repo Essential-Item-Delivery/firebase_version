@@ -1,56 +1,19 @@
-function login() {
-    window.alert("Its working");
-}
+// Get elements
+const txtemail = document.getElementById('input-Email');
+const txtpassword = document.getElementById('input-Password');
+const btnLogin = document.getElementById('btnlogin');
 
-
-
-
-/**const auth = firebase.auth();
-const db = firebase.firestore();
-
-const signinForm = document.querySelector('#signin-form');
-signinForm.addEventListener('submit', (e) => {
+// Add login event
+btnLogin.addEventListener('submit', e => {
     e.preventDefault();
-})*/
 
+    // Get email and password
+    const email = txtemail.value;
+    const password = txtpassword.value;
+    const auth = firebase.auth();
 
-// Sign Up Function
-/**function signUp() {
-    var email = document.getElementById("input-Email");
-    var password = document.getElementById("input-Password");
-
-    const promise = auth.createUserWithEmailAndPassword(email.value, password.value)
-        .then(function(response) {
-            alert("Signed Up" + email)
-
-        })
-        .catch(function(error) {
-            e => alert(e.message);
-
-        });
-}
-*/
-
-// Sign In Function
-/**function login() {
-    var email = document.getElementById("input-Email");
-    var password = document.getElementById("input-Password");
-
-    auth.signInWithEmailAndPassword(email.value, password.value)
-        .then(function(response) {
-            console(email.value)
-            alert("Signed In" + email);
-        })
-        .catch(function(error) {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            if (errorCode === 'auth/wrong-password') {
-                alert('Wrong password.');
-            } else {
-                alert(errorMessage);
-            }
-            console.log(error);
-
-        });
-}
-**/
+    // Sign In
+    const promise = auth.signInWithEmailAndPassword(email, password);
+    promise.catch(e => alert());
+    console(email + password);
+});
