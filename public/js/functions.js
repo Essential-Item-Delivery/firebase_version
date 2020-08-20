@@ -1,33 +1,21 @@
-/** Javascript Functions for Shopperly */
+function login() {
+    window.alert("Its working");
+}
 
-// Your Firebase project configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyD1YUfUwKlU_Ge1YO0IAL-XtoxyhZ5IPqQ",
-    authDomain: "shopperly-application.firebaseapp.com",
-    databaseURL: "https://shopperly-application.firebaseio.com",
-    projectId: "shopperly-application",
-    storageBucket: "shopperly-application.appspot.com",
-    messagingSenderId: "676747994228",
-    appId: "1:676747994228:web:679586322f0c01df191d21",
-    measurementId: "G-LZJZTDD4E8"
-};
 
-const admin = require('firebase-admin');
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
 
-const auth = firebase.auth();
+/**const auth = firebase.auth();
 const db = firebase.firestore();
 
 const signinForm = document.querySelector('#signin-form');
 signinForm.addEventListener('submit', (e) => {
     e.preventDefault();
-})
+})*/
 
 
 // Sign Up Function
-function signUp() {
+/**function signUp() {
     var email = document.getElementById("input-Email");
     var password = document.getElementById("input-Password");
 
@@ -41,9 +29,10 @@ function signUp() {
 
         });
 }
+*/
 
 // Sign In Function
-/**function signIn() {
+/**function login() {
     var email = document.getElementById("input-Email");
     var password = document.getElementById("input-Password");
 
