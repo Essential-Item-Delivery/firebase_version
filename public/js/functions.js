@@ -1,19 +1,19 @@
 // Get elements
-const txtemail = document.getElementById('input-Email');
-const txtpassword = document.getElementById('input-Password');
-const btnLogin = document.getElementById('btnlogin');
+const email = document.getElementById('input-Email');
+const password = document.getElementById('input-Password');
 
 // Add login event
-btnLogin.addEventListener('submit', e => {
-    e.preventDefault();
+function login() {
+    firebase.auth().signInWithEmailAndPassword(email.value, password.value).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
 
-    // Get email and password
-    const email = txtemail.value;
-    const password = txtpassword.value;
-    const auth = firebase.auth();
-
-    // Sign In
-    const promise = auth.signInWithEmailAndPassword(email, password);
-    promise.catch(e => alert());
-    console(email + password);
-});
+        if (errorCode == 'auth/weak-password') {
+            alert('The password is too weak.');
+        } else {
+            alert(errorMessage);
+        }
+        console.log(error);
+    })
+};
