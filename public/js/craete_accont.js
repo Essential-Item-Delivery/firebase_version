@@ -1,5 +1,4 @@
-/* global L:false */
-/* jshint node: true */
+
 
 var account = (function () {
     'use strict';
