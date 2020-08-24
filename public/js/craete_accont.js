@@ -8,7 +8,7 @@ var account = (function () {
     //click
        function create() {
           const auth = firebase.auth();
-            var email = $('this').child.$('firstname');
+            var email = $('this').child.$('#firstname');
 
 
        }
