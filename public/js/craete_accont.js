@@ -3,7 +3,7 @@ var account = (function () {
    //global variables
    var pub = {}, submit;
 
-   //click
+   //create new account
    function create() {
       const auth = firebase.auth();
       var email = $('this').child.$('#firstname');
