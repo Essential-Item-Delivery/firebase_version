@@ -1,3 +1,15 @@
+
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        // User is signed in.
+        console.log(user);
+    } else {
+        console.log("not logged in");
+    }
+});
+
+
+
 var login = (function () {
     'use strict';
     //global variables
@@ -6,21 +18,39 @@ var login = (function () {
     //create new account
     function create() {
        const auth = firebase.auth();
-       var email = $('this').child.$('#input-Email');
-       var passwrods =$this.child.$('#input-Password');
-        
-    
+       var email = $(this).children('#input-Email').val();
+       var password =$(this).children('#input-Password').val();
+     
+        const promise  =firebase.auth().signInWithEmailAndPassword(email, password)
+            .then(function (response) {
+               // const user=firebase.auth().currentUser;
+               // console.log(user);
+            })
+            .catch(function (error) {
+               console.log("error messge: "+error.message);
+            });
+
+      return false;
     }
  
  
  
     //setup public
     pub.setup = function () {
- 
-       var test = $('login_form').submit(create);
-       console.log(test);
+      //console.log("test");
+      $('#login_form').submit(create);
+      
     };
- 
+    
+    pub.logout=function(){
+       firebase.auth().signOut()
+           .then(function () {
+               // Sign-out successful.
+           }).catch(function (error) {
+               // An error happened.
+           });
+    }
+
     return pub;
  
  
