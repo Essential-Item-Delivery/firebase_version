@@ -23,13 +23,38 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <!--js-->
-    <script src="js/cookies.js"></script>
-    <script src="js/check_login.js"></script>
+    <!--<script src="js/cookies.js"></script>-->
 
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/7.18.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/7.18.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.18.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/7.18.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/7.18.0/firebase-storage.js"></script>
+    <script defer src="/__/firebase/7.18.0/firebase-analytics.js"></script>
+    <script defer src="/__/firebase/7.18.0/firebase-firestore.js"></script>
+    <script defer src="js/firebaseCredentials.js"></script>
+    <script defer src="js/functions.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <!--<script defer src="/__/firebase/init.js">
+    </script>-->
 
 </head>
 
 <body>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!--- <script src="/__/firebase/7.18.0/firebase-app.js"></script>-->
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+
+    <!-- Initialize Firebase -->
+    <!--<script src="/__/firebase/init.js"></script> -->
+
+
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -748,7 +773,7 @@
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
                         <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <p>Get updates about our latest shop and special offers.</p>
                         <form action="#">
                             <input type="text" placeholder="Enter your mail">
                             <button type="submit" class="site-btn">Subscribe</button>
