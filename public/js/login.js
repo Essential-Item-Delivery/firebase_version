@@ -1,3 +1,5 @@
+
+
 var login = (function () {
     'use strict';
     //global variables
@@ -6,19 +8,25 @@ var login = (function () {
     //create new account
     function create() {
        const auth = firebase.auth();
-       var email = $('this').child.$('#input-Email');
-       var passwrods =$this.child.$('#input-Password');
+       var email = $(this).child('#input-Email');
+       var passwrods =$(this).child('#input-Password');
+        firebase.auth().signInWithEmailAndPassword(email, password)
+            .then(function (response) {
         
-    
+            })
+            .catch(function (error) {
+        
+            });
+      return false;
     }
  
  
  
     //setup public
     pub.setup = function () {
- 
-       var test = $('login_form').submit(create);
-       console.log(test);
+      console.log("test");
+       var test = $('#login_form').submit(create);
+       create();
     };
  
     return pub;
