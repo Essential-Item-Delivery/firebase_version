@@ -1,27 +1,17 @@
-var name_of_module = (function () {
+var datacontrol = (function () {
 
     //global variables
     var pub = {};
-
-    //private function
-    function create() {
-
-    }
-
-    //public funtion
-    pub.functiona = function () {
-        firebase.auth().signOut()
-            .then(function () {
-                // Sign-out successful.
-            }).catch(function (error) {
-                // An error happened.
-            });
+    var db = firebase.firestore();
+   
+   
+    pub.getUserName = function () {
+       
     }
 
     //setup public
     pub.setup = function () {
-        //console.log("test");
-        $('#login_form').submit(create);
+       
 
     };
 
@@ -31,4 +21,4 @@ var name_of_module = (function () {
 
 
 
-$(document).ready(name_of_module.setup);
+$(document).ready(datacontrol.setup);
