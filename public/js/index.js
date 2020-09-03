@@ -31,7 +31,14 @@ var indexControl = (function () {
     pub.dropDownControl = function() {
         $("#dropper").ready(function () {
             $("#dropper").html("");
-            $("#dropper").append('<li><a href="#">Does this work</a></li>');
+            firebase.database().ref('/CountDown/0/Category').once('value', function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+                    var childKey = childSnapshot.key;
+                    childSnapshot.val();
+                    $("#dropper").append('<li><a href="#"></a>"childSnapshot.val()"</li>');
+                    // ...
+                });
+            });
         });
     }
     return pub;
