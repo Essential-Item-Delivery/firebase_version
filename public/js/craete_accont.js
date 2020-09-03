@@ -25,7 +25,7 @@ var account = (function () {
             var uid = firebase.auth().currentUser.uid;
 
             //add to database
-            db.collection("users").doc(uid).collection("data").add({
+            db.collection("users").doc(uid).set({
                first_name: data[0],
                last_name: data[1],
                email: data[2],
@@ -34,7 +34,7 @@ var account = (function () {
                .then(function (response) {
                 //  alert("new data created!");
                   console.log("new data created!");
-
+                  return true;
                })
                .catch(function (error) {
                   alert("error messge: " + error.message);
