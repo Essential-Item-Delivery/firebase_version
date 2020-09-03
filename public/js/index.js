@@ -26,6 +26,15 @@ var indexControl = (function () {
         $("#logger").html('<i class=\"fa fa-user\">Welcome '+firebase.auth().currentUser.uid+'</i>');
     }
 
+    //set  drop down list to database variables
+    pub.dropDownControl = function() {
+        $("#dropper").ready(function () {
+            $("#dropper").html("");
+            $("#dropper").append('<li><a href="#">Does this work</a></li>');
+        });
+    }
     return pub;
 
 }());
+
+$(document).ready(indexControl.dropDownControl());
