@@ -6,7 +6,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.
         console.log(user);
-        pub.displayUser();
+        indexControl.displayUser();
         
     } else {
         console.log("not logged in");
