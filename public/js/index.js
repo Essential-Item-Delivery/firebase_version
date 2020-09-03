@@ -38,11 +38,11 @@ var indexControl = (function () {
     pub.dropDownControl = function() {
         $("#dropper").ready(function () {
             $("#dropper").html("");
-            firebase.database().ref('/CountDown/0/Category').once('value', function(snapshot) {
+            firebase.database().ref("/Store").once('value', function(snapshot) {
                 snapshot.forEach(function(childSnapshot) {
                     var childKey = childSnapshot.key;
-                    childSnapshot.val();
-                    $("#dropper").append('<li><a href="#"></a>"childSnapshot.val()"</li>');
+                    console.log(childSnapshot);
+                    $("#dropper").append('<li><a href="#"></a>'+childSnapshot+'</li>');
                     // ...
                 });
             });
