@@ -18,7 +18,6 @@ var account = (function () {
       // 3: {name: "address", value: "qwe"}
       // 4: {name: "password", value: "qweqwe"}
 
-
       auth.createUserWithEmailAndPassword(data[2].value, data[4].value)
          .then(function (response) {
            // alert("account create success");
