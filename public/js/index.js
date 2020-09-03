@@ -23,7 +23,8 @@ var indexControl = (function () {
     pub.displayUser = function(){
         $("#loggerRemove").remove();
         $("#createrRemove").remove();
-        $("#logger").html('<i class=\"fa fa-user\">Welcome '+firebase.auth().currentUser.uid+'</i>');
+        console.log(firebase.auth().currentUser.uid);
+        $("#logger").html('<i class=\"fa fa-user\">Welcome '+datacontrol.getUserName(firebase.auth().currentUser.uid)+'</i>');
     }
 
     //set  drop down list to database variables
