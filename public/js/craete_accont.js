@@ -5,60 +5,6 @@ var account = (function () {
 
 
 
-   //create new account
-   function create() {
-
-      const auth = firebase.auth();
-      var db = firebase.firestore();
-      var uid;
-
-
-      var data = $(this).serializeArray();
-
-      //test: data format
-      // 0: {name: "first_name", value: "qwe"}
-      // 1: {name: "last_name", value: "qwe"}
-      // 2: {name: "email", value: "html@test1.qwe"}
-      // 3: {name: "address", value: "qwe"}
-      // 4: {name: "password", value: "qweqwe"}
-
-
-      auth.createUserWithEmailAndPassword(data[2].value, data[4].value)
-         .then(function (response) {
-            uid = firebase.auth().currentUser.uid;
-            console.log("new account created!");
-            console.log(uid);
-         })
-         .catch(function (error) {
-            console.log("error messge: " + error.message);
-         });
-
-         uid = firebase.auth().currentUser.uid;
-         console.log(uid+data);
-
-
-      db.collection("users").doc(uid).collection("data").add( {
-         first_name: data[0],
-         last_name:data[1],
-         email:data[2],
-         address:data[3]
-      })
-         .then(function (response) {
-           
-            console.log("new data created!");
-         
-         })
-         .catch(function (error) {
-            console.log("error messge: " + error.message);
-         });
-
-
-
-
-      console.log(data);
-      return false;
-   }
-
    // pub.test = function(){
    //    db.collection("users").add({
    //       first: "Alan",
@@ -83,12 +29,71 @@ var account = (function () {
    // }
 
 
+   pub.submit = function () {
+      const auth = firebase.auth();
+      var db = firebase.firestore();
+      var uid;
+
+
+      var data = $('#create_account_form').serializeArray();
+
+      //test: data format
+      // 0: {name: "first_name", value: "qwe"}
+      // 1: {name: "last_name", value: "qwe"}
+      // 2: {name: "email", value: "html@test1.qwe"}
+      // 3: {name: "address", value: "qwe"}
+      // 4: {name: "password", value: "qweqwe"}
+
+
+      auth.createUserWithEmailAndPassword(data[2].value, data[4].value)
+         .then(function (response) {
+           // alert("account create success");
+           console.log("account create success");
+            var uid = firebase.auth().currentUser.uid;
+
+            db.collection("users").doc(uid).collection("data").add({
+               first_name: data[0],
+               last_name: data[1],
+               email: data[2],
+               address: data[3]
+            })
+               .then(function (response) {
+                //  alert("new data created!");
+                  console.log("new data created!");
+
+               })
+               .catch(function (error) {
+                  console.log("error messge: " + error.message);
+               });
+
+
+            console.log("new account created!");
+            console.log("uidis:" + firebase.auth().currentUser.uid);
+            // return false;
+         })
+         .catch(function (error) {
+            console.log("error messge: " + error.message);
+            return false;
+         });
+
+      //uid = firebase.auth().currentUser.uid;
+      //console.log(uid+data);
+
+
+
+
+      console.log(data);
+      return false;
+
+
+
+   }
 
    //setup public
    pub.setup = function () {
 
-      var test = $('#create_account_form').submit(create);
-      console.log(test);
+
+
       //test: get form data
       //var data =$('#create_account_form').serializeArray();
 
@@ -135,13 +140,7 @@ var account = (function () {
 
 
 
-if (window.addEventListener) {
-   window.addEventListener("load", account.setup);
-} else if (window.attachEvent) {
-   window.attachEvent("onload", account.setup);
-} else {
-   alert("Could not attach ’MovieCategories.setup’ to the ’window.onload’ event");
-}
+$(document).ready(account.setup);
 
 
 
