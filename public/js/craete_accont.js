@@ -3,32 +3,6 @@ var account = (function () {
    //global variables
    var pub = {}, submit;
 
-
-
-   // pub.test = function(){
-   //    db.collection("users").add({
-   //       first: "Alan",
-   //       middle: "Mathison",
-   //       last: "Turing",
-   //       born: 1912
-   //   })
-   //   .then(function(docRef) {
-   //       console.log("Document written with ID: ", docRef.id);
-   //   })
-   //   .catch(function(error) {
-   //       console.error("Error adding document: ", error);
-   //   });
-
-   // }
-   // pub.read = function(){
-   //    db.collection("users").get().then((querySnapshot) => {
-   //       querySnapshot.forEach((doc) => {
-   //           console.log(`${doc.id} => ${doc.data()}`);
-   //       });
-   //   });
-   // }
-
-
    pub.submit = function () {
       const auth = firebase.auth();
       var db = firebase.firestore();
@@ -44,13 +18,13 @@ var account = (function () {
       // 3: {name: "address", value: "qwe"}
       // 4: {name: "password", value: "qweqwe"}
 
-
       auth.createUserWithEmailAndPassword(data[2].value, data[4].value)
          .then(function (response) {
            // alert("account create success");
-           console.log("account create success");
+              console.log("account create success");
             var uid = firebase.auth().currentUser.uid;
 
+            //add to database
             db.collection("users").doc(uid).collection("data").add({
                first_name: data[0],
                last_name: data[1],
@@ -63,6 +37,7 @@ var account = (function () {
 
                })
                .catch(function (error) {
+                  alert("error messge: " + error.message);
                   console.log("error messge: " + error.message);
                });
 
@@ -72,16 +47,12 @@ var account = (function () {
             // return false;
          })
          .catch(function (error) {
+            alert("error messge: " + error.message);
             console.log("error messge: " + error.message);
             return false;
          });
 
-      //uid = firebase.auth().currentUser.uid;
-      //console.log(uid+data);
-
-
-
-
+    
       console.log(data);
       return false;
 
