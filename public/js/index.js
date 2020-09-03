@@ -42,7 +42,7 @@ var indexControl = (function () {
                 snapshot.forEach(function(childSnapshot) {
                     var childKey = childSnapshot.key;
                     console.log(childSnapshot);
-                    $("#dropper").append('<li><a href="#"></a>'+childSnapshot+'</li>');
+                    $("#dropper").append('<li><a href="#"></a>'+childSnapshot.key+'</li>');
                     // ...
                 });
             });
