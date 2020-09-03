@@ -35,7 +35,6 @@
     <script defer src="/__/firebase/7.18.0/firebase-analytics.js"></script>
     <script defer src="/__/firebase/7.18.0/firebase-firestore.js"></script>
     <script defer src="js/firebaseCredentials.js"></script>
-    <script defer src="js/functions.js"></script>
     <!-- initialize the SDK after all desired features are loaded -->
     <!--<script defer src="/__/firebase/init.js">
     </script>-->
@@ -135,13 +134,13 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                <a href="https://www.facebook.com/TheElonmusk/"><i class="fa fa-facebook"></i></a>
+                                <a href="https://twitter.com/elonmusk?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter"></i></a>
+                                <a href="https://www.linkedin.com/showcase/elon-musk-newslines"><i class="fa fa-linkedin"></i></a>
+                                <a href="https://www.pinterest.nz/bestbullysticks/puppies/"><i class="fa fa-pinterest-p"></i></a>
                             </div>
-                            <div class="header__top__right__auth , divlogin">
-                                <a href="signIn.html"><i class="fa fa-user"> Sign In </i> </a>
+                            <div class="header__top__right__auth , divlogin" id="logger">
+                                <a href="signIn.html" id="loggerRemove"><i class="fa fa-user"> Sign In </i> </a>
                             </div>
                             <!--<div class="header__top__right__language">
                                 <img src="img/language.png" alt="">
@@ -152,8 +151,8 @@
                                     <li><a href="#">English</a></li>
                                 </ul>
                             </div>-->
-                            <div class="header__top__right__auth , divlogin">
-                                <a href="createAccount.html"><i class="fa fa-user"  > Register </i> </a>
+                            <div class="header__top__right__auth , divlogin" id = "creater">
+                                <a href="createAccount.html" id="createrRemove"><i class="fa fa-user"  > Register </i> </a>
                             </div>
                         </div>
                     </div>
@@ -212,7 +211,7 @@
                             <i class="fa fa-bars"></i>
                             <span>All departments</span>
                         </div>
-                        <ul>
+                        <ul id="dropper">
                             <li><a href="#">Fresh Meat</a></li>
                             <li><a href="#">Vegetables</a></li>
                             <li><a href="#">Fruit & Nut Gifts</a></li>
@@ -817,7 +816,9 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-
+    <script defer src="js/datacontrol.js"></script>
+    <script defer src="js/index.js"></script>
+    
 
 
 </body>
