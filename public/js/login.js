@@ -16,8 +16,8 @@ var login = (function () {
     var pub = {}, submit;
  
     //create new account
-    function create() {
-       const auth = await firebase.auth();
+     function create() {
+       const auth =  firebase.auth();
        var email = $(this).children('#input-Email').val();
        var password =$(this).children('#input-Password').val();
      
