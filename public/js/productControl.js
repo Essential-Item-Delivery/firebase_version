@@ -5,9 +5,9 @@ var productControl = (function () {
     var pub = {};
 
     pub.categoryControl = function() {
+        var categories = [];
         $("#categoryList").ready(function () {
             $("#categoryList").html("");
-            var categories = [];
             firebase.database().ref("/Store").once('value', function(snapshot) {
                 snapshot.forEach(function(childSnapshot) {
                     var path = "/Store/"+childSnapshot.key;
@@ -22,7 +22,6 @@ var productControl = (function () {
                             });
                         });
                     });
-                    // ...
                 });
             });
         });
