@@ -7,6 +7,7 @@ var productControl = (function () {
     pub.categoryControl = function() {
         $("#categoryList").ready(function () {
             $("#categoryList").html("");
+            var categories = [];
             firebase.database().ref("/Store").once('value', function(snapshot) {
                 snapshot.forEach(function(childSnapshot) {
                     var path = "/Store/"+childSnapshot.key;
@@ -14,8 +15,10 @@ var productControl = (function () {
                         snapshotChild.forEach(function(child) {
                             var path1 = path+"/"+child.key+"/Category";
                             firebase.database().ref().child(path1).once('value', function(cat) {
-                                console.log(cat.node_.value_);
-
+                                if(!categories.includes(cat.node_.value_)){
+                                    categories.push(cat.node_.value_);
+                                    console.log(cat.node_.value_);
+                                }
                             });
                         });
                     });
