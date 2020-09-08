@@ -35,6 +35,7 @@
     <script defer src="/__/firebase/7.18.0/firebase-analytics.js"></script>
     <script defer src="/__/firebase/7.18.0/firebase-firestore.js"></script>
     <script defer src="js/firebaseCredentials.js"></script>
+    <script defer src="js/check_login.js"></script>
     <!-- initialize the SDK after all desired features are loaded -->
     <!--<script defer src="/__/firebase/init.js">
     </script>-->
@@ -139,7 +140,9 @@
                                 <a href="https://www.linkedin.com/showcase/elon-musk-newslines"><i class="fa fa-linkedin"></i></a>
                                 <a href="https://www.pinterest.nz/bestbullysticks/puppies/"><i class="fa fa-pinterest-p"></i></a>
                             </div>
+                           
                             <div class="header__top__right__auth , divlogin" id="logger">
+                              
                                 <a href="signIn.html" id="loggerRemove"><i class="fa fa-user"> Sign In </i> </a>
                             </div>
                             <!--<div class="header__top__right__language">
@@ -203,7 +206,7 @@
 
     <!-- Hero Section Begin -->
     <section class="hero">
-        <div class="container">
+        <div class="container" >
             <div class="row">
                 <div class="col-lg-3">
                     <div class="hero__categories">
@@ -230,9 +233,8 @@
                     <div class="hero__search">
                         <div class="hero__search__form">
                             <form action="#">
-                                <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
+                                <div class="hero__search__categories" >
+                                    <select  id="categoryList"></select>
                                 </div>
                                 <input type="text" placeholder="What do you need?">
                                 <button type="submit" class="site-btn">SEARCH</button>
@@ -263,7 +265,7 @@
     <!-- Hero Section End -->
 
     <!-- Categories Section Begin -->
-    <section class="categories">
+    <section class="categories" id="xxxxTent">
         <div class="container">
             <div class="row">
                 <div class="categories__slider owl-carousel">
@@ -818,6 +820,7 @@
     <script src="js/main.js"></script>
     <script defer src="js/datacontrol.js"></script>
     <script defer src="js/index.js"></script>
+    <script defer src="js/productControl.js"></script>
     
 
 

@@ -4,14 +4,34 @@ var productControl = (function () {
     //global variables
     var pub = {};
 
-    pub.getStore = function(){
-        db.ref('ReferernceName').once('value',   function(snapshot) {
-            snapshot.forEach(function(childSnapshot) {
-                var childKey = childSnapshot.key;
-                var childData = childSnapshot.val();
+    pub.categoryControl =async function() {
+        var categories = [];
+
+       await $("#categoryList").ready(async function () {
+            $("#categoryList").html("");
+           await firebase.database().ref("/Store").once('value', function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+                    var path = "/Store/"+childSnapshot.key;
+                    firebase.database().ref().child(path).once('value', function(snapshotChild) {
+                        snapshotChild.forEach(function(child) {
+                            var path1 = path+"/"+child.key+"/Category";
+                            firebase.database().ref().child(path1).once('value',async function(cat) {
+                                if(!categories.includes(cat.node_.value_)){
+                                    await categories.push(cat.node_.value_);
+                                    console.log(cat.node_.value_);
+                                }
+                            });
+                        });
+                    });
+                });
             });
         });
+        // console.log("array:");
+        // console.log(categories);
+        return categories;
     }
+
+
     //setup public
     pub.setup = function () {
 
@@ -20,8 +40,8 @@ var productControl = (function () {
 
     return pub;
 
-});
+}());
 
 
 
-$(document).ready(productControl.setup);
+$(document).ready(productControl.categoryControl());
