@@ -4,14 +4,41 @@ var productControl = (function () {
     //global variables
     var pub = {};
 
-    pub.getStore = function(){
-        db.ref('ReferernceName').once('value',   function(snapshot) {
-            snapshot.forEach(function(childSnapshot) {
-                var childKey = childSnapshot.key;
-                var childData = childSnapshot.val();
+    pub.categoryControl = function() {
+        $("#categoryList").ready(function () {
+            $("#categoryList").html("");
+            firebase.database().ref("/Store").once('value', function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+                    var path = "/Store/"+childSnapshot.key+"/Category";
+                    firebase.database().ref(path).once('value', function(snapshotChild) {
+                        snapshotChild.forEach(function(child) {
+                            console.log(childSnapshot);
+                            console.log("OMG ITS WORKING");
+                        });
+                    });
+                    // ...
+                });
             });
         });
     }
+
+    //Set this method up to sort through the categories and find one label for each of them to return
+    pub.getCategories = function() {
+        $("#lister").ready(function () {
+            var categories = [];
+            firebase.database().ref().child("/Store").once('value', function (snapshot) {
+                snapshot.forEach(function (childSnapshot) {
+
+                    categories.push(childSnapshot.name);
+                    console.log(childSnapshot.name);
+                });
+            });
+            categories.forEach(function(cat){
+                $("#lister").append('<li><a href="#"></a>'+cat.name+'</li>');
+            });
+        });
+    }
+
     //setup public
     pub.setup = function () {
 
@@ -24,4 +51,4 @@ var productControl = (function () {
 
 
 
-$(document).ready(productControl.setup);
+$(document).ready(productControl.categoryControl());

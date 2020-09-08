@@ -48,6 +48,13 @@ var indexControl = (function () {
             });
         });
     }
+
+    pub.categoryDropDown = function() {
+        $("#categoryList").ready(function () {
+            $("#categoryList").append("<select id='lister'></select>");
+                    // ...
+                });
+    }
     return pub;
 
 }());
