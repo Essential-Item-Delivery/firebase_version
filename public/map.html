@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Leaflet OSRM Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="dist/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="dist/leaflet-routing-machine.css" />
+    <!-- <link rel="stylesheet" href="index.css" /> -->
+</head>
+<body>
+    <div id="map" class="map"></div>
+    <script src="dist/leaflet/leaflet.js"></script>
+    <script src="dist/leaflet-routing-machine.js"></script>
+    <script src="dist/Control.Geocoder.js"></script>
+    <!-- <script src="dist/mapbox.js"></script> -->
+    <script>
+        var map = L.map('map');
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+}).addTo(map);
+
+L.Routing.control({
+    waypoints: [
+        L.latLng(57.74, 11.94),
+        L.latLng(57.6792, 11.949)
+    ],
+    routeWhileDragging: true
+}).addTo(map);
+
+    </script>
+</body>
+</html>
