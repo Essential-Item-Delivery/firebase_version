@@ -4,11 +4,9 @@ var productControl = (function () {
     //global variables
     var pub = {};
 
-    pub.categoryControl =async function() {
+    pub.getCategory =async function() {
         var categories = [];
 
-       await $("#categoryList").ready(async function () {
-            $("#categoryList").html("");
            await firebase.database().ref("/Store").once('value', function(snapshot) {
                 snapshot.forEach(function(childSnapshot) {
                     var path = "/Store/"+childSnapshot.key;
@@ -25,10 +23,40 @@ var productControl = (function () {
                     });
                 });
             });
+        // console.log("array:");
+        return categories;
+    }
+
+    pub.getProduct =async function() {
+        var products = [];
+        $("#categoryList").ready(function () {
+             firebase.database().ref("/Store").once('value', function (snapshot) {
+                snapshot.forEach( function (childSnapshot) {
+                    var path = "/Store/" + childSnapshot.key;
+                    var num = 0;
+                     firebase.database().ref().child(path).once('value', async function (snapshotChild) {
+                        await snapshotChild.forEach( function (child1) {
+                            var path1 = path + "/" + child1.key;
+                            //console.log(child1);
+                            num++;
+                            //console.log(num);
+                             firebase.database().ref().child(path1).on('value', async function (snappy) {
+                                 var x = []
+                                await snappy.forEach( function (child2) {
+                                    x.push(child2.node_.value_);
+                                    //console.log(child2);
+                                });
+                                 products.push(x);
+                                 console.log(x);
+                            });
+                        });
+                    });
+                });
+            });
         });
         // console.log("array:");
-        // console.log(categories);
-        return categories;
+
+        return products;
     }
 
 
@@ -44,4 +72,4 @@ var productControl = (function () {
 
 
 
-$(document).ready(productControl.categoryControl());
+$(document).ready(productControl.getProduct());
