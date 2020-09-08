@@ -30,11 +30,18 @@ var indexControl = (function () {
     pub.categoryDropDown = function() {
         $("#categoryList").ready(function () {
             $("#categoryList").append("<select id='lister'></select>");
-                    // ...
-                });
+                var list = productControl.getCategory();
+            console.log(list.length);
+            for (index = 0; index < list.length; index++) {
+                console.log(list[index]);
+                 $("#lister").append("<value>list[index]</value>");
+            }
+
+        });
     }
     return pub;
 
 }());
 
 $(document).ready(indexControl.dropDownControl());
+$(document).ready(indexControl.categoryDropDown());
