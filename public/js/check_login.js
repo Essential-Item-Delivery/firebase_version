@@ -24,11 +24,18 @@ var logcheck = (function () {
 
        // console.log("result is"+datacontrol.getUserName(uid));
 
-        $("#logger").html('<i class=\"fa fa-user\">Welcome ' +await datacontrol.getUserName(uid) +'</i>');
+        $("#logger").html('<i class=\"fa fa-user\">Welcome ' +await datacontrol.getUserName(uid) +'</i> <button onclick="logcheck.logout()">Log Out</button>');
 
         console.log("function called");
     }
-
+    pub.logout=function(){
+        firebase.auth().signOut()
+            .then(function () {
+                // Sign-out successful.
+            }).catch(function (error) {
+                // An error happened.
+            });
+     }
     return pub;
 
 }());
