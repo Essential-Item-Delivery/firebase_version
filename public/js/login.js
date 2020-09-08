@@ -1,6 +1,7 @@
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.
+        location.href = 'index.html';
         console.log(user);
         
     } else {
@@ -23,6 +24,7 @@ var login = (function () {
      
         const promise  =firebase.auth().signInWithEmailAndPassword(email, password)
             .then(function (response) {
+                location.href = 'index.html';
                // const user=firebase.auth().currentUser;
                // console.log(user);
             })
