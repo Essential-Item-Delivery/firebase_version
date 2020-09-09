@@ -7,7 +7,7 @@ var productControl = (function () {
     pub.getCategory = async function() {
         var categories = [],i=0;
            await firebase.database().ref("/Store").once('value',  function(snapshot) {
-
+               $("#categoryList").append("<select id='lister'></select>");
               snapshot.forEach(   function(childSnapshot) {
 
                     var path = "/Store/"+childSnapshot.key;
@@ -21,8 +21,9 @@ var productControl = (function () {
 
                                 if(!categories.includes(cat.node_.value_)){
                                      categories.push(cat.node_.value_);
+                                     var word = cat.node_.value_;
                                     // console.log(categories);
-                                    
+                                    $("#lister").append('<option>'+word+'</option>');
                                 }
                             });
                         });
@@ -34,6 +35,7 @@ var productControl = (function () {
         console.log(categories);
          return  categories;
     }
+
 
     pub.getProduct =async function() {
         var products = [];
@@ -55,7 +57,7 @@ var productControl = (function () {
                                     //console.log(child2);
                                 });
                                  products.push(x);
-                                 //console.log(x);
+                                 console.log(x);
                             });
                         });
                     });
