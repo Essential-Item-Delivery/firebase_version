@@ -10,7 +10,11 @@ var indexControl = (function () {
     //global variables
     var pub = {};
 
-
+    pub.setItems = function (){
+        $("#setPopular").ready(function () {
+            productControl.indexProductSet();
+        });
+    }
 
     //set  drop down list to database variables
     pub.dropDownControl = function () {
@@ -40,3 +44,4 @@ var indexControl = (function () {
 
 $(document).ready(indexControl.dropDownControl);
 $(document).ready( indexControl.categoryDropDown );
+$(document).ready( indexControl.setItems);
