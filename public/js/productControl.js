@@ -4,32 +4,40 @@ var productControl = (function () {
     //global variables
     var pub = {};
 
-    pub.getCategory =async function() {
-        var categories = [];
+    pub.getCategory = async function() {
+        var categories = [],i=0;
+           await firebase.database().ref("/Store").once('value',  function(snapshot) {
 
-           await firebase.database().ref("/Store").once('value', function(snapshot) {
-                snapshot.forEach(function(childSnapshot) {
+              snapshot.forEach(   function(childSnapshot) {
+
                     var path = "/Store/"+childSnapshot.key;
-                    firebase.database().ref().child(path).once('value', function(snapshotChild) {
-                        snapshotChild.forEach(function(child) {
+
+                     firebase.database().ref().child(path).once('value', function(snapshotChild) {
+
+                          snapshotChild.forEach( function(child) {
+
                             var path1 = path+"/"+child.key+"/Category";
-                            firebase.database().ref().child(path1).once('value',async function(cat) {
+                                firebase.database().ref().child(path1).once('value',   function(cat) {
+
                                 if(!categories.includes(cat.node_.value_)){
-                                    await categories.push(cat.node_.value_);
+                                     categories.push(cat.node_.value_);
+                                    // console.log(categories);
+                                    
                                 }
                             });
                         });
                     });
                 });
             });
-        // console.log("array:");
 
-        return categories;
+        // console.log("array:");
+        console.log(categories);
+         return  categories;
     }
 
     pub.getProduct =async function() {
         var products = [];
-        $("#categor").ready(function () {
+       
              firebase.database().ref("/Store").once('value', function (snapshot) {
                 snapshot.forEach( function (childSnapshot) {
                     var path = "/Store/" + childSnapshot.key;
@@ -53,9 +61,9 @@ var productControl = (function () {
                     });
                 });
             });
-        });
+       
         // console.log("array:");
-
+         console.log(products);
         return products;
     }
 
