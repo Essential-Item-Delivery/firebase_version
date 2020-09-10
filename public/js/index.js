@@ -16,14 +16,16 @@ var indexControl = (function () {
         });
     }
 
+
     //set  drop down list to database variables
     pub.dropDownControl = function () {
         $("#dropper").ready(function () {
             $("#dropper").html("");
             firebase.database().ref("/Store").once('value', function (snapshot) {
                 snapshot.forEach(function (childSnapshot) {
-                    console.log(childSnapshot);
-                    $("#dropper").append('<li><a href="#"></a>' + childSnapshot.key + '</li>');
+                    var childKey = childSnapshot.key;
+                    console.log(childKey);
+                    $("#dropper").append('<li ><a href="./shop-grid.html" >' + childSnapshot.key + '</a></li>');
                     // ...
                 });
             });
