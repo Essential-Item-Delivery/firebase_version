@@ -22,7 +22,6 @@ var indexControl = (function () {
             $("#dropper").html("");
             firebase.database().ref("/Store").once('value', function (snapshot) {
                 snapshot.forEach(function (childSnapshot) {
-                    var childKey = childSnapshot.key;
                     console.log(childSnapshot);
                     $("#dropper").append('<li><a href="#"></a>' + childSnapshot.key + '</li>');
                     // ...
