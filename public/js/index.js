@@ -33,7 +33,6 @@ var indexControl = (function () {
 
     pub.categoryDropDown = async function () {
 
-<<<<<<< HEAD
         var list = productControl.getCategory().then();
 
         console.log("list:");
@@ -64,10 +63,6 @@ var indexControl = (function () {
         console.log(t);
 
         return list;
-=======
-        var  list = productControl.getCategory().then();
-      return list;
->>>>>>> bf19889495becc5b8ca4eb9a9888f4c5cbafac9b
     };
 
     pub.setup = function () {
@@ -86,9 +81,4 @@ var indexControl = (function () {
 
 $(document).ready(indexControl.setup);
 $(document).ready(indexControl.dropDownControl);
-<<<<<<< HEAD
 $(document).ready(indexControl.categoryDropDown);
-=======
-$(document).ready( indexControl.categoryDropDown );
-$(document).ready( indexControl.setItems);
->>>>>>> bf19889495becc5b8ca4eb9a9888f4c5cbafac9b
