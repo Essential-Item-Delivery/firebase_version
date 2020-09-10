@@ -54,21 +54,21 @@ var productControl = (function () {
                             products.push(x);
                             if(num>4 && num<9){
                                 console.log(num);
-                                $("#setPopular").append('           <div class="row featured__filter"  id="setPopular">\n' +
-                                    '                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat tester">\n' +
-                                    '                    <div class="featured__item">\n' +
-                                    '                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">\n' +
-                                    '                            <ul class="featured__item__pic__hover">\n' +
-                                    '                                <li><a href="#"><i class="fa fa-heart"></i></a></li>\n' +
-                                    '                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>\n' +
-                                    '                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>\n' +
-                                    '                            </ul>\n' +
-                                    '                        </div>\n' +
-                                    '                        <div class="featured__item__text">\n' +
-                                    '                            <h6><a href="#">'+x[3]+'</a></h6>\n' +
-                                    '                            <h5>'+x[4]+'</h5>\n' +
-                                    '                        </div>\n' +
-                                    '                    </div>\n' +
+                                $("#setPopular").append('           <div class="row featured__filter"  id="setPopular">' +
+                                    '                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat tester">' +
+                                    '                    <div class="featured__item">' +
+                                    '                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">' +
+                                    '                            <ul class="featured__item__pic__hover">' +
+                                    '                                <li><a href="#"><i class="fa fa-heart"></i></a></li>' +
+                                    '                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>' +
+                                    '                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>' +
+                                    '                            </ul>' +
+                                    '                        </div>' +
+                                    '                        <div class="featured__item__text">' +
+                                    '                            <h6><a href="#">'+x[3]+'</a></h6>' +
+                                    '                            <h5>'+x[4]+'</h5>' +
+                                    '                        </div>' +
+                                    '                    </div>' +
                                     '                </div>');
                             }
                         });

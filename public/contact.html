@@ -91,27 +91,33 @@
         <!-- Humberger End -->
      
         <!-- Header Section Begin -->
+        <!-- Header Section Begin -->
         <header class="header">
             <div class="header__top">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 col-md-6">
                             <div class="header__top__left">
                                 <ul>
-                                    <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                    <li>Free Shipping for all Order of $99</li>
+                                    <li><i class="fa fa-envelope"></i> Shopperly@gmail.com</li>
+                                    <li>Delivering all the essentials in your local neighbourhood</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 col-md-6">
                             <div class="header__top__right">
                                 <div class="header__top__right__social">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                    <a href="https://www.facebook.com/TheElonmusk/"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://twitter.com/elonmusk?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter"></i></a>
+                                    <a href="https://www.linkedin.com/showcase/elon-musk-newslines"><i class="fa fa-linkedin"></i></a>
+                                    <a href="https://www.pinterest.nz/bestbullysticks/puppies/"><i class="fa fa-pinterest-p"></i></a>
                                 </div>
-                                <div class="header__top__right__language">
+
+                                <div class="header__top__right__auth , divlogin" id="logger">
+
+                                    <a href="signIn.html" id="loggerRemove"><i class="fa fa-user"> Sign In </i> </a>
+                                </div>
+                                <!--<div class="header__top__right__language">
                                     <img src="img/language.png" alt="">
                                     <div>English</div>
                                     <span class="arrow_carrot-down"></span>
@@ -119,9 +125,9 @@
                                         <li><a href="#">Spanis</a></li>
                                         <li><a href="#">English</a></li>
                                     </ul>
-                                </div>
-                                <div class="header__top__right__auth">
-                                    <a href="#"><i class="fa fa-user"></i> Login</a>
+                                </div>-->
+                                <div class="header__top__right__auth , divlogin" id = "creater">
+                                    <a href="createAccount.html" id="createrRemove"><i class="fa fa-user"  > Register </i> </a>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +138,7 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="header__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                            <a href="./index.html"><img src="img/shopperLy.png" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -256,21 +262,21 @@
                         <div class="contact__widget">
                             <span class="icon_pin_alt"></span>
                             <h4>Address</h4>
-                            <p>60-49 Road 11378 New York</p>
+                            <p>Dunedin</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                         <div class="contact__widget">
                             <span class="icon_clock_alt"></span>
                             <h4>Open time</h4>
-                            <p>10:00 am to 23:00 pm</p>
+                            <p>24/7</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                         <div class="contact__widget">
                             <span class="icon_mail_alt"></span>
                             <h4>Email</h4>
-                            <p>hello@colorlib.com</p>
+                            <p>Shopperly@gmail.com</p>
                         </div>
                     </div>
                 </div>
@@ -331,12 +337,12 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="footer__about">
                             <div class="footer__about__logo">
-                                <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                                <a href="./index.html"><img src="img/shopperLy.png" alt=""></a>
                             </div>
                             <ul>
-                                <li>Address: 60-49 Road 11378 New York</li>
+                                <li>Address: Mellor Labs, University of Otago, Dunedin</li>
                                 <li>Phone: +65 11.188.888</li>
-                                <li>Email: hello@colorlib.com</li>
+                                <li>Email: Shopperly@gmail.com</li>
                             </ul>
                         </div>
                     </div>
@@ -364,7 +370,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="footer__widget">
                             <h6>Join Our Newsletter Now</h6>
-                            <p>Get E-mail updates about our latest shop and special offers.</p>
+                            <p>Get updates about our latest shop and special offers.</p>
                             <form action="#">
                                 <input type="text" placeholder="Enter your mail">
                                 <button type="submit" class="site-btn">Subscribe</button>
@@ -381,9 +387,16 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="footer__copyright">
-                            <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-      Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                            <div class="footer__copyright__text">
+                                <p>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    Copyright &copy;
+                                    <script>
+                                        document.write(new Date().getFullYear());
+                                    </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                </p>
+                            </div>
                             <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
                         </div>
                     </div>
