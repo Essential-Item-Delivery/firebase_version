@@ -9,6 +9,11 @@ var indexControl = (function () {
     //global variables
     var pub = {};
 
+    pub.setItems = function (){
+        $("#setPopular").ready(function () {
+            productControl.indexProductSet();
+        });
+    }
 
 
     //set  drop down list to database variables
@@ -18,8 +23,8 @@ var indexControl = (function () {
             firebase.database().ref("/Store").once('value', function (snapshot) {
                 snapshot.forEach(function (childSnapshot) {
                     var childKey = childSnapshot.key;
-                    console.log(childSnapshot);
-                    $("#dropper").append('<li><a href="#"></a>' + childSnapshot.key + '</li>');
+                    console.log(childKey);
+                    $("#dropper").append('<li ><a href="./shop-grid.html" >' + childSnapshot.key + '</a></li>');
                     // ...
                 });
             });
@@ -28,6 +33,7 @@ var indexControl = (function () {
 
     pub.categoryDropDown = async function () {
 
+<<<<<<< HEAD
         var list = productControl.getCategory().then();
 
         console.log("list:");
@@ -58,6 +64,10 @@ var indexControl = (function () {
         console.log(t);
 
         return list;
+=======
+        var  list = productControl.getCategory().then();
+      return list;
+>>>>>>> bf19889495becc5b8ca4eb9a9888f4c5cbafac9b
     };
 
     pub.setup = function () {
@@ -76,4 +86,9 @@ var indexControl = (function () {
 
 $(document).ready(indexControl.setup);
 $(document).ready(indexControl.dropDownControl);
+<<<<<<< HEAD
 $(document).ready(indexControl.categoryDropDown);
+=======
+$(document).ready( indexControl.categoryDropDown );
+$(document).ready( indexControl.setItems);
+>>>>>>> bf19889495becc5b8ca4eb9a9888f4c5cbafac9b
