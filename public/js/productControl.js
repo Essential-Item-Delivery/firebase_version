@@ -54,7 +54,7 @@ var productControl = (function () {
                             products.push(x);
                             if(num>4 && num<9){
                                 console.log(num);
-                                $("#setPopular").append('           <div class="row featured__filter"  id="setPopular">' +
+                                $("#setPopular").append('<div class="row featured__filter"  id="setPopular">' +
                                     '                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat tester">' +
                                     '                    <div class="featured__item">' +
                                     '                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">' +
