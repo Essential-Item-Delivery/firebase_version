@@ -55,4 +55,4 @@ var indexControl = (function () {
 $(document).ready(indexControl.setup);
 $(document).ready(indexControl.dropDownControl);
 $(document).ready(indexControl.categoryDropDown);
-$(document).ready(indexControl.setItems());
+$(document).ready(indexControl.setItems);

@@ -14,6 +14,7 @@ var shopControl = (function () {
     pub.setShop = function(){
         console.log("This is being used");
         $("#shopItems").ready(function () {
+
             productControl.shopProducts();
         });
     };
@@ -47,4 +48,4 @@ var shopControl = (function () {
 
 $(document).ready(shopControl.departmentSet());
 $(document).ready(shopControl.setup());
-$(document).ready(shopControl.setShop);
+$(document).ready(shopControl.setShop());

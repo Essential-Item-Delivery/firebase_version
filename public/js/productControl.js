@@ -79,13 +79,13 @@ var productControl = (function () {
     }
 
     //Sets the products on the shop page
-    //Category:
-    //Description:
-    //Product ID:
-    //Product Name:
+    //Array is as follows
+    //Category 0
+    //Description 1
+    //Product ID 2
+    //Product Name 3
     //Unit Price:
         pub.shopProducts = async function(){
-        console.log("HIIIII its dom");
         var products = [];
         var num = 0;
         firebase.database().ref("/Store").once('value', function (snapshot) {
@@ -106,7 +106,7 @@ var productControl = (function () {
                             //$("#setPopular").append('');
                             products.push(x);
                                 console.log(num);
-                                $("#shopItems").append('<div class="row featured__filter"  id="setPopular">' +
+                                $("#shopItems").append('<div class="row featured__filter">' +
                                     '                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat tester">' +
                                     '                    <div class="featured__item">' +
                                     '                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">' +
