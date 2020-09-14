@@ -9,7 +9,9 @@ var indexControl = (function () {
     //global variables
     var pub = {};
 
+    //This will set products on the index page
     pub.setItems = function (){
+        console.log("DOMIOMIC");
         $("#setPopular").ready(function () {
             productControl.indexProductSet();
         });
@@ -32,36 +34,7 @@ var indexControl = (function () {
     };
 
     pub.categoryDropDown = async function () {
-
         var list = productControl.getCategory().then();
-
-        console.log("list:");
-        console.log(list);
-        console.log(list[1]);
-        $("#categoryList").append("<select id='lister'></select>");
-
-
-
-
-
-
-        var index = 0;
-
-
-
-        for (index = 0; index < list.length; index++) {
-            console.log("test:" + list[index]);
-            await $("#lister").append("<option>list[index]</option>");
-        }
-
-
-        console.log(list.length);
-        console.log(list);
-        var t = [];
-        t.push("1");
-        t.push("2");
-        console.log(t);
-
         return list;
     };
 
@@ -82,3 +55,4 @@ var indexControl = (function () {
 $(document).ready(indexControl.setup);
 $(document).ready(indexControl.dropDownControl);
 $(document).ready(indexControl.categoryDropDown);
+$(document).ready(indexControl.setItems());
