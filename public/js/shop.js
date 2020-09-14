@@ -6,13 +6,17 @@ var shopControl = (function () {
     var currentStore = "Shopperly";
 
     pub.setStore = function(child){
-        console.log("HIIIIIIIIII"+ child);
         currentStore = child.key;
     }
 
-    pub.setShop = (function(){
-
-    });
+    //Is called when the shop-grid is loaded through the id field shopItems, then
+    //calls the shopProducts in productControl.js to fill the page with products
+    pub.setShop = function(){
+        console.log("This is being used");
+        $("#shopItems").ready(function () {
+            productControl.shopProducts();
+        });
+    };
 
     pub.departmentSet = function () {
         $("#CATS").ready(function () {
@@ -43,3 +47,4 @@ var shopControl = (function () {
 
 $(document).ready(shopControl.departmentSet());
 $(document).ready(shopControl.setup());
+$(document).ready(shopControl.setShop);
