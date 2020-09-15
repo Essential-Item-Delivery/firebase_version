@@ -32,7 +32,7 @@ var productControl = (function () {
     }
 
 
-    pub.getAllCategory =async function(){
+    pub.getAllproducts =async function(){
         var allproducts = await firebase.database().ref("/Store").once('value');
         return allproducts;
     }

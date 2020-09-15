@@ -18,8 +18,8 @@ var indexControl = (function () {
         var products = [];
 
         // var allproducts = await firebase.database().ref("/Store").once('value');
-        var t = await productControl.getAllCategory();
-        console.log(t.val());
+        var t = await productControl.getAllproducts();
+        console.log(t.val().CountDown[0].Description);
 
 
 
