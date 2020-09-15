@@ -37,4 +37,3 @@ $(document).ready(name_of_module.setup);
 
 
 
-
