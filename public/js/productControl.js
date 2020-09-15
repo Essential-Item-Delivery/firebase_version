@@ -31,6 +31,14 @@ var productControl = (function () {
          return  categories;
     }
 
+
+    pub.getAllCategory =async function(){
+        var allproducts = await firebase.database().ref("/Store").once('value');
+        return allproducts;
+    }
+
+
+
     pub.indexProductSet = async function(){
         var products = [];
         firebase.database().ref("/Store").once('value', function (snapshot) {
