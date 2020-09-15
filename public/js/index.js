@@ -20,39 +20,41 @@ var indexControl = (function () {
         // var allproducts = await firebase.database().ref("/Store").once('value');
         var t = await productControl.getAllproducts();
         
-        console.log(t.val());
+        //############################
+        //get array of all shop name        
+        var shops =  Object.keys(t.val());
+
+        for(var i =0 ; i<shops.length; i++){
+            console.log(shops[i]);
+        }
+        //#############################
+
+       // console.log(t.val());
         
-        for(var i =0; i<4; i++){
-
-
-
+        for(var i =0; i<6; i++){
 
         }
 
+         return;
+    }
 
-            $("#setPopular").append('<div class="row featured__filter"  id="setPopular">' +
-                '                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat tester">' +
-                '                    <div class="featured__item">' +
-                '                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">' +
-                '                            <ul class="featured__item__pic__hover">' +
-                '                                <li><a ><i class="fa fa-heart"></i></a></li>' +
-                '                                <li><a ><i class="fa fa-retweet"></i></a></li>' +
-                '                                <li><a ><i class="fa fa-shopping-cart"></i></a>' +
-                '                                       <p hidden>'+t.val().CountDown[0].ProductID+'</p></li>'+
-                '                            </ul>' +
-                '                        </div>' +
-                '                        <div class="featured__item__text">' +
-                '                            <h6><a >' + t.val().CountDown[0].ProductName + '</a></h6>' +
-                '                            <h5>' + t.val().CountDown[0].Description + '</h5>' +
-                '                        </div>' +
-                '                    </div>' +
-                '                </div>');
-            
-      
-
-
-        //await productControl.indexProductSet();
-        // return;
+    function makeHTML(labor ,pid , name ,  price ){
+        $("#setPopular").append(
+        '<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">' +
+        '   <div class="featured__item">'+
+        '       <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">' +
+        '           <ul class="featured__item__pic__hover">' +
+        '               <li><a ><i class="fa fa-heart"></i></a></li>' +
+        '               <li><a ><i class="fa fa-retweet"></i></a></li>' +
+        '               <li><a ><i class="fa fa-shopping-cart"></i></a>  <p hidden>'+pid+'</p> </li>' +
+        '           </ul>' +
+        '       </div>' +
+        '       <div class="featured__item__text">' +
+        '           <h6><a >+name+</a></h6>' +
+        '           <h5>+price+</h5>' +
+        '       </div>' +
+        '   </div>' +
+        '</div>' );
     }
 
     //hide the on load icon
