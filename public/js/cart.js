@@ -11,42 +11,39 @@ var cartmodule = (function () {
     /* jshint -W040 */
     function addtocart() {
 
-
-
-
         var cart=[];
 
-
        //get title and price
-       // var title =   this.parentNode.parentNode.getElementsByTagName("h3")[0];
-        //var price =  this.parentNode.parentNode.getElementsByClassName("price")[0];
-        var title =$(this).parent().siblings("h3").text();
+  
+        var title =$(this).parent().parent().parent().parent().siblings(".featured__item__text").find("h6").text();
         var price =$(this).siblings('.price').text();
+        var PID =$(this).parent().siblings().text();
 
-
+        alert(title+PID);
+       
         var addmovie = new movie(title,price);
 
-        console.log(addmovie);
+       
 
 
-        var value = Localstorage.get("cart");
+        // var value = Localstorage.get("cart");
 
-        if(value===null || value ==="null" || value===""){
-            //add new item
-            cart.push(addmovie);
-        }else{
-            //get old cart data
-            //console.log(value);
+        // if(value===null || value ==="null" || value===""){
+        //     //add new item
+        //     cart.push(addmovie);
+        // }else{
+        //     //get old cart data
+        //     //console.log(value);
 
-            cart= JSON.parse(value);
-            //add new item to cart
-            cart.push(addmovie);
-            //clear cookie
-            Localstorage.clear("cart");
-        }
+        //     cart= JSON.parse(value);
+        //     //add new item to cart
+        //     cart.push(addmovie);
+        //     //clear cookie
+        //     Localstorage.clear("cart");
+        // }
 
-        //set new cookie
-        Localstorage.set("cart",JSON.stringify(cart));
+        // //set new cookie
+        // Localstorage.set("cart",JSON.stringify(cart));
 
 
 
@@ -73,32 +70,12 @@ var cartmodule = (function () {
     //setup public
     pub.setup = function () {
 
-        /*$(document).click( function (e) {
-            // e is the event
-            console.log("Mouse clicked on a " + $(e.target).prop("tagName") +
-                " element at " + e.pageX + "," + e.pageY);
-        });*/
+      console.log("cart loaded");
+       // $('.buy').click(addtocart);
 
-        //console.log( $('.buy'));
+       $('.fa-shopping-cart').click(addtocart);
 
-        $('.buy').click(addtocart);
-
-
-       /* var  button, i;
-        //get buy buttons
-        buttons = document.getElementsByClassName("buy");
-        //for each
-        for (i = 0; i < buttons.length; i += 1) {
-
-
-            //get title from each section
-            //button = buttons[i];
-            //debug
-            //console.log(title);
-            //button.onclick = addtocart;
-
-        }
-*/
+        console.log($('.fa-shopping-cart'));
 
     };
     return pub;
@@ -109,10 +86,10 @@ var cartmodule = (function () {
 //$(document).ready(cartmodule.setup);
 
 
-if (window.addEventListener) {
-    window.addEventListener("load", cartmodule.setup);
-} else if (window.attachEvent) {
-    window.attachEvent("onload", cartmodule.setup);
-} else {
-    alert("Could not attach ’MovieCategories.setup’ to the ’window.onload’ event");
-}
+// if (window.addEventListener) {
+//     window.addEventListener("load", cartmodule.setup);
+// } else if (window.attachEvent) {
+//     window.attachEvent("onload", cartmodule.setup);
+// } else {
+//     alert("Could not attach ’MovieCategories.setup’ to the ’window.onload’ event");
+// }
