@@ -18,31 +18,37 @@ var indexControl = (function () {
         var products = [];
 
         // var allproducts = await firebase.database().ref("/Store").once('value');
-        var t = await productControl.getAllCategory();
-        console.log(t.val().CountDown[1].ProductID);
-        var i = 1;
-        for(i;i<15;i++){
-        if (i == 2 || i == 4 || i == 6 ||i == 8 ||i == 10 ||i ==12 ) {
-            console.log(i);
+        var t = await productControl.getAllproducts();
+        
+        console.log(t.val());
+        
+        for(var i =0; i<4; i++){
+
+
+
+
+        }
+
+
             $("#setPopular").append('<div class="row featured__filter"  id="setPopular">' +
                 '                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat tester">' +
                 '                    <div class="featured__item">' +
                 '                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">' +
                 '                            <ul class="featured__item__pic__hover">' +
-                '                                <li><a href="#"><i class="fa fa-heart"></i></a></li>' +
-                '                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>' +
-                '                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>' +
-                '                                       <p hidden>'+t.val().CountDown[i].ProductID+'</p>'+
+                '                                <li><a ><i class="fa fa-heart"></i></a></li>' +
+                '                                <li><a ><i class="fa fa-retweet"></i></a></li>' +
+                '                                <li><a ><i class="fa fa-shopping-cart"></i></a>' +
+                '                                       <p hidden>'+t.val().CountDown[0].ProductID+'</p></li>'+
                 '                            </ul>' +
                 '                        </div>' +
                 '                        <div class="featured__item__text">' +
-                '                            <h6><a href="#">' + t.val().CountDown[i].ProductName + '</a></h6>' +
-                '                            <h5>' + t.val().CountDown[i].Description + '</h5>' +
+                '                            <h6><a >' + t.val().CountDown[0].ProductName + '</a></h6>' +
+                '                            <h5>' + t.val().CountDown[0].Description + '</h5>' +
                 '                        </div>' +
                 '                    </div>' +
                 '                </div>');
-            }
-        }
+            
+      
 
 
         //await productControl.indexProductSet();
@@ -86,11 +92,17 @@ var indexControl = (function () {
             Localstorage.set("cart", $(this).parent().parent().parent().parent().siblings().find('h6').text(), 100);
 
         });
+        //load data into index #muti thread
         pub.dropDownControl();
         pub.categoryDropDown();
+
+        // #singel thread 
+        //load iteams 
         await setItems();
-        await setTimeout(hidespinner, 2500);
-        await setTimeout(cartmodule.setup(), 10000);
+        //load cart
+        await cartmodule.setup();
+        //stop loading spinner
+        await setTimeout(hidespinner, 500);
     }
 
     return pub;

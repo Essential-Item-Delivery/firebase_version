@@ -13,44 +13,37 @@ var cartmodule = (function () {
 
         var cart=[];
 
-
-
-
-
-
-
-
-        
        //get title and price
-       // var title =   this.parentNode.parentNode.getElementsByTagName("h3")[0];
-        //var price =  this.parentNode.parentNode.getElementsByClassName("price")[0];
-        var title =$('.fa-shopping-cart').parent().parent().parent().parent().siblings(".featured__item__text").find("h6").text();
+  
+        var title =$(this).parent().parent().parent().parent().siblings(".featured__item__text").find("h6").text();
         var price =$(this).siblings('.price').text();
+        var PID =$(this).parent().siblings().text();
 
-        alert(title);
+        alert(title+PID);
+       
         var addmovie = new movie(title,price);
 
-        console.log(addmovie);
+       
 
 
-        var value = Localstorage.get("cart");
+        // var value = Localstorage.get("cart");
 
-        if(value===null || value ==="null" || value===""){
-            //add new item
-            cart.push(addmovie);
-        }else{
-            //get old cart data
-            //console.log(value);
+        // if(value===null || value ==="null" || value===""){
+        //     //add new item
+        //     cart.push(addmovie);
+        // }else{
+        //     //get old cart data
+        //     //console.log(value);
 
-            cart= JSON.parse(value);
-            //add new item to cart
-            cart.push(addmovie);
-            //clear cookie
-            Localstorage.clear("cart");
-        }
+        //     cart= JSON.parse(value);
+        //     //add new item to cart
+        //     cart.push(addmovie);
+        //     //clear cookie
+        //     Localstorage.clear("cart");
+        // }
 
-        //set new cookie
-        Localstorage.set("cart",JSON.stringify(cart));
+        // //set new cookie
+        // Localstorage.set("cart",JSON.stringify(cart));
 
 
 
@@ -79,7 +72,9 @@ var cartmodule = (function () {
 
       console.log("cart loaded");
        // $('.buy').click(addtocart);
+
        $('.fa-shopping-cart').click(addtocart);
+
         console.log($('.fa-shopping-cart'));
 
     };

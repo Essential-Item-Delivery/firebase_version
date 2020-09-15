@@ -38,7 +38,6 @@ var productControl = (function () {
     }
 
 
-
     pub.indexProductSet = async function(){
         var products = [];
         firebase.database().ref("/Store").once('value', function (snapshot) {
