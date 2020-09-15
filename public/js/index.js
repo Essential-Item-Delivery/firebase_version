@@ -18,28 +18,12 @@ var indexControl = (function () {
         var products = [];
 
         // var allproducts = await firebase.database().ref("/Store").once('value');
-        var t = await productControl.getAllproducts();
-        console.log(t.val().CountDown[0].Description);
-
-
-
-
-
-
-
-        console.log("thread 4");
-        var x = []
-        num++;
-        await snappy.forEach(function (child2) {
-            x.push(child2.node_.value_);
-            //console.log(child2);
-        });
-        //$("#setPopular").append('');
-
-        products.push(x);
-
-        if (num > 4 && num < 9) {
-            console.log(num);
+        var t = await productControl.getAllCategory();
+        console.log(t.val().CountDown[1].ProductID);
+        var i = 1;
+        for(i;i<15;i++){
+        if (i == 2 || i == 4 || i == 6 ||i == 8 ||i == 10 ||i ==12 ) {
+            console.log(i);
             $("#setPopular").append('<div class="row featured__filter"  id="setPopular">' +
                 '                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat tester">' +
                 '                    <div class="featured__item">' +
@@ -48,14 +32,16 @@ var indexControl = (function () {
                 '                                <li><a href="#"><i class="fa fa-heart"></i></a></li>' +
                 '                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>' +
                 '                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>' +
+                '                                       <p hidden>'+t.val().CountDown[i].ProductID+'</p>'+
                 '                            </ul>' +
                 '                        </div>' +
                 '                        <div class="featured__item__text">' +
-                '                            <h6><a href="#">' + x[3] + '</a></h6>' +
-                '                            <h5>' + x[4] + '</h5>' +
+                '                            <h6><a href="#">' + t.val().CountDown[i].ProductName + '</a></h6>' +
+                '                            <h5>' + t.val().CountDown[i].Description + '</h5>' +
                 '                        </div>' +
                 '                    </div>' +
                 '                </div>');
+            }
         }
 
 
