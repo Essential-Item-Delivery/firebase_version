@@ -23,7 +23,7 @@ var cartmodule = (function () {
         var title =$(this).parent().siblings("h3").text();
         var price =$(this).siblings('.price').text();
 
-
+        alert(title);
         var addmovie = new movie(title,price);
 
         console.log(addmovie);
@@ -73,32 +73,10 @@ var cartmodule = (function () {
     //setup public
     pub.setup = function () {
 
-        /*$(document).click( function (e) {
-            // e is the event
-            console.log("Mouse clicked on a " + $(e.target).prop("tagName") +
-                " element at " + e.pageX + "," + e.pageY);
-        });*/
-
-        //console.log( $('.buy'));
-
-        $('.buy').click(addtocart);
-
-
-       /* var  button, i;
-        //get buy buttons
-        buttons = document.getElementsByClassName("buy");
-        //for each
-        for (i = 0; i < buttons.length; i += 1) {
-
-
-            //get title from each section
-            //button = buttons[i];
-            //debug
-            //console.log(title);
-            //button.onclick = addtocart;
-
-        }
-*/
+      
+       // $('.buy').click(addtocart);
+    $('.fa-shopping-cart').click(addtocart);
+       
 
     };
     return pub;

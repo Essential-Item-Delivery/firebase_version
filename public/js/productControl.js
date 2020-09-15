@@ -76,6 +76,7 @@ var productControl = (function () {
                 });
             });
         });
+        return;
     }
 
     //Sets the products on the shop page
