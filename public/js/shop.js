@@ -58,6 +58,7 @@ var shopControl = (function () {
             console.log(currentStore);
             $("#depTitle").html("");
             $("#depTitle").append(currentStore);
+
         });
     };
 
