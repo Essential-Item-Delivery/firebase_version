@@ -10,7 +10,6 @@ var indexControl = (function () {
     var pub = {};
 
 
-
     //This will set products on the index page
     async function setItems() {
         console.log("start to set items in index page");
@@ -32,8 +31,8 @@ var indexControl = (function () {
         Object.entries(t.val())[0][1];
 
 
-        var Stoeage =firebase.storage.ref("images/CountDown/Product/product1.png");
-
+        //get imgs
+       // await firebase.storage().ref("/images/CountDown/Product/product1.png").getDownloadURL();
         // final StorageReference storageRef = storage.getReference();
 
         // final StorageReference ImagesRef = storageRef.child("images/"+mAu.getCurrentUser().getUid()+".jpg");
