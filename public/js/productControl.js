@@ -4,18 +4,20 @@ var productControl = (function () {
     //global variables
     var pub = {};
 
+
+
     pub.getCategory = async function() {
         var categories = [];
         var products = await pub.getAllproducts();
-        $("#categoryList").append("<select id='lister'></select>");
-        var stores = Object.keys(products.val());
+        //$("#categoryList").append("<select id='lister'></select>");
+        var stores = Object.entries(products.val());
         console.log(stores[1]);
-        for(var j = 1; j<stores.length; j++) {
-            for (var i = 1; i < products.val().stores[j].length; i++) {
-                console.log(products.val().store[j].Category);
-                if (!categories.includes(stores[j][i].Category)) {
-                    categories.push(stores[j][i].Category);
-                    var word = stores[j][i].Category;
+        for(var j = 0; j<stores.length; j++) {
+            for (var i = 1; i < stores[j][1].length; i++) {
+                console.log(stores[j].Category);
+                if (!categories.includes(stores[j][1][i].Category)) {
+                    categories.push(stores[j][1][i].Category);
+                    var word = stores[j][1][i].Category;
                     // console.log(categories);
                     $("#lister").append('<option>' + word + '</option>');
                 }
