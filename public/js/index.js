@@ -29,6 +29,14 @@ var indexControl = (function () {
         }
         //get array of product use index
         Object.entries(t.val())[0][1];
+
+
+        var Stoeage =firebase.storage.ref("images/CountDown/Product/product1.png");
+
+        // final StorageReference storageRef = storage.getReference();
+
+        // final StorageReference ImagesRef = storageRef.child("images/"+mAu.getCurrentUser().getUid()+".jpg");
+
         //#############################
 
        // console.log(t.val());
