@@ -27,6 +27,8 @@ var indexControl = (function () {
         for(var i =0 ; i<shops.length; i++){
             console.log(shops[i]);
         }
+        //get array of product use index
+        Object.entries(t.val())[0][1];
         //#############################
 
        // console.log(t.val());
