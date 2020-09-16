@@ -10,6 +10,7 @@ var indexControl = (function () {
     var pub = {};
 
 
+
     //This will set products on the index page
     async function setItems() {
         console.log("start to set items in index page");

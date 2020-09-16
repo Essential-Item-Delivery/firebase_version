@@ -5,11 +5,24 @@ var productControl = (function () {
     var pub = {};
 
 
+    pub.searchByName =  function(){
+        $("#nameSearch").click(async function () {
+            var use = await $("#nameSearch").siblings("input").val();
+            var products = productControl.getAllproducts();
+            var stores = Object.entries(products.val());
+            console.log(stores[1]);
+            for(var j = 0; j<stores.length; j++) {
+                for (var i = 1; i < stores[j][1].length; i++) {
 
+                }
+            }
+        });
+    }
+    
     pub.getCategory = async function() {
         var categories = [];
         var products = await pub.getAllproducts();
-        //$("#categoryList").append("<select id='lister'></select>");
+        $("#categoryList").append("<select id='lister'></select>");
         var stores = Object.entries(products.val());
         console.log(stores[1]);
         for(var j = 0; j<stores.length; j++) {
