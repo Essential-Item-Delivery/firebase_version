@@ -5,20 +5,46 @@ var productControl = (function () {
     var pub = {};
 
 
-    pub.searchByName =  function(){
-        $("#nameSearch").click(async function () {
-            var use = await $("#nameSearch").siblings("input").val();
-            var products = productControl.getAllproducts();
-            var stores = Object.entries(products.val());
+       function searchByName(){
+        console.log("IM working");
+            console.log("IM working");
+            var use = $("#nameSearch").siblings("input").val();
+            var productsStore = productControl.getAllproducts();
+            var stores = Object.entries(productsStore.val());
+            var products = [];
             console.log(stores[1]);
             for(var j = 0; j<stores.length; j++) {
-                for (var i = 1; i < stores[j][1].length; i++) {
-
+                for (var i = 0; i < stores[j][1].length; i++) {
+                    products.push(stores[j][1][i]);
                 }
             }
-        });
+            for(var i = 0;i<products.length;i++ ){
+                if(products[i].ProductName.contains(use)){
+                    makeHTML("", products[i].ProductID, products[i].ProductName, products[i].UnitPrice);
+                }
+            }
+
     }
-    
+
+    function makeHTML(label ,pid , name ,  price ){
+        $("#shopItems").append(
+            '<div class="col-lg-3 col-md-4 col-sm-6 mix '+label+'">' +
+            '   <div class="featured__item">'+
+            '       <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">' +
+            '           <ul class="featured__item__pic__hover">' +
+            '               <li><a ><i class="fa fa-heart"></i></a></li>' +
+            '               <li><a ><i class="fa fa-retweet"></i></a></li>' +
+            '               <li><a ><i class="fa fa-shopping-cart"></i></a>  <p hidden>'+pid+'</p> </li>' +
+            '           </ul>' +
+            '       </div>' +
+            '       <div class="featured__item__text">' +
+            '           <h6><a >'+name+'</a></h6>' +
+            '           <h5>'+price+'</h5>' +
+            '       </div>' +
+            '   </div>' +
+            '</div>' );
+    }
+
     pub.getCategory = async function() {
         var categories = [];
         var products = await pub.getAllproducts();
@@ -26,7 +52,7 @@ var productControl = (function () {
         var stores = Object.entries(products.val());
         console.log(stores[1]);
         for(var j = 0; j<stores.length; j++) {
-            for (var i = 1; i < stores[j][1].length; i++) {
+            for (var i = 0; i < stores[j][1].length; i++) {
                 console.log(stores[j].Category);
                 if (!categories.includes(stores[j][1][i].Category)) {
                     categories.push(stores[j][1][i].Category);
@@ -38,7 +64,7 @@ var productControl = (function () {
         }
 
         // console.log("array:");
-        console.log(categories);
+        //console.log(categories);
          return  categories;
     }
 
@@ -185,7 +211,7 @@ var productControl = (function () {
 
     //setup public
     pub.setup = function () {
-
+        $("#nameSearch").click(searchByName);
 
     };
 
@@ -196,3 +222,4 @@ var productControl = (function () {
 
 
 $(document).ready(productControl.getCategory());
+$(document).ready(productControl.setup());
