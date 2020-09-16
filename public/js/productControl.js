@@ -4,27 +4,25 @@ var productControl = (function () {
     //global variables
     var pub = {};
 
+
+
     pub.getCategory = async function() {
-        var categories = [],i=0;
-           await firebase.database().ref("/Store").once('value',  function(snapshot) {
-               $("#categoryList").append("<select id='lister'></select>");
-              snapshot.forEach(   function(childSnapshot) {
-                    var path = "/Store/"+childSnapshot.key;
-                     firebase.database().ref().child(path).once('value', function(snapshotChild) {
-                          snapshotChild.forEach( function(child) {
-                            var path1 = path+"/"+child.key+"/Category";
-                                firebase.database().ref().child(path1).once('value',   function(cat) {
-                                if(!categories.includes(cat.node_.value_)){
-                                     categories.push(cat.node_.value_);
-                                     var word = cat.node_.value_;
-                                    // console.log(categories);
-                                    $("#lister").append('<option>'+word+'</option>');
-                                }
-                            });
-                        });
-                    });
-                });
-            });
+        var categories = [];
+        var products = await pub.getAllproducts();
+        //$("#categoryList").append("<select id='lister'></select>");
+        var stores = Object.entries(products.val());
+        console.log(stores[1]);
+        for(var j = 0; j<stores.length; j++) {
+            for (var i = 1; i < stores[j][1].length; i++) {
+                console.log(stores[j].Category);
+                if (!categories.includes(stores[j][1][i].Category)) {
+                    categories.push(stores[j][1][i].Category);
+                    var word = stores[j][1][i].Category;
+                    // console.log(categories);
+                    $("#lister").append('<option>' + word + '</option>');
+                }
+            }
+        }
 
         // console.log("array:");
         console.log(categories);
@@ -184,4 +182,4 @@ var productControl = (function () {
 
 
 
-//$(document).ready(productControl.getProduct());
+$(document).ready(productControl.getCategory());
