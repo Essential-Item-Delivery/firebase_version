@@ -46,10 +46,33 @@ var shopControl = (function () {
             firebase.database().ref("/Store").once('value', function (snapshot) {
                 snapshot.forEach(function (childSnapshot) {
                     console.log(childSnapshot);
-                    $("#CATS").append('<li ><a href="./shop-grid.html">' + childSnapshot.key + '</a></li>');
+                    var name = childSnapshot.key;
+                    $("#CATS").append('<li ><button onClick ="shopControl.departmentProducts('+name+')">' + childSnapshot.key + '</button></li>');
                     // ...
                 });
             });
+    };
+
+    pub.departmentProducts = async function (snap) {
+        console.log();
+        $("#CATS").html("");
+        var num = 0;
+        var allProducts = await pub.getAllproducts();
+        for(var i = 0; i<Object.entries(allProducts.val()).length;i++){
+            console.log(i);
+            for(var j = 0; j<Object.entries(allProducts.val())[i][1].length;j++){
+                var id = Object.entries(allProducts.val())[i][1][j].ProductID;
+                var name = Object.entries(allProducts.val())[i][1][j].ProductName;
+                var price = Object.entries(allProducts.val())[i][1][j].UnitPrice;
+                //console.log(price);
+                num ++;
+                if(Object.entries(allProducts.val())[i].equals(snap)){
+                makeHTML("shopItems","", id, name, price);
+                $("#numberOfProducts").html("");
+                $("#numberOfProducts").append(num);
+                }
+            }
+        }
     };
 
     pub.getAllproducts =async function(){
