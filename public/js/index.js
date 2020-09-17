@@ -90,10 +90,10 @@ var indexControl = (function () {
         // });
     };
 
-    pub.categoryDropDown = async function () {
-        var list = productControl.getCategory().then();
-        return list;
-    };
+  //  pub.categoryDropDown = async function () {
+    //    var list = productControl.getCategory().then();
+    //    return list;
+   // };
 
     pub.setup = async function () {
         $(".fa-shopping-cart").click(function () {

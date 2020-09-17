@@ -46,6 +46,7 @@ var productControl = (function () {
     }
 
     pub.getCategory = async function() {
+           console.log("CALLED");
         var categories = [];
         var products = await pub.getAllproducts();
         $("#categoryList").append("<select id='lister'></select>");
