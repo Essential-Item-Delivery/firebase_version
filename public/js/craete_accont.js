@@ -56,8 +56,6 @@ var account = (function () {
       console.log(data);
       return false;
 
-
-
    }
 
    //setup public
