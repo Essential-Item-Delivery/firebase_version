@@ -15,7 +15,7 @@ var checkout = (function () {
     }
     function validator(email){
       if(checkEmail(email)){
-        
+
       }
     }
 
@@ -79,7 +79,7 @@ var checkout = (function () {
     //setup public
     pub.setup = function () {
         //console.log("test");
-        $('#login_form').submit(create);
+        //$('#login_form').submit(create);
 
     };
 
