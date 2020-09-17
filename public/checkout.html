@@ -274,7 +274,7 @@
                 </div>
                 <div class="checkout__form">
                     <h4>Billing Details</h4>
-                    <form id ="checkout_form">
+                    <form id ="checkout_form" onsubmit=" return checkout.submitOrder()">
                         <div class="row">
                             <div class="col-lg-8 col-md-6">
                                 <div class="row">
@@ -329,7 +329,7 @@
                                 <div class="checkout__input__checkbox">
                                     <label for="acc">
                                         Create an account?
-                                        <input type="checkbox" id="acc">
+                                        <input type="checkbox" id="acc" name="create_an_account_cbx">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
@@ -342,7 +342,7 @@
                                 <div class="checkout__input__checkbox">
                                     <label for="diff-acc">
                                         Ship to a different address?
-                                        <input type="checkbox" id="diff-acc">
+                                        <input type="checkbox" id="diff-acc" name="diff_add">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
@@ -366,7 +366,7 @@
                                     <div class="checkout__input__checkbox">
                                         <label for="acc-or">
                                             Create an account?
-                                            <input type="checkbox" id="acc-or">
+                                            <input type="checkbox" id="acc-or" name="create_an_account">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -375,18 +375,18 @@
                                     <div class="checkout__input__checkbox">
                                         <label for="payment">
                                             Check Payment
-                                            <input type="checkbox" id="payment">
+                                            <input type="checkbox" id="payment" name="check_payment">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
                                     <div class="checkout__input__checkbox">
                                         <label for="paypal">
                                             Paypal
-                                            <input type="checkbox" id="paypal">
+                                            <input type="checkbox" id="paypal" name="paypal">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
-                                    <button type="submit" class="site-btn">PLACE ORDER</button>
+                                    <button type="submit" class="site-btn" name="submit_order">PLACE ORDER</button>
                                 </div>
                             </div>
                         </div>

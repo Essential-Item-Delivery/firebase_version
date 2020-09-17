@@ -1,46 +1,37 @@
-var name_of_module = (function () {
+var checkout = (function () {
 
     //global variables
-    var pub = {};
-    //function for validation
+    var pub = {}, submitOrder;
+    //function to validate user input data at the front end.
+    
     function validator(){
+        var pattern = /^[0-9]+$/;
 
     }
 
-    //private function
+    // function to submit an order details to the firebase.
     pub.submitOrder = function () {
-        //const auth = firebase.auth();
         var db = firebase.firestore();
-        //var uid;
   
   
         var data = $('#checkout_form').serializeArray();
   
-        //test: data format
-        // 0: {name: "first_name", value: "qwe"}
-        // 1: {name: "last_name", value: "qwe"}
-        // 2: {name: "email", value: "html@test1.qwe"}
-        // 3: {name: "address", value: "qwe"}
-        // 4: {name: "password", value: "qweqwe"}
-  
-        // auth.createUserWithEmailAndPassword(data[2].value, data[4].value)
-        //    .then(function (response) {
-        //      // alert("account create success");
-        //         console.log("account create success");
-        //       var uid = firebase.auth().currentUser.uid;
-  
               //add to database
-              db.collection("orders").doc("guest").set({
+              db.collection("orders").doc().set({
                  first_name: data[0],
                  last_name: data[1],
                  email: data[2],
                  address: data[3],
                  uid:"guest",
                  cart:"testing"
+
               })
                  .then(function (response) {
                   //  alert("new data created!");
                     console.log("guest order data created!");
+                    db.collection("order_user").doc("guest").collection("data").doc(response.id).set({
+
+                    });
                     return true;
                  })
                  .catch(function (error) {
@@ -49,8 +40,8 @@ var name_of_module = (function () {
                  });
   
   
-              console.log("new account created!");
-              console.log("uidis:" + firebase.auth().currentUser.uid);
+              console.log("order created for the guest user!");
+             // console.log("uidis:" + firebase.auth().currentUser.uid);
               // return false;
            
            
@@ -88,7 +79,8 @@ var name_of_module = (function () {
 
 
 
-$(document).ready(name_of_module.setup);
+$(document).ready(checkout.setup);
+//$(document).ready(checkout.submitOrder);
 
 
 
