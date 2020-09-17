@@ -27,7 +27,6 @@ var productControl = (function () {
                     $("#numberOfProducts").append(num);
                 }
             }
-
     }
 
     function makeHTML(idTag, label ,pid , name ,  price ){
