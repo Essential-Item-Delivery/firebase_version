@@ -4,30 +4,34 @@ var productControl = (function () {
     //global variables
     var pub = {};
 
-
-       function searchByName(){
-        console.log("IM working");
+        pub.searchByName= async function(){
             console.log("IM working");
             var use = $("#nameSearch").siblings("input").val();
-            var productsStore = productControl.getAllproducts();
+            var productsStore = await productControl.getAllproducts();
             var stores = Object.entries(productsStore.val());
             var products = [];
+            var num = 0;
             console.log(stores[1]);
+            $("#shopItems").html("");
             for(var j = 0; j<stores.length; j++) {
                 for (var i = 0; i < stores[j][1].length; i++) {
                     products.push(stores[j][1][i]);
                 }
             }
             for(var i = 0;i<products.length;i++ ){
-                if(products[i].ProductName.contains(use)){
-                    makeHTML("", products[i].ProductID, products[i].ProductName, products[i].UnitPrice);
+                console.log(use);
+                if(products[i].ProductName.includes(use)){
+                    num ++;
+                    makeHTML("shopItems","", products[i].ProductID, products[i].ProductName, products[i].UnitPrice);
+                    $("#numberOfProducts").html("");
+                    $("#numberOfProducts").append(num);
                 }
             }
 
     }
 
-    function makeHTML(label ,pid , name ,  price ){
-        $("#shopItems").append(
+    function makeHTML(idTag, label ,pid , name ,  price ){
+        $("#"+idTag).append(
             '<div class="col-lg-3 col-md-4 col-sm-6 mix '+label+'">' +
             '   <div class="featured__item">'+
             '       <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">' +
