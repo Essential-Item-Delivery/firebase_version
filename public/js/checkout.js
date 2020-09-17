@@ -54,7 +54,9 @@ var checkout = (function () {
             email: data[2],
             address: data[3],
             uid: uid,
-            cart: "testing"
+            cart:  decodeURIComponent(window.localStorage.getItem(encodeURIComponent("cart")))
+
+         
 
         }).then(function (response) {
                 //  alert("new data created!");
