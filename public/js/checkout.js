@@ -1,12 +1,22 @@
 var checkout = (function () {
 
     //global variables
-    var pub = {}, submitOrder;
+    var pub = {};
     //function to validate user input data at the front end.
-    
-    function validator(){
-        var pattern = /^[0-9]+$/;
+    /**
+     * Check to email
+     * @param textValue
+     * @returns {boolean}
+     */
+    function checkEmail(textValue) {
+        var pattern = /\S+@\S+.\S+/;
+        return pattern.test(textValue);
 
+    }
+    function validator(email){
+      if(checkEmail(email)){
+        
+      }
     }
 
     // function to submit an order details to the firebase.
