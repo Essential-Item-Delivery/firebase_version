@@ -51,7 +51,7 @@ var indexControl = (function () {
         $("#setPopular").append(
         '<div class="col-lg-3 col-md-4 col-sm-6 mix '+label+'">' +
         '   <div class="featured__item">'+
-        '       <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">' +
+        '       <div class="featured__item__pic set-bg" data-setbg="firebase.storage().ref("/images/CountDown/Product/product1.png").getDownloadURL();">' +
         '           <ul class="featured__item__pic__hover">' +
         '               <li><a ><i class="fa fa-heart"></i></a></li>' +
         '               <li><a ><i class="fa fa-retweet"></i></a></li>' +
@@ -105,7 +105,7 @@ var indexControl = (function () {
         });
         //load data into index #muti thread
         pub.dropDownControl();
-        pub.categoryDropDown();
+      //  pub.categoryDropDown();
 
         // #singel thread 
         //load iteams 
