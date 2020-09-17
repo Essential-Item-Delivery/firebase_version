@@ -14,7 +14,6 @@ var indexControl = (function () {
     async function setItems() {
         console.log("start to set items in index page");
 
-
         var products = [];
 
         // var allproducts = await firebase.database().ref("/Store").once('value');
