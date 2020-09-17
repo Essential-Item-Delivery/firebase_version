@@ -51,15 +51,56 @@ var shopControl = (function () {
                 });
             });
     };
+
+    pub.getAllproducts =async function(){
+        var allproducts = await firebase.database().ref("/Store").once('value');
+
+        return allproducts;
+    }
+
+    function makeHTML(idTag,label ,pid , name ,  price ){
+        $("#"+idTag).append(
+            '<div class="col-lg-3 col-md-4 col-sm-6 mix '+label+'">' +
+            '   <div class="featured__item">'+
+            '       <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">' +
+            '           <ul class="featured__item__pic__hover">' +
+            '               <li><a ><i class="fa fa-heart"></i></a></li>' +
+            '               <li><a ><i class="fa fa-retweet"></i></a></li>' +
+            '               <li><a ><i class="fa fa-shopping-cart"></i></a>  <p hidden>'+pid+'</p> </li>' +
+            '           </ul>' +
+            '       </div>' +
+            '       <div class="featured__item__text">' +
+            '           <h6><a >'+name+'</a></h6>' +
+            '           <h5>'+price+'</h5>' +
+            '       </div>' +
+            '   </div>' +
+            '</div>' );
+    }
+
     //setup public
     pub.setup = async function () {
-         allProducts = await productControl.getAllproducts();
+         allProducts = await pub.getAllproducts();
+         console.log(Object.entries(allProducts.val())[0][1][1]);
+         var num = 0;
+         for(var i = 0; i<Object.entries(allProducts.val()).length;i++){
+             console.log(i);
+            for(var j = 0; j<Object.entries(allProducts.val())[i][1].length;j++){
+                var id = Object.entries(allProducts.val())[i][1][j].ProductID;
+                var name = Object.entries(allProducts.val())[i][1][j].ProductName;
+                var price = Object.entries(allProducts.val())[i][1][j].UnitPrice;
+                //console.log(price);
+                num ++;
+                makeHTML("shopItems","", id, name, price);
+                $("#numberOfProducts").html("");
+                $("#numberOfProducts").append(num);
+            }
+         }
+        console.log(Object.entries(allProducts.val())[0][1].length);
         $("#depTitle").ready(function () {
-            console.log(currentStore);
             $("#depTitle").html("");
             $("#depTitle").append(currentStore);
-
         });
+
     };
 
     return pub;

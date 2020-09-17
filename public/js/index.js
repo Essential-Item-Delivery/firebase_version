@@ -14,7 +14,6 @@ var indexControl = (function () {
     async function setItems() {
         console.log("start to set items in index page");
 
-
         var products = [];
 
         // var allproducts = await firebase.database().ref("/Store").once('value');
@@ -91,10 +90,10 @@ var indexControl = (function () {
         // });
     };
 
-    pub.categoryDropDown = async function () {
-        var list = productControl.getCategory().then();
-        return list;
-    };
+  //  pub.categoryDropDown = async function () {
+    //    var list = productControl.getCategory().then();
+    //    return list;
+   // };
 
     pub.setup = async function () {
         $(".fa-shopping-cart").click(function () {
