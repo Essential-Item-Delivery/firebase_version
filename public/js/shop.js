@@ -40,7 +40,7 @@ var shopControl = (function () {
             }
         }
     };
-
+//Put the shop name in the URL
     pub.departmentSet = function () {
             $("#CATS").html("");
             firebase.database().ref("/Store").once('value', function (snapshot) {
