@@ -4,30 +4,67 @@ var productControl = (function () {
     //global variables
     var pub = {};
 
+
+       function searchByName(){
+        console.log("IM working");
+            console.log("IM working");
+            var use = $("#nameSearch").siblings("input").val();
+            var productsStore = productControl.getAllproducts();
+            var stores = Object.entries(productsStore.val());
+            var products = [];
+            console.log(stores[1]);
+            for(var j = 0; j<stores.length; j++) {
+                for (var i = 0; i < stores[j][1].length; i++) {
+                    products.push(stores[j][1][i]);
+                }
+            }
+            for(var i = 0;i<products.length;i++ ){
+                if(products[i].ProductName.contains(use)){
+                    makeHTML("", products[i].ProductID, products[i].ProductName, products[i].UnitPrice);
+                }
+            }
+
+    }
+
+    function makeHTML(label ,pid , name ,  price ){
+        $("#shopItems").append(
+            '<div class="col-lg-3 col-md-4 col-sm-6 mix '+label+'">' +
+            '   <div class="featured__item">'+
+            '       <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">' +
+            '           <ul class="featured__item__pic__hover">' +
+            '               <li><a ><i class="fa fa-heart"></i></a></li>' +
+            '               <li><a ><i class="fa fa-retweet"></i></a></li>' +
+            '               <li><a ><i class="fa fa-shopping-cart"></i></a>  <p hidden>'+pid+'</p> </li>' +
+            '           </ul>' +
+            '       </div>' +
+            '       <div class="featured__item__text">' +
+            '           <h6><a >'+name+'</a></h6>' +
+            '           <h5>'+price+'</h5>' +
+            '       </div>' +
+            '   </div>' +
+            '</div>' );
+    }
+
     pub.getCategory = async function() {
-        var categories = [],i=0;
-           await firebase.database().ref("/Store").once('value',  function(snapshot) {
-               $("#categoryList").append("<select id='lister'></select>");
-              snapshot.forEach(   function(childSnapshot) {
-                    var path = "/Store/"+childSnapshot.key;
-                     firebase.database().ref().child(path).once('value', function(snapshotChild) {
-                          snapshotChild.forEach( function(child) {
-                            var path1 = path+"/"+child.key+"/Category";
-                                firebase.database().ref().child(path1).once('value',   function(cat) {
-                                if(!categories.includes(cat.node_.value_)){
-                                     categories.push(cat.node_.value_);
-                                     var word = cat.node_.value_;
-                                    // console.log(categories);
-                                    $("#lister").append('<option>'+word+'</option>');
-                                }
-                            });
-                        });
-                    });
-                });
-            });
+        var categories = [];
+        var products = await pub.getAllproducts();
+        $("#categoryList").append("<select id='lister'></select>");
+        var stores = Object.entries(products.val());
+        console.log(stores[1]);
+        for(var j = 0; j<stores.length; j++) {
+            for (var i = 0; i < stores[j][1].length; i++) {
+                console.log(stores[j].Category);
+                if (!categories.includes(stores[j][1][i].Category)) {
+                    categories.push(stores[j][1][i].Category);
+                    var word = stores[j][1][i].Category;
+                    // console.log(categories);
+                    $("#lister").append('<option>' + word + '</option>');
+                }
+            }
+        }
 
         // console.log("array:");
-        console.log(categories);
+        //console.log(categories);
          return  categories;
     }
 
@@ -174,7 +211,7 @@ var productControl = (function () {
 
     //setup public
     pub.setup = function () {
-
+        $("#nameSearch").click(searchByName);
 
     };
 
@@ -184,4 +221,5 @@ var productControl = (function () {
 
 
 
-//$(document).ready(productControl.getProduct());
+$(document).ready(productControl.getCategory());
+$(document).ready(productControl.setup());

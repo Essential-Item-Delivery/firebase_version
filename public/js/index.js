@@ -27,6 +27,16 @@ var indexControl = (function () {
         for(var i =0 ; i<shops.length; i++){
             console.log(shops[i]);
         }
+        //get array of product use index
+        Object.entries(t.val())[0][1];
+
+
+        //get imgs
+       // await firebase.storage().ref("/images/CountDown/Product/product1.png").getDownloadURL();
+        // final StorageReference storageRef = storage.getReference();
+
+        // final StorageReference ImagesRef = storageRef.child("images/"+mAu.getCurrentUser().getUid()+".jpg");
+
         //#############################
 
        // console.log(t.val());
@@ -38,9 +48,9 @@ var indexControl = (function () {
          return;
     }
 
-    function makeHTML(labor ,pid , name ,  price ){
+    function makeHTML(label ,pid , name ,  price ){
         $("#setPopular").append(
-        '<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">' +
+        '<div class="col-lg-3 col-md-4 col-sm-6 mix '+label+'">' +
         '   <div class="featured__item">'+
         '       <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">' +
         '           <ul class="featured__item__pic__hover">' +
