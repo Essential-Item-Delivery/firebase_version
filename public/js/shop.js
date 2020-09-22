@@ -16,6 +16,7 @@ var shopControl = (function () {
         // $("#shopItems").ready(function () {
         // productControl.shopProducts();
         // });
+        var j = 0;
         for(j;j<allProducts.val().length;j++) {
             for (i; i < allProducts.val().length; i++) {
                 $("#shopItems").append('<div class="row featured__filter">' +
@@ -102,21 +103,32 @@ var shopControl = (function () {
 
     //setup public
     pub.setup = async function () {
+
+        var url = window. location. href;
+        var i = url.indexOf("?");
+        url = url.substring(i+1);
+        currentStore = url;
+       // console.log(url);
+        //$("#depTitle").html("");
+       // $("#depTitle").append(url);
          allProducts = await pub.getAllproducts();
-         console.log(Object.entries(allProducts.val())[0][1][1]);
+         console.log(Object.entries(allProducts.val())[0]);
          var num = 0;
          for(var i = 0; i<Object.entries(allProducts.val()).length;i++){
-             console.log(i);
-            for(var j = 0; j<Object.entries(allProducts.val())[i][1].length;j++){
-                var id = Object.entries(allProducts.val())[i][1][j].ProductID;
-                var name = Object.entries(allProducts.val())[i][1][j].ProductName;
-                var price = Object.entries(allProducts.val())[i][1][j].UnitPrice;
-                //console.log(price);
-                num ++;
-                makeHTML("shopItems","", id, name, price);
-                $("#numberOfProducts").html("");
-                $("#numberOfProducts").append(num);
-            }
+             console.log(Object.entries(allProducts.val())[i][0]);
+             var use = Object.entries(allProducts.val())[i][0];
+             if(use.includes(url)) {
+                 for (var j = 0; j < Object.entries(allProducts.val())[i][1].length; j++) {
+                     var id = Object.entries(allProducts.val())[i][1][j].ProductID;
+                     var name = Object.entries(allProducts.val())[i][1][j].ProductName;
+                     var price = Object.entries(allProducts.val())[i][1][j].UnitPrice;
+                     //console.log(price);
+                     num++;
+                     makeHTML("shopItems", "", id, name, price);
+                     $("#numberOfProducts").html("");
+                     $("#numberOfProducts").append(num);
+                 }
+             }
          }
         console.log(Object.entries(allProducts.val())[0][1].length);
         $("#depTitle").ready(function () {
