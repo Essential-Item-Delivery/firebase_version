@@ -1,0 +1,11 @@
+deploy URL: https://shopperly.web.app/
+
+instrucation:
+#1 perpare firebase
+npm install --save firebase
+firebase login
+firebase projects:list
+
+#2 deploy to server
+firebase use  Shopperly Application
+firebase deploy
