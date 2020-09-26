@@ -91,7 +91,7 @@ var datacontrol = (function () {
             console.log("Error getting document:", error);
         });
 
-        return data.first_name.value;
+        return data.first_name.value+data.last_name.value+data.email.value+data.address.value;
     }
 
     //setup public

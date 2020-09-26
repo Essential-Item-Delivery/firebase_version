@@ -81,7 +81,8 @@ var checkout = (function () {
 
         var db = firebase.firestore();
         var data = $('#checkout_form').serializeArray();
-        validator(data[9])
+        $("#firstName").checkNotEmpty();
+        checkNotEmpty(data[9])
         console.log(data,"lets see what you got")
         //add to database
         //0: {name: "First_Name", value: ""}
@@ -132,6 +133,7 @@ var checkout = (function () {
         console.log(uid+"i am the uid");
         //console.log(data.data().first_name + "i feel like summer");
         //$("#firstName").hide()
+        //$("#firstName").html(data.first_name)
         
 
     }
