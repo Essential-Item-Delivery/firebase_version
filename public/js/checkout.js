@@ -129,14 +129,9 @@ var checkout = (function () {
     //Function to automaticallly fill the checkout form if the user is logged in
     pub.fill_form = async function(uid){
         const data = await datacontrol.getUserInfo(uid);
-        console.log(uid+"i am the uid")
-        console.log("is it happening");
-        //$("#firstName")+await datacontrol.getUserInfo(uid);
-        //var data = $('#checkout_form').serializeArray();
-        $("#firstName").hide()
-        console.log("i ahve beeen called")
-        console.log(uid+"yaya")
-        //var data = $('#checkout_form').serializeArray();
+        console.log(uid+"i am the uid");
+        //console.log(data.data().first_name + "i feel like summer");
+        //$("#firstName").hide()
         
 
     }

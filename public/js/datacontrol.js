@@ -91,9 +91,6 @@ var datacontrol = (function () {
             console.log("Error getting document:", error);
         });
 
-        //console.log('test is : '+test);
-        console.log("data : " + data);
-
         return data.first_name.value;
     }
 
