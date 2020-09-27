@@ -264,18 +264,20 @@
     <!-- Breadcrumb Section End -->
 
     <!-- MAPBOX FUNCTIONS BELOW! -->
-    <div id="map">
-        <div class="row">
-            <script>
-                mapboxgl.accessToken =
-                    'pk.eyJ1IjoicmFpaWRlbiIsImEiOiJja2ZkenR0ZmEwMDI0MnVqeGFldHdqeGk0In0.r8kR2yEtXlc2fGFyXxICWw';
-                var map = new mapboxgl.Map({
-                    container: 'map', // container id
-                    style: 'mapbox://styles/mapbox/streets-v11', // style URL
-                    center: [-74.5, 40], // starting position [lng, lat]
-                    zoom: 9 // starting zoom
-                });
-            </script>
+    <div class="container">
+        <div id="map">
+            <div class="row">
+                <script>
+                    mapboxgl.accessToken =
+                        'pk.eyJ1IjoicmFpaWRlbiIsImEiOiJja2ZkenR0ZmEwMDI0MnVqeGFldHdqeGk0In0.r8kR2yEtXlc2fGFyXxICWw';
+                    var map = new mapboxgl.Map({
+                        container: 'map', // container id
+                        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+                        center: [-74.5, 40], // starting position [lng, lat]
+                        zoom: 9 // starting zoom
+                    });
+                </script>
+            </div>
         </div>
     </div>
 
