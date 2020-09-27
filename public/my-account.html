@@ -153,6 +153,8 @@
                             <a href="./index.html"><img src="img/shopperLy.png" alt=""></a>
                         </div>
                     </div>
+
+
                     <div class="col-lg-6">
                         <nav class="header__menu">
                             <ul>
@@ -255,8 +257,8 @@
                                 <li><a href="#orders">Orders</a></li>
                                 <li><a href="#address">Address Book</a></li>
                                 <li><a href="#payment">Payment Details</a></li>
-                                <li><a href="signin.html">Logout</a></li>
-                            
+                                <li><a href="index.html">Logout</a></li>
+                                <li><button onclick="check_login.logout()">Logout</a></li>
                                 
                              
                              
@@ -266,21 +268,54 @@
                             </div>
                         </div>
                     
-                            
+                           
+    
                                  
                            
                          
       <!-- Services Section Ends --->
+      
+
+
 
 <!--- Account Details begin-->
 <div class="tab-pane fade" id="account-details"></div>
-      <p> First Name:</br>
-        Last Name:</br>
-        Email: </br>
-        Password: </p>
-        </div>
+        <h3>Account details </h3>
+        <div class="login m-0">
+          <div class="login-form-container">
+            <div class="account-login-form">
+              <form action="#">
+               
+                
+                
+                <div class="account-input-box">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>First Name</label>
+                      <input type="text" name="first-name" id = "firstName" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                      <label>Last Name</label>
+                      <input type="text" name="last-name" id = "lastName" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                      <label>Email</label>
+                      <input type="text" name="email-name" id = "email" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                      <label>Password</label>
+                      <input type="password" name="user-password" id = "password" class="form-control">
+                    </div>
+                    
+                <div class="button-box">
+                  <button class="btn default-btn" type="submit">Edit</button>
+                </div>
+              </form>
+            </div>
         
         <!--- Account Details end-->
+
+        
 
         <!--- Address Book begin-->
         <div class="tab-pane" id="address"></div>
