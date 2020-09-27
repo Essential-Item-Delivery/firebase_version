@@ -1,22 +1,69 @@
+//When the user is signed in 
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        // User is signed in.
+        console.log("user is logged in" +user);
+        checkout.fill_form(firebase.auth().currentUser.uid);
+        console.log("Calling this function")
+        
+    } else {
+        console.log("not logged in");
+    }
+});
 var checkout = (function () {
 
     //global variables
-    var pub = {}, submitOrder;
+    var pub = {};
     //function to validate user input data at the front end.
     /**
      * Check to email
      * @param textValue
      * @returns {boolean}
      */
+    function checkDigits(textValue) {
+        var pattern = /^[0-9]+$/;
+        return pattern.test(textValue);
+    }
     function checkEmail(textValue) {
         var pattern = /\S+@\S+.\S+/;
         return pattern.test(textValue);
 
     }
+    function checkLength(textValue, minLength, maxLength) {
+        var length = textValue.length;
+        if (maxLength === undefined) {
+            maxLength = minLength;
+        }
+        return (length >= minLength && length <= maxLength);
+    }
+
+    /**
+     * Check to see if a string starts with a given substring
+     *
+     * @param textValue The string to check.
+     * @param startValue The expected starting substring
+     * @return True if textValue starts with startValue, False otherwise
+     */
+    function startsWith(textValue, startValue) {
+        return textValue.substring(0, startValue.length) === startValue;
+    }
+/**
+     * Check to see if a string is empty.
+     *
+     * Leading and trailing whitespace are ignored.
+     * @param textValue The string to check.
+     * @return True if textValue is not just whitespace, false otherwise.
+     */
+    function checkNotEmpty(textValue) {
+        return textValue.trim().length > 0;
+    }
     function validator(email) {
-        if (checkEmail(email)) {
+        if (!checkEmail(email)) {
+            console.log("Email is not in the correct format")
+            return false;
 
         }
+        return true;
     }
 
     // function to submit an order details to the firebase.
@@ -35,6 +82,9 @@ var checkout = (function () {
 
         var db = firebase.firestore();
         var data = $('#checkout_form').serializeArray();
+        $("#firstName").checkNotEmpty();
+        checkNotEmpty(data[9])
+        console.log(data,"lets see what you got")
         //add to database
         //0: {name: "First_Name", value: ""}
         // 1: {name: "Last_Name", value: ""}
@@ -78,8 +128,16 @@ var checkout = (function () {
 
         return false;
     }
+    //Function to automaticallly fill the checkout form if the user is logged in
+    pub.fill_form = async function(uid){
+        const data = await datacontrol.getUserInfo(uid);
+        console.log(uid+"i am the uid");
+        //console.log(data.data().first_name + "i feel like summer");
+        //$("#firstName").hide()
+        //$("#firstName").html(data.first_name)
+        
 
-
+    }
 
     //setup public
     pub.setup = function () {
