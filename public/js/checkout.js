@@ -2,8 +2,9 @@
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.
-        console.log("is logged in" +user);
+        console.log("user is logged in" +user);
         checkout.fill_form(firebase.auth().currentUser.uid);
+        console.log("Calling this function")
         
     } else {
         console.log("not logged in");
