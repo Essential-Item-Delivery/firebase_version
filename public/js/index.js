@@ -55,7 +55,7 @@ var indexControl = (function () {
          return;
     }
 
-    function makeHTML(label ,pid , name ,  price ,url){
+    function makeHTML(label ,pid , name ,  price ,url, unit_price){
         $("#setPopular").append(
         '<div class="col-lg-3 col-md-4 col-sm-6 mix '+label+'">' +
         '   <div class="featured__item">'+

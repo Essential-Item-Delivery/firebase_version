@@ -17,8 +17,10 @@ var cartmodule = (function () {
   
         var name =$(this).parent().parent().parent().parent().siblings(".featured__item__text").find("h6").text();
         var PID =$(this).parent().siblings().text();
+        //todo
         var unit_price =$(this).siblings('.price').text();
         var price =$(this).parent().parent().parent().parent().siblings(".featured__item__text").find("h5").text();
+        
         var unit =1;
         var url =$(this).parent().parent().parent().parent().data().setbg;
 
