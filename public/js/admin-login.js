@@ -4,16 +4,21 @@ const submitBtn = document.querySelector("#submit");
 let email = document.querySelector("#usrname");
 let password = document.querySelector("#psword");
 
+submitBtn.addEventListener('click', function() {
 
-firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-});
+        console.log("It reaches here");
 
-firebase.auth().signOut().then(function() {
-    // Sign-out successful.
-}).catch(function(error) {
-    // An error happened.
-});
+        let email = email.value;
+        let password = password.value;
+        console.log(messenger.value);
+
+        firebase.auth().signInWithEmailAndPassword(email, password)
+            .then(function(response) {
+                location.href = 'deliveries.html';
+            })
+            .catch(function(error) {
+                // Handle Errors here.
+                console.log("error messge: " + error.message);
+            });
+    }
+}
