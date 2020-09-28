@@ -184,9 +184,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="humberger__open">
-                    <i class="fa fa-bars"></i>
-                </div>
+                
             </div>
         </header>
         <!-- Header Section End -->
@@ -242,7 +240,190 @@
         </section>
         <!-- Hero Section End -->
 
-     <!-- Services Section Begin -->
+
+     <!-- Nav tabs -->
+     <section class="product spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-5">
+                    <div class="sidebar">
+                        <div class="sidebar__item">
+                            <h4>Dashboard</h4>
+
+                                <ul role="tablist" class="nav flex-column dashboard-list">
+
+                                <li><a href="#account-details" data-toggle="tab" >Account Details</a></li>
+                                <li><a href="#orders" data-toggle="tab"> Orders</a></li>
+                                <li><a href="#order-status" data-toggle="tab" >Order Status</a></li>
+                                <li><a href="#address" data-toggle="tab" >Address Book</a></li>
+                                
+                                </ul>
+                                
+                                    <div class="col-md-12 col-lg-10">
+                              
+                            </ul>  
+                            </div>
+                            
+                <!-- Tab panes -->
+                <div class="tab-content dashboard-content">
+                    <!--<div class="tab-pane active" id="dashboard"></div> -->
+                      
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                
+                    <!-- Orders Begin-->  
+                    <div class="tab-pane fade" id="orders">
+                      <h3>Orders</h3>
+                      <div class="table-responsive">
+                        <table class="table boder-b">
+                          <thead>
+                            <tr>
+                              <th>Order</th>
+                              <th>Date</th>
+                              <th>Status</th>
+                              <th>Total</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td>May 10, 2018</td>
+                              <td>Processing</td>
+                              <td>$25.00 for 1 item </td>
+                              <td><a href="cart.html" class="view">view</a></td>
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <td>May 10, 2018</td>
+                              <td>Processing</td>
+                              <td>$17.00 for 1 item </td>
+                              <td><a href="cart.html" class="view">view</a></td>
+                            </tr>
+                            <tr>
+                              <td>3</td>
+                              <td>May 10, 2018</td>
+                              <td>Processing</td>
+                              <td>$17.00 for 1 item </td>
+                              <td><a href="cart.html" class="view">view</a></td>
+                            </tr>
+                            <tr>
+                              <td>4</td>
+                              <td>May 10, 2018</td>
+                              <td>Processing</td>
+                              <td>$17.00 for 1 item </td>
+                              <td><a href="cart.html" class="view">view</a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <!-- Orders Ends--> 
+                    
+                    <div class="tab-pane" id="address">
+                      <p>The following addresses will be used on the checkout page by default.</p>
+                      <h4 class="billing-address">Billing address</h4>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="address-1">
+                            <p class="biller-name"><strong>Jasmine</strong></p>
+                            <address>
+                            <small>4301 Peacock Springs Trl
+                            Orlando FL<br>
+                            P: (123) 456-7890</small>
+                            </address>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="address-1">
+                            <p class="biller-name"><strong>Bernadette</strong></p>
+                            <address>
+                            <small>14301 Peacock Springs Trl
+                            Orlando FL<br>
+                            P: (123) 456-7890</small>
+                            </address>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="address-1">
+                            <p class="biller-name"><strong>Alexandra</strong></p>
+                            <address>
+                            <small> 3298 Galaxy Way
+                            
+                            Orlando, FL <br>
+                            P: (123) 456-7890 </small>
+                            </address>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="account-details">
+                      <h3>Account details </h3>
+                      <div class="login m-0">
+                        <div class="login-form-container">
+                          <div class="account-login-form">
+                            <form action="#">
+                              <p>Already have an account ? <a href="login.html">Log in instead!</a></p>
+                              
+                              <div class="input-radio"><p>Social title</p>  <span class="custom-radio">
+                                <input type="radio" value="1" name="id_gender">
+                                Mr.</span> &nbsp;&nbsp; <span class="custom-radio">
+                                <input type="radio" value="1" name="id_gender">
+                                Mrs.</span> </div>
+                              <div class="account-input-box">
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <label>First Name</label>
+                                    <input type="text" name="first-name" class="form-control">
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label>Last Name</label>
+                                    <input type="text" name="last-name" class="form-control">
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label>Email</label>
+                                    <input type="text" name="email-name" class="form-control">
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label>Password</label>
+                                    <input type="password" name="user-password" class="form-control">
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label>Birthdate</label>
+                                    <input type="text" class="form-control" placeholder="MM/DD/YYYY" value="" name="birthday">
+                                    <div class="example"> (E.g.: 05/31/1970) </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="custom-checkbox">
+                                <input type="checkbox" value="1" name="optin">
+                                <label>Receive offers from our partners</label>
+                              </div>
+                              <div class="custom-checkbox">
+                                <input type="checkbox" value="1" name="newsletter">
+                                <label>Sign up for our newsletter<br>
+                                <em>You may unsubscribe at any moment. For that purpose, please find our contact info in the legal notice.</em></label>
+                              </div>
+                              <div class="button-box">
+                                <button class="btn default-btn" type="submit">Save</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+        
+         
+        <!-- Footer -->
+        
+
+     <!-- Services Section Begin 
      <section class="product spad">
         <div class="container">
             <div class="row">
@@ -255,9 +436,12 @@
 
                                 <li><a href="#account-details" data-toggle="tab" >Account Details</a></li>
                                 <li><a href="#orders">Orders</a></li>
+                                <li><a href="#order-status">Order Status</a></li>
                                 <li><a href="#address">Address Book</a></li>
-                                <li><a href="#payment">Payment Details</a></li>
                                 <li><button onclick="logcheck.logout()">Logout</a></li>
+                                </ul>
+                                </div>
+                                    <div class="col-md-12 col-lg-10">
                                 
                              
                              
@@ -265,7 +449,7 @@
                             </ul>  
                             </div>
                             </div>
-                        </div>
+                        </div> -->
                     
                            
     
@@ -277,16 +461,14 @@
 
 
 
-<!--- Account Details begin-->
+<!--- Account Details begin
 <div class="tab-pane fade" id="account-details"></div>
-        <h3>Account details </h3>
+        <h3>Account details </h3> 
         <div class="login m-0">
-          <div class="login-form-container">
+          <div class="login-form-container"> 
             <div class="account-login-form">
               <form action="#">
-               
-                
-                
+      
                 <div class="account-input-box">
                   <div class="row">
                     <div class="col-md-6">
@@ -312,14 +494,15 @@
               </form>
             </div>
             </div>
+            
         
         <!--- Account Details end-->
 
         
 
-        <!--- Address Book begin-->
+        <!--- Address Book begin
         <div class="tab-pane" id="address"></div>
-        <p>The following addresses will be used on the checkout page by default.</p>
+        <p>The following addresses will be used on the checkout page by default.</p> 
         <!--- Address Book end-->
 
         
