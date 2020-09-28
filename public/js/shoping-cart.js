@@ -3,7 +3,9 @@ var cartcontrol = (function () {
     //global variables
     var pub = {};
 
+    pub.updateQuantity= async function(){
 
+    }
 
     //set  drop down list to database variables
     pub.setup = function () {
@@ -28,7 +30,7 @@ var cartcontrol = (function () {
             console.log(cart[i]);
             var p = cart[i];
               
-            makeHTML(p.url,p.arg_name,p.price,'1','test');
+            makeHTML(p.url,p.name,p.price,'1','test');
            }
         }
 
@@ -52,7 +54,7 @@ var cartcontrol = (function () {
         $('#shoping__cart__items').append( 
             ' <tr> <td class="shoping__cart__item"> <img src="'+url+'" alt=""><h5>'+name+'</h5> </td>'+
             ' <td class="shoping__cart__price">'+price+'</td>'+
-            '<td class="shoping__cart__quantity"><div class="quantity"><div class="pro-qty"> <input type="text" value="'+quantity+'"> </div></div></td>'+
+            '<td class="shoping__cart__quantity"><div class="quantity"><div class="pro-qty"> <input type="text" value="'+quantity+'" > </div></div></td>'+
             '<td class="shoping__cart__total"> $'+total+'</td>'+
             ' <td class="shoping__cart__item__close"><span class="icon_close"></span> </td>'+
         '</tr>'
