@@ -80,22 +80,22 @@ var indexControl = (function () {
     }
 
 
-    //set  drop down list to database variables
-    pub.dropDownControl = function () {
-        // $("#dropper").ready(function () {
+    // //set  drop down list to database variables
+    // pub.dropDownControl = function () {
+    //     // $("#dropper").ready(function () {
 
-        $("#dropper").html("");
+    //     $("#dropper").html("");
 
-        firebase.database().ref("/Store").once('value', function (snapshot) {
-            snapshot.forEach(function (childSnapshot) {
-                var childKey = childSnapshot.key;
-                //console.log(childKey);
-                $("#dropper").append('<li ><a href="./shop-grid.html?'+childSnapshot.key+'" >' + childSnapshot.key + '</a></li>');
-                // ...
-            });
-        });
-        // });
-    };
+    //     firebase.database().ref("/Store").once('value', function (snapshot) {
+    //         snapshot.forEach(function (childSnapshot) {
+    //             var childKey = childSnapshot.key;
+    //             //console.log(childKey);
+    //             $("#dropper").append('<li ><a href="./shop-grid.html?'+childSnapshot.key+'" >' + childSnapshot.key + '</a></li>');
+    //             // ...
+    //         });
+    //     });
+    //     // });
+    // };
 
   //  pub.categoryDropDown = async function () {
     //    var list = productControl.getCategory().then();

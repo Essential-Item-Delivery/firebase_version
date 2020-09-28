@@ -82,11 +82,11 @@ var shopControl = (function () {
         return allproducts;
     }
 
-    function makeHTML(idTag,label ,pid , name ,  price ){
+    function makeHTML(idTag,label ,pid , name ,  price ,url ){
         $("#"+idTag).append(
             '<div class="col-lg-3 col-md-4 col-sm-6 mix '+label+'">' +
             '   <div class="featured__item">'+
-            '       <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">' +
+            '       <div class="featured__item__pic set-bg" data-setbg="'+url+'">' +
             '           <ul class="featured__item__pic__hover">' +
             '               <li><a ><i class="fa fa-heart"></i></a></li>' +
             '               <li><a ><i class="fa fa-retweet"></i></a></li>' +
@@ -116,8 +116,9 @@ var shopControl = (function () {
        // console.log(url);
         //$("#depTitle").html("");
        // $("#depTitle").append(url);
-         allProducts = await pub.getAllproducts();
-         console.log(Object.entries(allProducts.val())[0]);
+
+        var allProducts = await productControl.getAllproducts();
+         console.log(Object.entries( allProducts.val())[0] );
          var num = 0;
          for(var i = 0; i<Object.entries(allProducts.val()).length;i++){
              console.log(Object.entries(allProducts.val())[i][0]);
@@ -127,9 +128,15 @@ var shopControl = (function () {
                      var id = Object.entries(allProducts.val())[i][1][j].ProductID;
                      var name = Object.entries(allProducts.val())[i][1][j].ProductName;
                      var price = Object.entries(allProducts.val())[i][1][j].UnitPrice;
-                     //console.log(price);
+                     var unit_price =Object.entries(allProducts.val())[i][1][j].Price;
+
+                    // var img_url = await firebase.storage().ref("/images/"+'CountDown'+"/Product/product"+id+".png").getDownloadURL();
+                    // var img_url = "images/Products/"+"Countdown"+"/product"+id+".png";
+                    var img_url ='/images/Products/'+use+'/product'+id+'.png';
+                    console.log(img_url);
                      num++;
-                     makeHTML("shopItems", "", id, name, price);
+                     // function makeHTML(idTag, label ,pid , name ,  price ,url ){
+                     productControl.makeHtml("#shopItems", "", id, name, price,img_url);
                      $("#numberOfProducts").html("");
                      $("#numberOfProducts").append(num);
                  }
@@ -141,6 +148,15 @@ var shopControl = (function () {
             $("#depTitle").append(currentStore);
         });
 
+        $('.set-bg').each(function () {
+            var bg = $(this).data('setbg');
+            $(this).css('background-image', 'url(' + bg + ')');
+        });
+
+
+       
+
+
     };
 
     return pub;
@@ -151,4 +167,4 @@ var shopControl = (function () {
 
 $(document).ready(shopControl.departmentSet());
 $(document).ready(shopControl.setup());
-$(document).ready(shopControl.setShop());
+//$(document).ready(shopControl.setShop());

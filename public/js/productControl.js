@@ -4,7 +4,7 @@ var productControl = (function () {
     //global variables
     var pub = {};
 
-        pub.searchByName= async function(){
+     pub.searchByName= async function(){
             console.log("IM working");
             var use = $("#nameSearch").siblings("input").val();
             var productsStore = await productControl.getAllproducts();
@@ -155,31 +155,54 @@ var productControl = (function () {
                             num++;
                             //$("#setPopular").append('');
                             products.push(x);
-                                console.log(num);
-                                $("#shopItems").append('<div class="row featured__filter">' +
-                                    '                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat tester">' +
-                                    '                    <div class="featured__item">' +
-                                    '                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">' +
-                                    '                            <ul class="featured__item__pic__hover">' +
-                                    '                                <li><a href="#"><i class="fa fa-heart"></i></a></li>' +
-                                    '                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>' +
-                                    '                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>' +
-                                    '                            </ul>' +
-                                    '                        </div>' +
-                                    '                        <div class="featured__item__text">' +
-                                    '                            <h6><a href="#">'+x[3]+'</a></h6>' +
-                                    '                            <h5>'+x[4]+'</h5>' +
-                                    '                                <h4>'+childSnapshot.key+'</h4>' +
-                                    '                        </div>' +
-                                    '                    </div>' +
-                                    '                </div>');
-                                $("#numberOfProducts").html("");
+                                console.log(num,);
+                                makeHTML("#shopItems",);
+                                // $("#shopItems").append('<div class="row featured__filter">' +
+                                //     '                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat tester">' +
+                                //     '                    <div class="featured__item">' +
+                                //     '                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">' +
+                                //     '                            <ul class="featured__item__pic__hover">' +
+                                //     '                                <li><a href="#"><i class="fa fa-heart"></i></a></li>' +
+                                //     '                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>' +
+                                //     '                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>' +
+                                //     '                            </ul>' +
+                                //     '                        </div>' +
+                                //     '                        <div class="featured__item__text">' +
+                                //     '                            <h6><a href="#">'+x[3]+'</a></h6>' +
+                                //     '                            <h5>'+x[4]+'</h5>' +
+                                //     '                                <h4>'+childSnapshot.key+'</h4>' +
+                                //     '                        </div>' +
+                                //     '                    </div>' +
+                                //     '                </div>');
+                                 $("#numberOfProducts").html("");
                                 $("#numberOfProducts").append(num);
                         });
                     });
                 });
             });
         });
+    }
+
+    pub.makeHtml = function ( target,label ,pid , name ,  price ,url){
+     
+            $(target).append(
+            '<div class="col-lg-3 col-md-4 col-sm-6 mix '+label+'">' +
+            '   <div class="featured__item">'+
+            '       <div class="featured__item__pic set-bg" data-setbg="'+url+'">' +
+            '           <ul class="featured__item__pic__hover">' +
+            '               <li><a ><i class="fa fa-heart"></i></a></li>' +
+            '               <li><a ><i class="fa fa-retweet"></i></a></li>' +
+            '               <li><a ><i class="fa fa-shopping-cart"></i></a>  <p hidden>'+pid+'</p> </li>' +
+            '           </ul>' +
+            '       </div>' +
+            '       <div class="featured__item__text">' +
+            '           <h6><a >'+name+'</a></h6>' +
+            '           <h5>'+price+'</h5>' +
+            '       </div>' +
+            '   </div>' +
+            '</div>' );
+      
+
     }
 
     pub.getProduct =async function() {
@@ -212,12 +235,28 @@ var productControl = (function () {
          console.log(products);
         return products;
     }
+  //set  drop down list to database variables
+  pub.dropDownControl = function () {
+    // $("#dropper").ready(function () {
+
+    $("#dropper").html("");
+
+    firebase.database().ref("/Store").once('value', function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
+            var childKey = childSnapshot.key;
+            //console.log(childKey);
+            $("#dropper").append('<li ><a href="./shop-grid.html?'+childSnapshot.key+'" >' + childSnapshot.key + '</a></li>');
+            // ...
+        });
+    });
+    // });
+};
 
 
     //setup public
     pub.setup = function () {
-        $("#nameSearch").click(searchByName);
-
+      //  $("#nameSearch").click(searchByName);
+      pub.dropDownControl();
     };
 
     return pub;
