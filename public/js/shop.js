@@ -104,10 +104,15 @@ var shopControl = (function () {
     //setup public
     pub.setup = async function () {
 
-        var url = window. location. href;
-        var i = url.indexOf("?");
-        url = url.substring(i+1);
-        currentStore = url;
+        var url = window.location.href;
+        if (url.includes("?")) {
+            var i = url.indexOf("?");
+            url = url.substring(i+1);
+            currentStore = url;
+        }else{
+            currentStore = "Shopperly";
+            url = "";
+        }
        // console.log(url);
         //$("#depTitle").html("");
        // $("#depTitle").append(url);
