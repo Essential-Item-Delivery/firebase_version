@@ -90,7 +90,7 @@ var indexControl = (function () {
             snapshot.forEach(function (childSnapshot) {
                 var childKey = childSnapshot.key;
                 //console.log(childKey);
-                $("#dropper").append('<li ><a href="./shop-grid.html" >' + childSnapshot.key + '</a></li>');
+                $("#dropper").append('<li ><a href="./shop-grid.html?'+childSnapshot.key+'" >' + childSnapshot.key + '</a></li>');
                 // ...
             });
         });
