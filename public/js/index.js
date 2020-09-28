@@ -28,8 +28,9 @@ var indexControl = (function () {
             for(var j =3; j<6; j++){
                var p =Object.entries(t.val())[i][1][j];
                console.log(p);
-               var url = await firebase.storage().ref("/images/"+shops[i]+"/Product/product"+p.ProductID+".png").getDownloadURL();
-                makeHTML(p.Category,p.ProductID,p.ProductName,p.UnitPrice,url);
+               //var url = await firebase.storage().ref("/images/"+shops[i]+"/Product/product"+p.ProductID+".png").getDownloadURL();
+               var img_url ='/images/Products/'+shops[i]+'/product'+p.ProductID+'.png';
+                makeHTML(p.Category,p.ProductID,p.ProductName,p.UnitPrice,img_url);
             }
         }
         //get array of product use index
@@ -111,7 +112,7 @@ var indexControl = (function () {
 
         });
         //load data into index #muti thread
-        pub.dropDownControl();
+       // pub.dropDownControl();
       //  pub.categoryDropDown();
 
         // #singel thread 
