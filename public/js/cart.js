@@ -8,47 +8,49 @@ var cartmodule = (function () {
     var pub = {};
     var buttons= [];
 
+    
     /* jshint -W040 */
     function addtocart() {
-
         var cart=[];
 
-       //get title and price
+       //get product info
   
-        var title =$(this).parent().parent().parent().parent().siblings(".featured__item__text").find("h6").text();
-        var price =$(this).siblings('.price').text();
+        var name =$(this).parent().parent().parent().parent().siblings(".featured__item__text").find("h6").text();
         var PID =$(this).parent().siblings().text();
+        var unit_price =$(this).siblings('.price').text();
+        var price =$(this).siblings('.price').text();
+        var unit =$(this).siblings('.price').text();
+     
+        var new_item =new cart_item(name,PID,unit_price,price,unit);
 
-        alert(title+PID);
+        alert(name+PID+" price is :"+price);
        
-        var addmovie = new movie(title,price);
+        console.log(new_item);
 
-       
+        var value = Localstorage.get("cart");
 
+        if(value===null || value ==="null" || value===""){
+            //add new item
+            cart.push(new_item);
+        }else{
+            //get old cart data
+            //console.log(value);
 
-        // var value = Localstorage.get("cart");
+            cart= JSON.parse(value);
+            //add new item to cart
+            cart.push(new_item);
+            //clear cookie
+            Localstorage.clear("cart");
+        }
 
-        // if(value===null || value ==="null" || value===""){
-        //     //add new item
-        //     cart.push(addmovie);
-        // }else{
-        //     //get old cart data
-        //     //console.log(value);
-
-        //     cart= JSON.parse(value);
-        //     //add new item to cart
-        //     cart.push(addmovie);
-        //     //clear cookie
-        //     Localstorage.clear("cart");
-        // }
-
-        // //set new cookie
-        // Localstorage.set("cart",JSON.stringify(cart));
+        //set new cookie
+        Localstorage.set("cart",JSON.stringify(cart));
 
 
 
 
     }
+    
     //debug show all iteam in cart and cookies
     pub.showALL = function () {
 
@@ -56,17 +58,15 @@ var cartmodule = (function () {
         //return JSON.stringify(cart);
 
     }
-    /**
-     * constrictor for movie
-     * @param title
-     * @param price
-     */
-    function movie(title, price) {
-        this.title = title;
+
+    function cart_item( arg_name ,pid,unit_price,price,unit) {
+            
+        this.arg_name = arg_name;
+        this.pid = pid;
+        this.unit_price = unit_price;
         this.price = price;
-
+        this.unit = unit;
     }
-
     //setup public
     pub.setup = function () {
 
