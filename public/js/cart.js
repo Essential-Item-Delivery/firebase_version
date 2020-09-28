@@ -16,7 +16,7 @@ var cartmodule = (function () {
        //get product info
   
         var name =$(this).parent().parent().parent().parent().siblings(".featured__item__text").find("h6").text();
-        var PID =$(this).parent().siblings().text();
+        var PID =$(this).parent().parent().parent().parent().siblings(".featured__item__text").find("h3").text();
         //todo
         var unit_price =$(this).parent().parent().parent().parent().siblings(".featured__item__text").find("h4").text();
         var price =$(this).parent().parent().parent().parent().siblings(".featured__item__text").find("h5").text();

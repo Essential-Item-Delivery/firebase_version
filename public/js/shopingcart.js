@@ -20,6 +20,23 @@ var cartcontrol = (function () {
         $("#total").append("$"+total);
     }
 
+    pub.removeProduct = function(val){
+        var values = Localstorage.get("cart");
+        console.log(val);
+        var cart= JSON.parse(values);
+        for (var i =0; i< cart.length; i++) {
+            console.log(cart[i].pid);
+            if (parseInt(cart[i].pid) === val) {
+                console.log("HAHAHAHA");
+                cart.splice(i, 1);
+            }
+        }
+        Localstorage.clear("cart");
+        //Localstorage.clear("cart");
+        Localstorage.set("cart", JSON.stringify(cart));
+        document. location. reload();
+    }
+
     //set  drop down list to database variables
     pub.setup = function () {
         var result =Localstorage.get("cart");
@@ -47,7 +64,7 @@ var cartcontrol = (function () {
                 products.push(p.unit_price);
                 var use = i+"quantity"
                var totProduct = i+"total"
-            makeHTML(p.url,p.name,p.price,'1','test', p.unit_price,use, totProduct);
+            makeHTML(p.url,p.name,p.price,'1','test', p.unit_price,use, totProduct, p.pid);
            }
            //console.log(products);
            $("#subtotal").append("$"+total);
@@ -70,13 +87,13 @@ var cartcontrol = (function () {
         
     };
 
-    function makeHTML(url,name,price,quantity,total, unit_price, cartProductQuan, totalPoint){
+    function makeHTML(url,name,price,quantity,total, unit_price, cartProductQuan, totalPoint, num){
         $('#shoping__cart__items').append( 
             ' <tr> <td class="shoping__cart__item"> <img src="'+url+'" alt=""><h5>'+name+'</h5> </td>'+
             ' <td class="shoping__cart__price">'+price+'</td>'+
             '<td class="shoping__cart__quantity"><div class="quantity"><div class="pro-qty"> <input id ='+cartProductQuan+' type="text" value="'+quantity+'" > </div></div></td>'+
             '<td class="shoping__cart__total" id = '+totalPoint+'> $'+unit_price+'</td>'+
-            ' <td class="shoping__cart__item__close"><span class="icon_close"></span> </td>'+
+            ' <td class="shoping__cart__item__close"><button class="icon_close" onclick="cartcontrol.removeProduct('+num+')"></button> </td>'+
             '<td><h4 hidden>'+unit_price+'</h4></td>'+
         '</tr>'
 

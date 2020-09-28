@@ -183,7 +183,7 @@ var productControl = (function () {
         });
     }
 
-    pub.makeHtml = function ( target,label ,pid , name ,  price ,url){
+    pub.makeHtml = function ( target,label ,pid , name ,  price ,url, unit_price){
      
             $(target).append(
             '<div class="col-lg-3 col-md-4 col-sm-6 mix '+label+'">' +
@@ -198,7 +198,8 @@ var productControl = (function () {
             '       <div class="featured__item__text">' +
             '           <h6><a >'+name+'</a></h6>' +
             '           <h5>'+price+'</h5>' +
-                ' <h4 hidden>'+pid+'</h4>'+
+                ' <h4 hidden>'+unit_price+'</h4>'+
+                ' <h3 hidden>'+pid+'</h3>'+
             '       </div>' +
             '   </div>' +
             '</div>' );

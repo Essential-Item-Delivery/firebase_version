@@ -90,13 +90,14 @@ var shopControl = (function () {
             '           <ul class="featured__item__pic__hover">' +
             '               <li><a ><i class="fa fa-heart"></i></a></li>' +
             '               <li><a ><i class="fa fa-retweet"></i></a></li>' +
-            '               <li><a ><i class="fa fa-shopping-cart"></i></a>  <p hidden>'+pid+'</p></li>' +
+            '               <li><a ><i class="fa fa-shopping-cart"></i></a></li>' +
             '           </ul>' +
             '       </div>' +
             '       <div class="featured__item__text">' +
             '           <h6><a >'+name+'</a></h6>' +
             '           <h5>'+price+'</h5>' +
-            ' <h4 hidden>'+pid+'</h4>'+
+            ' <h4 hidden>'+unit_price+'</h4>'+
+            ' <h3 hidden>'+pid+'</h3>'+
             '       </div>' +
             '   </div>' +
             '</div>' );
