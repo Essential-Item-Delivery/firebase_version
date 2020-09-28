@@ -142,19 +142,21 @@ var shopControl = (function () {
                  }
              }
          }
-        console.log(Object.entries(allProducts.val())[0][1].length);
-        $("#depTitle").ready(function () {
+     //   console.log(Object.entries(allProducts.val())[0][1].length);
+         
+     $("#depTitle").ready(function () {
             $("#depTitle").html("");
             $("#depTitle").append(currentStore);
         });
 
+        //set img in html
         $('.set-bg').each(function () {
             var bg = $(this).data('setbg');
             $(this).css('background-image', 'url(' + bg + ')');
         });
 
 
-       
+        await cartmodule.setup();
 
 
     };

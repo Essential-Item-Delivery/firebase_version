@@ -18,9 +18,11 @@ var cartmodule = (function () {
         var name =$(this).parent().parent().parent().parent().siblings(".featured__item__text").find("h6").text();
         var PID =$(this).parent().siblings().text();
         var unit_price =$(this).siblings('.price').text();
-        var price =$(this).siblings('.price').text();
-        var unit =$(this).siblings('.price').text();
-     
+        var price =$(this).parent().parent().parent().parent().siblings(".featured__item__text").find("h5").text();
+        var unit =1;
+        var url =$(this).parent().parent().parent().parent().data().setbg;
+
+        
         var new_item =new cart_item(name,PID,unit_price,price,unit);
 
         alert(name+PID+" price is :"+price);
@@ -46,9 +48,6 @@ var cartmodule = (function () {
         //set new cookie
         Localstorage.set("cart",JSON.stringify(cart));
 
-
-
-
     }
     
     //debug show all iteam in cart and cookies
@@ -59,23 +58,22 @@ var cartmodule = (function () {
 
     }
 
-    function cart_item( arg_name ,pid,unit_price,price,unit) {
+    function cart_item( name ,pid,unit_price,price,unit) {
             
-        this.arg_name = arg_name;
+        this.name = name;
         this.pid = pid;
         this.unit_price = unit_price;
         this.price = price;
         this.unit = unit;
     }
+
     //setup public
     pub.setup = function () {
 
-      console.log("cart loaded");
-       // $('.buy').click(addtocart);
-
-       $('.fa-shopping-cart').click(addtocart);
-
-        console.log($('.fa-shopping-cart'));
+        console.log("cart loaded");
+        // $('.buy').click(addtocart);
+        $(".fa-shopping-cart").click(addtocart);
+        console.log( $(".fa-shopping-cart"));
 
     };
     return pub;

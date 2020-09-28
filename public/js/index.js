@@ -104,13 +104,14 @@ var indexControl = (function () {
    // };
 
     pub.setup = async function () {
-        $(".fa-shopping-cart").click(function () {
+        // $(".fa-shopping-cart").click(function () {
 
-            alert($(this).parent().parent().parent().parent().siblings().find('h6').text());
+        //     alert($(this).parent().parent().parent().parent().siblings().find('h6').text());
 
-            Localstorage.set("cart", $(this).parent().parent().parent().parent().siblings().find('h6').text(), 100);
+        //   //  Localstorage.set("cart", $(this).parent().parent().parent().parent().siblings().find('h6').text(), 100);
 
-        });
+        // });
+
         //load data into index #muti thread
        // pub.dropDownControl();
       //  pub.categoryDropDown();

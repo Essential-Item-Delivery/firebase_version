@@ -10,21 +10,55 @@ var cartcontrol = (function () {
         var result =Localstorage.get("cart");
         console.log(result  );
 
-        $('#shoping__cart__items').append( 
-            ' <tr> <td class="shoping__cart__item"> <img src="img/cart/cart-1.jpg" alt=""><h5>Vegetable’s Package</h5> </td>'+
-            ' <td class="shoping__cart__price">$55.00</td>'+
-            '<td class="shoping__cart__quantity"><div class="quantity"><div class="pro-qty"> <input type="text" value="1"> </div></div></td>'+
-            '<td class="shoping__cart__total"> $110.00</td>'+
-            ' <td class="shoping__cart__item__close"><span class="icon_close"></span> </td>'+
-        '</tr>'
+        var value = Localstorage.get("cart");
 
-        );
+        if(value===null || value ==="null" || value===""){
+          //cart is empty
+        }else{
+           
+            console.log(value);
+
+            cart= JSON.parse(value);
+            //add new item to cart
+           
+            //clear cookie
+           // Localstorage.clear("cart");
+
+           for(var i =0;i < cart.length;i++){
+            console.log(cart[i]);
+            var p = cart[i];
+              
+            makeHTML(p.url,p.arg_name,p.price,'1','test');
+           }
+        }
+
+
+
+        // $('#shoping__cart__items').append( 
+        //     ' <tr> <td class="shoping__cart__item"> <img src="img/cart/cart-1.jpg" alt=""><h5>Vegetable’s Package</h5> </td>'+
+        //     ' <td class="shoping__cart__price">$55.00</td>'+
+        //     '<td class="shoping__cart__quantity"><div class="quantity"><div class="pro-qty"> <input type="text" value="1"> </div></div></td>'+
+        //     '<td class="shoping__cart__total"> $110.00</td>'+
+        //     ' <td class="shoping__cart__item__close"><span class="icon_close"></span> </td>'+
+        // '</tr>'
+        // );
 
 
         
         
     };
 
+    function makeHTML(url,name,price,quantity,total){
+        $('#shoping__cart__items').append( 
+            ' <tr> <td class="shoping__cart__item"> <img src="'+url+'" alt=""><h5>'+name+'</h5> </td>'+
+            ' <td class="shoping__cart__price">'+price+'</td>'+
+            '<td class="shoping__cart__quantity"><div class="quantity"><div class="pro-qty"> <input type="text" value="'+quantity+'"> </div></div></td>'+
+            '<td class="shoping__cart__total"> $'+total+'</td>'+
+            ' <td class="shoping__cart__item__close"><span class="icon_close"></span> </td>'+
+        '</tr>'
+
+        );
+    }
 
 
     return pub;
