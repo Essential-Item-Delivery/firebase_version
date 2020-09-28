@@ -2,9 +2,22 @@ var cartcontrol = (function () {
 
     //global variables
     var pub = {};
-
+    var products = [];
     pub.updateQuantity= async function(){
-
+        console.log(products);
+        var total = 0;
+        for(var i = 0; i<products.length;i++){
+            var use = "#"+i+"quantity";
+            console.log($(use).val());
+            total = total +($(use).val()*products[i]);
+            var tot = "#"+i+"total";
+            $(tot).html("");
+            $(tot).append($(use).val()*products[i]);
+        }
+        $("#subtotal").html("");
+        $("#total").html("");
+        $("#subtotal").append("$"+total);
+        $("#total").append("$"+total);
     }
 
     //set  drop down list to database variables
@@ -25,13 +38,20 @@ var cartcontrol = (function () {
            
             //clear cookie
            // Localstorage.clear("cart");
-
+            var total = 0;
            for(var i =0;i < cart.length;i++){
             console.log(cart[i]);
             var p = cart[i];
-              
-            makeHTML(p.url,p.name,p.price,'1','test');
+
+                total = total + parseInt(p.unit_price);
+                products.push(p.unit_price);
+                var use = i+"quantity"
+               var totProduct = i+"total"
+            makeHTML(p.url,p.name,p.price,'1','test', p.unit_price,use, totProduct);
            }
+           //console.log(products);
+           $("#subtotal").append("$"+total);
+            $("#total").append("$"+total);
         }
 
 
@@ -50,13 +70,14 @@ var cartcontrol = (function () {
         
     };
 
-    function makeHTML(url,name,price,quantity,total){
+    function makeHTML(url,name,price,quantity,total, unit_price, cartProductQuan, totalPoint){
         $('#shoping__cart__items').append( 
             ' <tr> <td class="shoping__cart__item"> <img src="'+url+'" alt=""><h5>'+name+'</h5> </td>'+
             ' <td class="shoping__cart__price">'+price+'</td>'+
-            '<td class="shoping__cart__quantity"><div class="quantity"><div class="pro-qty"> <input type="text" value="'+quantity+'" > </div></div></td>'+
-            '<td class="shoping__cart__total"> $'+total+'</td>'+
+            '<td class="shoping__cart__quantity"><div class="quantity"><div class="pro-qty"> <input id ='+cartProductQuan+' type="text" value="'+quantity+'" > </div></div></td>'+
+            '<td class="shoping__cart__total" id = '+totalPoint+'> $'+unit_price+'</td>'+
             ' <td class="shoping__cart__item__close"><span class="icon_close"></span> </td>'+
+            '<td><h4 hidden>'+unit_price+'</h4></td>'+
         '</tr>'
 
         );

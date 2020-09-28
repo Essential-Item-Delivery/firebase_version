@@ -82,7 +82,7 @@ var shopControl = (function () {
         return allproducts;
     }
 
-    function makeHTML(idTag,label ,pid , name ,  price ,url ){
+    function makeHTML(idTag,label ,pid , name ,  price ,url , unit_price){
         $("#"+idTag).append(
             '<div class="col-lg-3 col-md-4 col-sm-6 mix '+label+'">' +
             '   <div class="featured__item">'+
@@ -90,12 +90,13 @@ var shopControl = (function () {
             '           <ul class="featured__item__pic__hover">' +
             '               <li><a ><i class="fa fa-heart"></i></a></li>' +
             '               <li><a ><i class="fa fa-retweet"></i></a></li>' +
-            '               <li><a ><i class="fa fa-shopping-cart"></i></a>  <p hidden>'+pid+'</p> </li>' +
+            '               <li><a ><i class="fa fa-shopping-cart"></i></a>  <p hidden>'+pid+'</p></li>' +
             '           </ul>' +
             '       </div>' +
             '       <div class="featured__item__text">' +
             '           <h6><a >'+name+'</a></h6>' +
             '           <h5>'+price+'</h5>' +
+            ' <h4 hidden>'+pid+'</h4>'+
             '       </div>' +
             '   </div>' +
             '</div>' );
@@ -133,10 +134,10 @@ var shopControl = (function () {
                     // var img_url = await firebase.storage().ref("/images/"+'CountDown'+"/Product/product"+id+".png").getDownloadURL();
                     // var img_url = "images/Products/"+"Countdown"+"/product"+id+".png";
                     var img_url ='/images/Products/'+use+'/product'+id+'.png';
-                    console.log(img_url);
+                    //console.log(unit_price);
                      num++;
                      // function makeHTML(idTag, label ,pid , name ,  price ,url ){
-                     productControl.makeHtml("#shopItems", "", id, name, price,img_url);
+                     productControl.makeHtml("#shopItems", "", id, name, price,img_url, unit_price);
                      $("#numberOfProducts").html("");
                      $("#numberOfProducts").append(num);
                  }
