@@ -22,18 +22,19 @@ var productControl = (function () {
                 console.log(use);
                 if(products[i].ProductName.includes(use)){
                     num ++;
-                    makeHTML("shopItems","", products[i].ProductID, products[i].ProductName, products[i].UnitPrice);
+                    var url = await firebase.storage().ref("/images/"+shops[i]+"/Product/product"+p.ProductID+".png").getDownloadURL();
+                    makeHTML("shopItems","", products[i].ProductID, products[i].ProductName, products[i].UnitPrice,url);
                     $("#numberOfProducts").html("");
                     $("#numberOfProducts").append(num);
                 }
             }
     }
 
-    function makeHTML(idTag, label ,pid , name ,  price ){
+    function makeHTML(idTag, label ,pid , name ,  price ,url ){
         $("#"+idTag).append(
             '<div class="col-lg-3 col-md-4 col-sm-6 mix '+label+'">' +
             '   <div class="featured__item">'+
-            '       <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">' +
+            '       <div class="featured__item__pic set-bg" data-setbg="'+url+'">' +
             '           <ul class="featured__item__pic__hover">' +
             '               <li><a ><i class="fa fa-heart"></i></a></li>' +
             '               <li><a ><i class="fa fa-retweet"></i></a></li>' +
