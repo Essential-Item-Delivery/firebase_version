@@ -18,7 +18,7 @@ function funcLogin() {
             console.log(email.value);
             console.log("Login Success");
             console.log(data);
-            location.href = 'deliveries.html';
+            location.href = 'admin-panel.html';
             //location.reload();
         })
         .catch(function(error) {
@@ -43,6 +43,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 function funcLogout() {
     auth.signOut().then(function() {
         console.log("You are logged out")
+        location.href = 'admin-login.html';
     }).catch(function(err) {
         alert(err)
     })
