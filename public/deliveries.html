@@ -51,7 +51,8 @@
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v11',
-            center: [-79.4512, 43.6568],
+            center: [170.50317, -45.87415],
+            //center: [-79.4512, 43.6568],
             zoom: 13
         });
 
@@ -60,6 +61,16 @@
                 accessToken: mapboxgl.accessToken
             }),
             'top-left'
+        );
+
+        // Add geolocate control to the map.
+        map.addControl(
+            new mapboxgl.GeolocateControl({
+                positionOptions: {
+                    enableHighAccuracy: true
+                },
+                trackUserLocation: true
+            })
         );
     </script>
 
