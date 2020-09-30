@@ -82,6 +82,10 @@ var shopControl = (function () {
         return allproducts;
     }
 
+    pub.sliderPrice = async function(){
+
+    }
+
     function makeHTML(idTag,label ,pid , name ,  price ,url , unit_price){
         $("#"+idTag).append(
             '<div class="col-lg-3 col-md-4 col-sm-6 mix '+label+'">' +

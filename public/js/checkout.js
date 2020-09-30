@@ -158,6 +158,32 @@ var checkout = (function () {
 
     //setup public
     pub.setup = function () {
+        var value = Localstorage.get("cart");
+
+        if(value===null || value ==="null" || value===""){
+            //cart is empty
+        }else{
+
+            console.log(value);
+            cart= JSON.parse(value);
+            //add new item to cart
+
+            //clear cookie
+            var total = 0;
+            $("#checkoutITEMS").html("");
+            for(var i =0;i < cart.length;i++){
+                console.log(cart[i]);
+                var p = cart[i];
+                total = total + parseInt(p.unit_price);
+                $("#checkoutITEMS").append('<li>'+p.name+' <span>'+parseInt(p.unit_price)+'</span></li>');
+            }
+            //console.log(products);
+           $("#SUBBER").append("$"+total);
+           $("#totaller").append("$"+total);
+        }
+
+
+
         console.log("checkout loaded");
         this.fill_form();
 

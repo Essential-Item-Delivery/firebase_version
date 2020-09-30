@@ -40,7 +40,6 @@ var cartcontrol = (function () {
     //set  drop down list to database variables
     pub.setup = function () {
         var result =Localstorage.get("cart");
-        console.log(result  );
 
         var value = Localstorage.get("cart");
 
@@ -54,7 +53,6 @@ var cartcontrol = (function () {
             //add new item to cart
            
             //clear cookie
-           // Localstorage.clear("cart");
             var total = 0;
            for(var i =0;i < cart.length;i++){
             console.log(cart[i]);
