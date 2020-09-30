@@ -28,8 +28,9 @@ var indexControl = (function () {
             for(var j =3; j<6; j++){
                var p =Object.entries(t.val())[i][1][j];
                console.log(p);
+               var img_id = parseInt(p.ProductID)+1
                //var url = await firebase.storage().ref("/images/"+shops[i]+"/Product/product"+p.ProductID+".png").getDownloadURL();
-               var img_url ='/images/Products/'+shops[i]+'/product'+p.ProductID+'.png';
+               var img_url ='/images/Products/'+shops[i]+'/product'+p.img_id+'.png';
                 makeHTML(p.Category,p.ProductID,p.ProductName,p.UnitPrice,img_url);
             }
         }
