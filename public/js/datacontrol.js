@@ -65,7 +65,6 @@ var datacontrol = (function () {
         return  data.first_name.value+" "+ data.last_name.value;
     }
 
-    //
     pub.getUserInfo = async function(uid) {
         var docRef = db.collection("users").doc(uid);
         //var test;
@@ -77,7 +76,8 @@ var datacontrol = (function () {
                 console.log("Document last name:", doc.data().last_name.value);
                 console.log("Document email:", doc.data().email.value);
                 console.log("Document address:", doc.data().address.value);
-                
+                $('input')[1].value=doc.data().first_name.value;
+                console.log("yeyayayy")
               
                 return  doc.data();
               
@@ -94,8 +94,10 @@ var datacontrol = (function () {
         return data.first_name.value+data.last_name.value+data.email.value+data.address.value;
     }
 
+
     //setup public
     pub.setup = function () {
+
 
         return "test";
     };
