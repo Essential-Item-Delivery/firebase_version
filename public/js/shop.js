@@ -128,14 +128,14 @@ var shopControl = (function () {
              if(use.includes(url)) {
                  for (var j = 0; j < Object.entries(allProducts.val())[i][1].length; j++) {
                      var id = Object.entries(allProducts.val())[i][1][j].ProductID;
-                     id = parseInt(id)+1
+                     var img_id = parseInt(id)+1
                      var name = Object.entries(allProducts.val())[i][1][j].ProductName;
                      var price = Object.entries(allProducts.val())[i][1][j].UnitPrice;
                      var unit_price =Object.entries(allProducts.val())[i][1][j].Price;
 
                     // var img_url = await firebase.storage().ref("/images/"+'CountDown'+"/Product/product"+id+".png").getDownloadURL();
                     // var img_url = "images/Products/"+"Countdown"+"/product"+id+".png";
-                    var img_url ='/images/Products/'+use+'/product'+id+'.png';
+                    var img_url ='/images/Products/'+use+'/product'+img_id+'.png';
                     //console.log(unit_price);
                      num++;
                      // function makeHTML(idTag, label ,pid , name ,  price ,url ){
