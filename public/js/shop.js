@@ -48,7 +48,7 @@ var shopControl = (function () {
                 snapshot.forEach(function (childSnapshot) {
                     console.log(childSnapshot);
                     var name = childSnapshot.key;
-                    $("#CATS").append('<li ><button onClick ="shopControl.departmentProducts('+name+')">' + childSnapshot.key + '</button></li>');
+                    $("#CATS").append('<li ><a href="./shop-grid.html?'+childSnapshot.key+'" >' + childSnapshot.key + '</a></li>');
                     // ...
                 });
             });
