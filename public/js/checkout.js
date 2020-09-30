@@ -104,7 +104,7 @@ var checkout = (function () {
             email: data[2],
             address: data[3],
             uid: uid,
-            cart:  decodeURIComponent(window.localStorage.getItem(encodeURIComponent("cart")))
+            cart: JSON.parse(decodeURIComponent(window.localStorage.getItem(encodeURIComponent("cart"))))
 
          
 
