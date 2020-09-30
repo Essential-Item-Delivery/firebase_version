@@ -128,6 +128,7 @@ var shopControl = (function () {
              if(use.includes(url)) {
                  for (var j = 0; j < Object.entries(allProducts.val())[i][1].length; j++) {
                      var id = Object.entries(allProducts.val())[i][1][j].ProductID;
+                     id = parseInt(id)+1
                      var name = Object.entries(allProducts.val())[i][1][j].ProductName;
                      var price = Object.entries(allProducts.val())[i][1][j].UnitPrice;
                      var unit_price =Object.entries(allProducts.val())[i][1][j].Price;
