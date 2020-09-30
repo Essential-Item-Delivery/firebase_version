@@ -30,7 +30,6 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
         btnLogout.classList.remove('hidden');
-        btnLogin.classList.add('hidden');
 
     } else {
         // User is signed out.
