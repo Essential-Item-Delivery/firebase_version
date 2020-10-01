@@ -39,8 +39,8 @@
     <script defer src="js/check_login.js"></script>
 
     <!-- STRIPE PAYMENT JS -->
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src="js/stripe-checkout.js"></script>
+    <script defer src="https://js.stripe.com/v3/"></script>
+    <script defer src="js/stripe-checkout.js"></script>
 
 
     <script defer src="js/jquery-3.3.1.min.js"></script>
@@ -364,7 +364,8 @@
                                 </ul>
                                 <div class="checkout__order__subtotal">Subtotal <span id="SUBBER"></span></div>
                                 <div class="checkout__order__total">Total <span id="totaller"></span></div>
-                                <button type="submit" class="site-btn" name="submit_order" id="checkout-button" onclick="funcCheckout()">PLACE ORDER</button>
+                                <button type="submit" class="site-btn" name="submit_order" id="ez">PLACE ORDER</button>
+                                <button id="checkout-button">Checkout</button>
                             </div>
                         </div>
                     </div>

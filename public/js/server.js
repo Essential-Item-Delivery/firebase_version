@@ -20,11 +20,12 @@ app.post('/create-checkout-session', async(req, res) => {
             quantity: 1,
         }, ],
         mode: 'payment',
-        success_url: `${YOUR_DOMAIN}/success.html`,
+        success_url: `${YOUR_DOMAIN}/admin-login.html`,
         cancel_url: `${YOUR_DOMAIN}/cancel.html`,
     });
     res.json({
         id: session.id
     });
 });
+
 app.listen(5000, () => console.log('Running on port 5000'));
