@@ -7,7 +7,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Shopperly | Store</title>
+    <title>Shopperly | Home</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
+    <!--js-->
+
+    <!-- update the version number as needed -->
     <script defer src="/__/firebase/7.18.0/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->
     <script defer src="/__/firebase/7.18.0/firebase-auth.js"></script>
@@ -32,9 +35,25 @@
     <script defer src="/__/firebase/7.18.0/firebase-firestore.js"></script>
     <script defer src="js/firebaseCredentials.js"></script>
     <script defer src="js/check_login.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <!--<script defer src="/__/firebase/init.js">
+    </script>-->
+
 </head>
 
 <body>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!--- <script src="/__/firebase/7.18.0/firebase-app.js"></script>-->
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+
+    <!-- Initialize Firebase -->
+    <!--<script src="/__/firebase/init.js"></script> -->
+
+
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -49,7 +68,7 @@
         <div class="humberger__menu__cart">
             <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                <li><a href="shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
             <div class="header__cart__price">item: <span>$150.00</span></div>
         </div>
@@ -72,6 +91,7 @@
                 <li class="active"><a href="./index.html">Home</a></li>
                 <li><a href="./shop-grid.html">Shop</a></li>
                 <li><a href="#">Pages</a>
+
                     <ul class="header__menu__dropdown">
                         <li><a href="./shop-details.html">Shop Details</a></li>
                         <li><a href="./shoping-cart.html">Shoping Cart</a></li>
@@ -99,7 +119,6 @@
     </div>
     <!-- Humberger End -->
 
-    <!-- Header Section Begin -->
     <!-- Header Section Begin -->
     <header class="header">
         <div class="header__top">
@@ -135,7 +154,7 @@
                                     <li><a href="#">English</a></li>
                                 </ul>
                             </div>-->
-                            <div class="header__top__right__auth , divlogin" id = "creater">
+                            <div class="header__top__right__auth , divlogin" id="creater">
                                 <a href="createAccount.html" id="createrRemove"><i class="fa fa-user"  > Register </i> </a>
                             </div>
                         </div>
@@ -153,18 +172,19 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li> <a href="./index.html">Home</a></li>
-                            <li class="active"><a href="./shop-grid.html">Shop</a></li>
+                            <li class="active"><a href="./index.html">Home</a></li>
+                            <li><a href="./shop-grid.html">Shop</a></li>
                             <!--<li><a href="#">Pages</a>-->
-                                <!--<ul class="header__menu__dropdown">-->
-                                    <!--<li><a href="./shop-details.html">Shop Details</a></li>-->
-                                    <!--<li><a href="./shoping-cart.html">Shoping Cart</a></li>-->
-                                    <!--<li><a href="./checkout.html">Check Out</a></li>-->
-                                    <!--<li><a href="./blog-details.html">Blog Details</a></li>-->
-                                <!--</ul>-->
+                            <!--<ul class="header__menu__dropdown">-->
+                            <!--<li><a href="./shop-details.html">Shop Details</a></li>-->
+                            <!--<li><a href="./shoping-cart.html">Shoping Cart</a></li>-->
+                            <!--<li><a href="./checkout.html">Check Out</a></li>-->
+                            <!--<li><a href="./blog-details.html">Blog Details</a></li>-->
+                            <!--</ul>-->
                             <!--</li>-->
                             <li><a href="./blog.html">About Us</a></li>
                             <li><a href="./contact.html">Contact</a></li>
+                            <li><a href="./my-account.html">My Account</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -174,7 +194,6 @@
                             <!--<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>-->
                             <li><a href="shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
-
                         <div class="header__cart__price">item: <span>$150.00</span></div>
                     </div>
                 </div>
