@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="js/server.js"></script>
 
 </head>
 
@@ -30,6 +29,8 @@
     );
     var checkoutButton = document.getElementById("checkout-button");
     checkoutButton.addEventListener("click", function() {
+        console.log("Button works");
+        console.log(session);
         fetch("/create-checkout-session", {
                 method: "POST",
             })
@@ -47,6 +48,7 @@
                 // customer using error.message.
                 if (result.error) {
                     alert(result.error.message);
+                    console.log(res.text());
                 }
             })
             .catch(function(error) {
