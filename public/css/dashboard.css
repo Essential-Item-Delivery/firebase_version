@@ -26,9 +26,15 @@
     top: 0;
     bottom: 0;
     width: 96%;
-    padding: 500px 0 0 0;
+    margin: 0 0 35px 0;
+    padding: 725px 0 0 0;
 }
 
 main {
     padding-top: 90px;
+    margin: 0 0 50px;
+}
+
+#table {
+    margin: 90px 0 50px;
 }
