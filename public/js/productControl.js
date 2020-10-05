@@ -30,7 +30,7 @@ var productControl = (function () {
             }
     }
 
-    function makeHTML(idTag, label ,pid , name ,  price ,url ){
+    function makeHTML(idTag, label ,pid , name ,  price ,url, quan){
         $("#"+idTag).append(
             '<div class="col-lg-3 col-md-4 col-sm-6 mix '+label+'">' +
             '   <div class="featured__item">'+
@@ -44,6 +44,7 @@ var productControl = (function () {
             '       <div class="featured__item__text">' +
             '           <h6><a >'+name+'</a></h6>' +
             '           <h5>'+price+'</h5>' +
+            '           <h4>'+price+'</h4>' +
             '       </div>' +
             '   </div>' +
             '</div>' );
