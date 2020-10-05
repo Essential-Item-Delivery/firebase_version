@@ -76,8 +76,7 @@ var datacontrol = (function () {
                 console.log("Document last name:", doc.data().last_name.value);
                 console.log("Document email:", doc.data().email.value);
                 console.log("Document address:", doc.data().address.value);
-                $('input')[1].value=doc.data().first_name.value;
-                console.log("yeyayayy")
+                
               
                 return  doc.data();
               

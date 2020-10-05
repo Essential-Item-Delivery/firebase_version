@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
         }
-
+        
         #map {
             position: absolute;
             top: 0;
@@ -38,12 +38,14 @@
         function rotateCamera(timestamp) {
             // clamp the rotation between 0 -360 degrees
             // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
-            map.rotateTo((timestamp / 300) % 360, { duration: 0 });
+            map.rotateTo((timestamp / 300) % 360, {
+                duration: 0
+            });
             // Request the next frame of the animation.
             requestAnimationFrame(rotateCamera);
         }
 
-        map.on('load', function () {
+        map.on('load', function() {
             // Start the animation.
             rotateCamera(0);
 
@@ -59,30 +61,27 @@
                 'type': 'geojson',
                 'data': {
                     'type': 'FeatureCollection',
-                    'features': [
-                        {
-                            // feature for Mapbox DC
-                            'type': 'Feature',
-                            'geometry': {
-                                'type': 'Point',
-                                'coordinates': [170.515888, -45.866373]
-                            },
-                            'properties': {
-                                'title': 'Mapbox DC'
-                            }
+                    'features': [{
+                        // feature for Mapbox DC
+                        'type': 'Feature',
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [170.515888, -45.866373]
                         },
-                        {
-                            // feature for Mapbox SF
-                            'type': 'Feature',
-                            'geometry': {
-                                'type': 'Point',
-                                'coordinates': [-122.414, 37.776]
-                            },
-                            'properties': {
-                                'title': 'Mapbox SF'
-                            }
+                        'properties': {
+                            'title': 'Mapbox DC'
                         }
-                    ]
+                    }, {
+                        // feature for Mapbox SF
+                        'type': 'Feature',
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [-122.414, 37.776]
+                        },
+                        'properties': {
+                            'title': 'Mapbox SF'
+                        }
+                    }]
                 }
             });
 
@@ -100,22 +99,18 @@
                     // use an 'interpolate' expression to add a smooth transition effect to the
                     // buildings as the user zooms in
                     'fill-extrusion-height': [
-                        'interpolate',
-                        ['linear'],
+                        'interpolate', ['linear'],
                         ['zoom'],
                         15,
                         0,
-                        15.05,
-                        ['get', 'height']
+                        15.05, ['get', 'height']
                     ],
                     'fill-extrusion-base': [
-                        'interpolate',
-                        ['linear'],
+                        'interpolate', ['linear'],
                         ['zoom'],
                         15,
                         0,
-                        15.05,
-                        ['get', 'min_height']
+                        15.05, ['get', 'min_height']
                     ],
                     'fill-extrusion-opacity': 0.6
                 }
