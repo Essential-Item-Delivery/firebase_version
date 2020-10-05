@@ -110,7 +110,7 @@ var shopControl = (function () {
 
     }
 
-    function makeHTML(idTag,label ,pid , name ,  price ,url , unit_price){
+    function makeHTML(idTag,label ,pid , name ,  price ,url , unit_price, quan){
         $("#"+idTag).append(
             '<div class="col-lg-3 col-md-4 col-sm-6 mix '+label+'">' +
             '   <div class="featured__item">'+
@@ -126,6 +126,7 @@ var shopControl = (function () {
             '           <h5>'+price+'</h5>' +
             ' <h4 hidden>'+unit_price+'</h4>'+
             ' <h3 hidden>'+pid+'</h3>'+
+            ' <h2 hidden>'+quan+'</h2>'+
             '       </div>' +
             '   </div>' +
             '</div>' );
@@ -167,7 +168,7 @@ var shopControl = (function () {
                     //console.log(unit_price);
                      num++;
                      // function makeHTML(idTag, label ,pid , name ,  price ,url ){
-                     productControl.makeHtml("#shopItems", "", id, name, price,img_url, unit_price);
+                     productControl.makeHtml("#shopItems", "", id, name, price,img_url, unit_price, 1);
                      $("#numberOfProducts").html("");
                      $("#numberOfProducts").append(num);
                  }
