@@ -1,13 +1,11 @@
 const stripe = require('stripe')('sk_test_51HXI5fJ7YxCSpAcZrZd5PSUwktYwGe6xZksvKJ1hwy4xA0b5nVoID1wgzJa5vTmOb14veOzJltnVMCiaolHCmVND00i4wRBsqs');
-const express = require('express');
-const cors = require('cors');
 
+const functions = require('firebase-functions');
+const express = require('express');
 const app = express();
 
 
-app.use(express.static('.'));
-
-const YOUR_DOMAIN = 'http://localhost:5000';
+// const YOUR_DOMAIN = 'http://localhost:5000';
 
 app.post('/create-checkout-session', async(req, res) => {
     const session = await stripe.checkout.sessions.create({
@@ -31,5 +29,8 @@ app.post('/create-checkout-session', async(req, res) => {
         id: session.id
     });
 });
+
+// Expose Express API as a single Cloud Function:
+exports.app = functions.https.onRequest(app);
 
 app.listen(5000, () => console.log('Running on port 5000'));

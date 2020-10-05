@@ -6,9 +6,12 @@
         "site": "shopperly",
         "public": "public",
         "ignore": [
-            "firebase.json",
             "**/.*",
             "**/node_modules/**"
-        ]
+        ],
+        "rewrites": [{
+            "source": "/create-checkout-session",
+            "function": "app"
+        }]
     }
 }
