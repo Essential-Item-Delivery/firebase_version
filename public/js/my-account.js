@@ -39,12 +39,48 @@ var myAccount = (function(){
          $('input')[2].value=doc.data().last_name.value;
          $('input')[3].value=doc.data().email.value;
          $('input')[4].value=doc.data().address.value;
+
           //       console.log("yeyayayy")
+          console.log("work on the edit button now");
+
+
+          
+          //updating data in the databse
+         /* $("#editButton").click(function(){
+           // alert("The paragraph was clicked.");
+            const newData = {
+                first_name: $('input')[1].value,
+                last_name: $('input')[2].value,
+                email: $('input')[3].value,
+                address: $('input')[4].value,
+        
+            }
+            firebase.database().ref().update(newData);
+            alert("the data has updated");
+            
+        
+
+          }); */
+/*$('#editButton').addEventListener('click', (e) =>{
+    e.preventDefault();
+    
+    const newData = {
+        first_name: $('input')[1].value,
+        last_name: $('input')[2].value,
+        email: $('input')[3].value,
+        address: $('input')[4].value,
+
+    }
+    rootRef.child(id.value).update(newData)
+    
+    });*/
             }
          });
          
  
      }
+
+    
 
     //setup function
     pub.setup = function () {
