@@ -4,7 +4,9 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.
         console.log("user is logged in" +user);
-        $("#accountAppend").append(<li><a href="./my-account.html">My Account</a></li>);
+        //$("#accountAppend").append(<li><a href="./my-account.html">My Account</a></li>);
+        $("#accountAppend").append('<li ><a href="./my-account.html?'+'" >' + '</a></li>');
+        myAccount.accountDetails(firebase.auth().currentUser.uid);
         //checkout.fill_form(firebase.auth().currentUser.uid);
         //console.log("Calling this function")
         
@@ -22,15 +24,33 @@ var myAccount = (function(){
     
     var pub = {};
 
-    pub.accountDetails = function() {
+    //Function to automaticallly fill the checkout form if the user is logged in
+    pub.accountDetails = async function(uid){
+        // const data = await datacontrol.getUserInfo(uid);
         
-    }
+        var docRef = db.collection("users").doc(uid);
+        //var test;
+ 
+        var data = await docRef.get().then( function (doc) {
+            if (doc.exists) {
+         console.log(uid+"i am the uid");
+        $('input')[1].value="i am here"
+         $('input')[1].value=doc.data().first_name.value;
+         $('input')[2].value=doc.data().last_name.value;
+         $('input')[3].value=doc.data().email.value;
+         $('input')[4].value=doc.data().address.value;
+          //       console.log("yeyayayy")
+            }
+         });
+         
+ 
+     }
 
     //setup function
     pub.setup = function () {
         
-        //this.accountDetails();
-    }
+        //pub.accountDetails();
+    };
     return pub;
 
 }());

@@ -185,7 +185,7 @@ var checkout = (function () {
 
 
         console.log("checkout loaded");
-        this.fill_form();
+        //this.fill_form();
 
     };
 
