@@ -25,12 +25,12 @@
 <script type="text/javascript">
     // Create an instance of the Stripe object with your publishable API key
     var stripe = Stripe(
-        "pk_test_51HXI5fJ7YxCSpAcZlx6bNpqzOP8vVbNmdpG5coZdR14Z9gq8pMsGQiDry3fX7wojLyfbISTrbog3yiId4tWhWDCJ00TtEEfE7u"
+        "pk_test_51HYpcsChaMrCPL7dKbwCPMltLuqudAOGGLeCzsK4uBjFaeGp2qo4srMNE7IOZpZhiOA3c3SfDHNl0nWn4U4FWK7400tgI7CWiH"
     );
     var checkoutButton = document.getElementById("checkout-button");
     checkoutButton.addEventListener("click", function() {
         console.log("Button works");
-        console.log(session);
+       // console.log(session);
         fetch("/create-checkout-session", {
                 method: "POST",
             })

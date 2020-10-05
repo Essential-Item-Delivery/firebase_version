@@ -1,4 +1,5 @@
 var db = firebase.firestore();
+
 //When the user is signed in 
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
@@ -11,6 +12,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         console.log("not logged in");
     }
 });
+
 var checkout = (function () {
 
     //global variables
@@ -129,6 +131,7 @@ var checkout = (function () {
 
         return false;
     }
+
     //Function to automaticallly fill the checkout form if the user is logged in
     pub.fill_form = async function(uid){
        // const data = await datacontrol.getUserInfo(uid);
@@ -150,7 +153,6 @@ var checkout = (function () {
          //       console.log("yeyayayy")
            }
         });
-        
 
     }
 

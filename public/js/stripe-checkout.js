@@ -1,8 +1,9 @@
 // STRIPE payment
 
 // Create an instance of the Stripe object with your publishable API key
-var stripe = Stripe("sk_test_51HXI5fJ7YxCSpAcZrZd5PSUwktYwGe6xZksvKJ1hwy4xA0b5nVoID1wgzJa5vTmOb14veOzJltnVMCiaolHCmVND00i4wRBsqs");
-var checkoutButton = document.getElementById("checkout-button");
+//var stripe = Stripe("sk_test_51HXI5fJ7YxCSpAcZrZd5PSUwktYwGe6xZksvKJ1hwy4xA0b5nVoID1wgzJa5vTmOb14veOzJltnVMCiaolHCmVND00i4wRBsqs");
+
+//var checkoutButton = document.getElementById("checkout-button");
 
 checkoutButton.addEventListener("click", function() {
     fetch("/create-checkout-session", {

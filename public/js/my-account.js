@@ -33,15 +33,16 @@ var myAccount = (function(){
  
         var data = await docRef.get().then( function (doc) {
             if (doc.exists) {
-         console.log(uid+"i am the uid");
-        $('input')[1].value="i am here"
-         $('input')[1].value=doc.data().first_name.value;
-         $('input')[2].value=doc.data().last_name.value;
-         $('input')[3].value=doc.data().email.value;
-         $('input')[4].value=doc.data().address.value;
 
-          //       console.log("yeyayayy")
-          console.log("work on the edit button now");
+         console.log(uid+"i am the uid");
+
+        $('input')[1].value="i am here"
+         $('input')[1].value=doc.data().first_name;
+         $('input')[2].value=doc.data().last_name;
+         $('input')[3].value=doc.data().email;
+         $('input')[4].value=doc.data().address;
+
+        
 
 
           
@@ -61,7 +62,8 @@ var myAccount = (function(){
         
 
           }); */
-/*$('#editButton').addEventListener('click', (e) =>{
+
+$('#editButton').addEventListener('click', (e) =>{
     e.preventDefault();
     
     const newData = {
@@ -71,9 +73,10 @@ var myAccount = (function(){
         address: $('input')[4].value,
 
     }
-    rootRef.child(id.value).update(newData)
+    console.log(newData);
+    db.collection("users").doc(firebase.auth().currentUser.uid).update(newData);
     
-    });*/
+    });
             }
          });
          
