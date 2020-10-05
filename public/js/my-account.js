@@ -47,7 +47,7 @@ var myAccount = (function(){
 
           
           //updating data in the databse
-         /* $("#editButton").click(function(){
+          $("#editButton").click(function(){
            // alert("The paragraph was clicked.");
             const newData = {
                 first_name: $('input')[1].value,
@@ -56,14 +56,22 @@ var myAccount = (function(){
                 address: $('input')[4].value,
         
             }
-            firebase.database().ref().update(newData);
-            alert("the data has updated");
+            db.collection("users").doc(firebase.auth().currentUser.uid).update(newData);
+            //db.collection("users").doc("uid").update(newData);
+            //firebase.database().ref().update(newData);
+            //rootRef.child(uid.value).update(newData)
+            //alert("the data has updated");
             
         
 
+<<<<<<< HEAD
           }); */
 
 $('#editButton').addEventListener('click', (e) =>{
+=======
+          }); 
+/*$('#editButton').addEventListener('click', (e) =>{
+>>>>>>> 4fa5aabedd0e3f7098805bbf7fc736e38b8c1409
     e.preventDefault();
     
     const newData = {
