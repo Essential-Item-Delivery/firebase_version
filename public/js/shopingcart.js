@@ -27,7 +27,6 @@ var cartcontrol = (function () {
         for (var i =0; i< cart.length; i++) {
             console.log(cart[i].pid);
             if (parseInt(cart[i].pid) === val) {
-                console.log("HAHAHAHA");
                 cart.splice(i, 1);
             }
         }
