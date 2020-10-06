@@ -131,26 +131,113 @@ var shopControl = (function () {
             '   </div>' +
             '</div>' );
     }
+/*function insertProducts(allProducts, url, word, searchWord, searchCat, cate){
+    var num = 0;
+    //alert(searchWord+"ShopPAGE");
+    for(var i = 0; i<Object.entries(allProducts.val()).length;i++) {
+        console.log(Object.entries(allProducts.val())[i][0]);
+        var use = Object.entries(allProducts.val())[i][0];
 
-    async function setProducts(allProducts, url){
-        var num = 0;
-        var searchWord =Localstorage.get("search");
-        Localstorage.clear("search");
-        var word;
-        if (searchWord === null || searchWord === "null" || searchWord === "") {
-            word = false;
-        } else {
-            //get old cart data
-            //console.log(value);
-            word = true;
+        if (word && cate) {
+            if(use.includes(url)) {
+                for (var j = 0; j < Object.entries(allProducts.val())[i][1].length; j++) {
+                    var id = Object.entries(allProducts.val())[i][1][j].ProductID;
+                    var img_id = parseInt(id) + 1
+                    var name = Object.entries(allProducts.val())[i][1][j].ProductName;
+                    var price = Object.entries(allProducts.val())[i][1][j].UnitPrice;
+                    var unit_price = Object.entries(allProducts.val())[i][1][j].Price;
+                    var categoryCheck = Object.entries(allProducts.val())[i][1][j].Category;
+                    // var img_url = await firebase.storage().ref("/images/"+'CountDown'+"/Product/product"+id+".png").getDownloadURL();
+                    // var img_url = "images/Products/"+"Countdown"+"/product"+id+".png";
+                    var img_url = '/images/Products/' + use + '/product' + img_id + '.png';
+                    //console.log(unit_price);
+                    if(name.toLowerCase().includes(searchWord.toLowerCase())) {
+                        if(searchCat.includes(categoryCheck)) {
+                            num++;
+                            // function makeHTML(idTag, label ,pid , name ,  price ,url ){
+                            productControl.makeHtml("#shopItems", "", id, name, price, img_url, unit_price, 1);
+                            $("#numberOfProducts").html("");
+                            $("#numberOfProducts").append(num);
+                        }
+                    }
+                }
+            }
+        }else if(word){
+            if (use.includes(url)) {
+                for (var j = 0; j < Object.entries(allProducts.val())[i][1].length; j++) {
+                    var id = Object.entries(allProducts.val())[i][1][j].ProductID;
+                    var img_id = parseInt(id) + 1
+                    var name = Object.entries(allProducts.val())[i][1][j].ProductName;
+                    var price = Object.entries(allProducts.val())[i][1][j].UnitPrice;
+                    var unit_price = Object.entries(allProducts.val())[i][1][j].Price;
+
+                    // var img_url = await firebase.storage().ref("/images/"+'CountDown'+"/Product/product"+id+".png").getDownloadURL();
+                    // var img_url = "images/Products/"+"Countdown"+"/product"+id+".png";
+                    var img_url = '/images/Products/' + use + '/product' + img_id + '.png';
+                    //console.log(unit_price);
+                    if(name.toLowerCase().includes(searchWord.toLowerCase())) {
+                        num++;
+                        // function makeHTML(idTag, label ,pid , name ,  price ,url ){
+                        productControl.makeHtml("#shopItems", "", id, name, price, img_url, unit_price, 1);
+                        $("#numberOfProducts").html("");
+                        $("#numberOfProducts").append(num);
+                    }
+                }
+            }
+        }else if(cate){
+            if (use.includes(url)) {
+                for (var j = 0; j < Object.entries(allProducts.val())[i][1].length; j++) {
+                    var id = Object.entries(allProducts.val())[i][1][j].ProductID;
+                    var img_id = parseInt(id) + 1
+                    var name = Object.entries(allProducts.val())[i][1][j].ProductName;
+                    var price = Object.entries(allProducts.val())[i][1][j].UnitPrice;
+                    var unit_price = Object.entries(allProducts.val())[i][1][j].Price;
+                    var categoryCheck = Object.entries(allProducts.val())[i][1][j].Category;
+                    // var img_url = await firebase.storage().ref("/images/"+'CountDown'+"/Product/product"+id+".png").getDownloadURL();
+                    // var img_url = "images/Products/"+"Countdown"+"/product"+id+".png";
+                    var img_url = '/images/Products/' + use + '/product' + img_id + '.png';
+                    //console.log(unit_price);
+                    if(searchCat.includes(categoryCheck)) {
+                        num++;
+                        // function makeHTML(idTag, label ,pid , name ,  price ,url ){
+                        productControl.makeHtml("#shopItems", "", id, name, price, img_url, unit_price, 1);
+                        $("#numberOfProducts").html("");
+                        $("#numberOfProducts").append(num);
+                    }
+                }
+            }
+        }else{
+            if (use.includes(url)) {
+                for (var j = 0; j < Object.entries(allProducts.val())[i][1].length; j++) {
+                    var id = Object.entries(allProducts.val())[i][1][j].ProductID;
+                    var img_id = parseInt(id) + 1
+                    var name = Object.entries(allProducts.val())[i][1][j].ProductName;
+                    var price = Object.entries(allProducts.val())[i][1][j].UnitPrice;
+                    var unit_price = Object.entries(allProducts.val())[i][1][j].Price;
+
+                    // var img_url = await firebase.storage().ref("/images/"+'CountDown'+"/Product/product"+id+".png").getDownloadURL();
+                    // var img_url = "images/Products/"+"Countdown"+"/product"+id+".png";
+                    var img_url = '/images/Products/' + use + '/product' + img_id + '.png';
+                    //console.log(unit_price);
+                    num++;
+                    // function makeHTML(idTag, label ,pid , name ,  price ,url ){
+                    productControl.makeHtml("#shopItems", "", id, name, price, img_url, unit_price, 1);
+                    $("#numberOfProducts").html("");
+                    $("#numberOfProducts").append(num);
+                }
+            }
         }
-        //alert(searchWord+"ShopPAGE");
+    }
+}*/
+
+    function insertProducts(allProducts, url, word, searchWord) {
+        var num = 0;
         for(var i = 0; i<Object.entries(allProducts.val()).length;i++) {
             console.log(Object.entries(allProducts.val())[i][0]);
             var use = Object.entries(allProducts.val())[i][0];
 
             if (word) {
-                if(use.includes(url)) {
+                if (use.includes(url)) {
                     for (var j = 0; j < Object.entries(allProducts.val())[i][1].length; j++) {
                         var id = Object.entries(allProducts.val())[i][1][j].ProductID;
                         var img_id = parseInt(id) + 1
@@ -162,7 +249,7 @@ var shopControl = (function () {
                         // var img_url = "images/Products/"+"Countdown"+"/product"+id+".png";
                         var img_url = '/images/Products/' + use + '/product' + img_id + '.png';
                         //console.log(unit_price);
-                        if(name.toLowerCase().includes(searchWord.toLowerCase())) {
+                        if (name.toLowerCase().includes(searchWord.toLowerCase())) {
                             num++;
                             // function makeHTML(idTag, label ,pid , name ,  price ,url ){
                             productControl.makeHtml("#shopItems", "", id, name, price, img_url, unit_price, 1);
@@ -171,7 +258,7 @@ var shopControl = (function () {
                         }
                     }
                 }
-            }else{
+            } else {
                 if (use.includes(url)) {
                     for (var j = 0; j < Object.entries(allProducts.val())[i][1].length; j++) {
                         var id = Object.entries(allProducts.val())[i][1][j].ProductID;
@@ -193,6 +280,32 @@ var shopControl = (function () {
                 }
             }
         }
+    }
+    async function setProducts(allProducts, url){
+        var searchWord =Localstorage.get("search");
+        Localstorage.clear("search");
+        var word;
+        if (searchWord === null || searchWord === "null" || searchWord === "") {
+            word = false;
+        } else {
+            //get old cart data
+            //console.log(value);
+            word = true;
+        }
+        var searchCat =JSON.parse(Localstorage.get("category"));
+        //alert(searchCat[0].);
+        Localstorage.clear("category");
+
+        var cate;
+        if (searchCat === "All Products") {
+            cate = false;
+        } else {
+            //get old cart data
+            //console.log(value);
+            cate = true;
+        }
+        //insertProducts(allProducts, url,word,searchWord, searchCat, cate);
+        insertProducts(allProducts, url,word,searchWord);
     }
 
     //setup public

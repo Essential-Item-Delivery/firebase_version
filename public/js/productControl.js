@@ -42,9 +42,12 @@ var productControl = (function () {
         alert(child);
         console.log(child);
         Localstorage.clear("search");
+        Localstorage.clear("category");
         //set new cookie
-        Localstorage.set("search",child);
 
+        Localstorage.set("search",child);
+        var cat = $("#lister").val();
+        Localstorage.set("category",cat);
     }
 
     function makeHTML(idTag, label ,pid , name ,  price ,url, quan){
