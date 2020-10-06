@@ -146,10 +146,12 @@ var checkout = (function () {
         //$("#firstName").hide()
         //$("#firstName").html(data.first_name)
        // console.log("firstname"+data.first_name.value)
-        $('input')[1].value=doc.data().first_name.value;
-        $('input')[2].value=doc.data().last_name.value;
-        $('input')[4].value=doc.data().address.value;
-        $('input')[10].value=doc.data().email.value;
+        $('input')[1].value=doc.data().first_name;
+        $('input')[2].value=doc.data().last_name;
+        $('input')[4].value=doc.data().address;
+        $('input')[10].value=doc.data().email;
+        var email_input =  $('input')[10];
+        email_input.readOnly=true;
          //       console.log("yeyayayy")
            }
         });
