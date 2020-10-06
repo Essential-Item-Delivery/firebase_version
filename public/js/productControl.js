@@ -3,6 +3,7 @@ var productControl = (function () {
     var db = firebase.database();
     //global variables
     var pub = {};
+/*
 
      pub.searchByName= async function(){
             console.log("IM working");
@@ -28,6 +29,22 @@ var productControl = (function () {
                     $("#numberOfProducts").append(num);
                 }
             }
+    }
+*/
+
+    pub.searchByName= async function(){
+        console.log("IM working");
+        var use = $("#nameSearch").siblings("input").val();
+        searchSet(use);
+    }
+
+    function searchSet(child) {
+        alert(child);
+        console.log(child);
+        Localstorage.clear("search");
+        //set new cookie
+        Localstorage.set("search",child);
+
     }
 
     function makeHTML(idTag, label ,pid , name ,  price ,url, quan){
@@ -59,6 +76,7 @@ var productControl = (function () {
         $("#categoryList").append("<select id='lister'></select>");
         var stores = Object.entries(products.val());
         //console.log(stores[1]);
+        $("#lister").append('<option>' + "All Products" + '</option>');
         for(var j = 0; j<stores.length; j++) {
             for (var i = 0; i < stores[j][1].length; i++) {
                 //console.log(stores[j].Category);
