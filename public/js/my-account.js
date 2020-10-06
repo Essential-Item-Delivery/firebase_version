@@ -54,6 +54,7 @@ var myAccount = (function () {
                     }
                     console.log(newData);
                     db.collection("users").doc(firebase.auth().currentUser.uid).update(newData);
+                    alert("Successfully updated!");
                    
                 });
 

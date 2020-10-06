@@ -129,15 +129,6 @@
 
                                 <a href="signIn.html" id="loggerRemove"><i class="fa fa-user"> Sign In </i> </a>
                             </div>
-                            <!--<div class="header__top__right__language">
-                                    <img src="img/language.png" alt="">
-                                    <div>English</div>
-                                    <span class="arrow_carrot-down"></span>
-                                    <ul>
-                                        <li><a href="#">Spanis</a></li>
-                                        <li><a href="#">English</a></li>
-                                    </ul>
-                                </div>-->
                             <div class="header__top__right__auth , divlogin" id="creater">
                                 <a href="createAccount.html" id="createrRemove"><i class="fa fa-user"  > Register </i> </a>
                             </div>
@@ -153,15 +144,13 @@
                         <a href="./index.html"><img src="images/shopperLy.png" alt=""></a>
                     </div>
                 </div>
-
-
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
                             <li><a href="./index.html">Home</a></li>
                             <li><a href="./shop-grid.html">Shop</a></li>
                             <li><a href="./blog.html">About Us</a></li>
-                          <li><a href="./contact.html">Contact</a></li>
+                            <li><a href="./contact.html">Contact</a></li>
                             <li class="active"><a href="./my-account.html">My Account</a></li>
                         </ul>
                     </nav>
@@ -169,9 +158,6 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <!-- wishlist 
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            -->
                             <li><a href="shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
                         <!-- shopping cart values 
@@ -236,8 +222,26 @@
     </section>
     <!-- Hero Section End -->
 
+        <!-- Breadcrumb Section Begin -->
+        <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="breadcrumb__text">
+                            <h2 id="depTitle">Shopperly</h2>
+                            <div class="breadcrumb__option">
+                                <a href="./index.html">Home</a>
+                                <span>Shop</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Breadcrumb Section End -->
 
     <!-- Nav tabs -->
+    <div class="spinner"></div>
     <section class="product spad">
         <div class="container">
             <div class="row">
@@ -250,66 +254,80 @@
 
                             <ul role="tablist" class="nav flex-column dashboard-list">
 
-                                <li><a href="#account-details" data-toggle="tab">Account Details</a></li>
+                                <li><a href="#account-details" data-toggle="tab">Update Account Details</a></li>
                                 <li><a href="#orders" data-toggle="tab"> Orders</a></li>
                                 <li><a href="#order-status" data-toggle="tab">Order Status</a></li>
                                 <li><a href="#address" data-toggle="tab">Address Book</a></li>
 
                             </ul>
-
                             <div class="col-md-12 col-lg-10">
-
-
                             </div>
-                        </div>
-
-                        <!-- Tab panes -->
-
-                        <div class="tab-content dashboard-content">
-
-                            <!--<div class="tab-pane active" id="dashboard"></div> -->
-
                         </div>
                     </div>
                 </div>
 
+                <section class="contact spad">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                                <div class="contact__widget">
+                                    <span class="fa fa-user" style="background-color:rgb(120, 191, 62);"></span>
+                                    <h4>My Profile</h4>
+                                    <div class="col-md-8">
+                                        
+                                        <input type="text" name="first-name" id="firstName" class="form-control" style="border-collapse: collapse; border: none;"readonly>
+                                        <input type="text" name="last-name" id="lastName" class="form-control"style="border-collapse: collapse; border: none;"readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                                <div class="contact__widget">
+                                    <span class="icon_pin_alt"></span>
+                                    <h4>My Address</h4>
+                                    <input type="text" name="email-name" id="email" class="form-control" style="border-collapse: collapse; border: none;" readonly>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                                <div class="contact__widget">
+                                    <span class="icon_mail_alt"></span>
+                                    <h4>My Email</h4>
+                                    <input type="text" name="email-name" id="email" class="form-control" style="border-collapse: collapse; border: none;" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Contact Section End -->
+
                 <!-- Account Details Begin -->
-                <!--  <div class="row"> -->
+                <!--  <div class="row"> add this when you want to hide it(tab-pane fade col-lg-9)-->
                 <div class="col-lg-10">
                     <div class="row">
-                        <div class="tab-pane fade col-lg-9" id="account-details">
+                        <div class="tab-pane fade col-lg-9" id="account-details" style="background-color:rgb(120, 191, 62);">
                             <h3>Account details </h3>
-
                             <div class="account-input-box">
-
                                 <div class="col-md-8">
                                     <!-- <div class="col-md-6"> -->
                                     <label>First Name</label>
-                                    <input type="text" name="first-name" id="firstName" class="form-control">
+                                    <input type="text" name="first-name" id="firstName" class="form-control" style="border-collapse: collapse; border: none;">
                                 </div>
                                 <div class="col-md-8">
                                     <label>Last Name</label>
-                                    <input type="text" name="last-name" id="lastName" class="form-control">
+                                    <input type="text" name="last-name" id="lastName" class="form-control"style="border-collapse: collapse; border: none;">
                                 </div>
                                 <div class="col-md-8">
                                     <label>Email</label>
-                                    <input type="text" name="email-name" id="email" class="form-control">
+                                    <input type="text" name="email-name" id="email" class="form-control" style="border-collapse: collapse; border: none;" readonly>
                                 </div>
                                 <div class="col-md-8">
                                     <label>Address</label>
-                                    <input type="text" name="user-address" id="address" class="form-control">
-
-
+                                    <input type="text" name="user-address" id="address" class="form-control"style="border-collapse: collapse; border: none;">
                                 </div>
                             </div>
-
-
                             <div class="button-box">
-                                <button id = "editButton" class="btn default-btn" type="submit">Update</button>
+                                <button id = "editButton"  style="background-color: rgb(26, 232, 8);"class="btn default-btn" type="submit">Update</button>
                             </div>
                         </div>
-
-
                         <!-- Account Details End-->
                         <!-- Orders Begin-->
                         <div class="tab-pane fade" id="orders">
@@ -358,10 +376,6 @@
                                 </table>
                             </div>
                         </div>
-
-
-
-
                         <!-- Orders Ends-->
 
                         <div class="tab-pane fade" id="address">
@@ -390,173 +404,64 @@
 
 
 
-        <!-- Footer -->
-
-
-        <!-- Services Section Begin 
-     <section class="product spad">
+            <!-- Banner Begin -->
+    <div class="banner">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-5">
-                    <div class="sidebar">
-                        <div class="sidebar__item">
-                            <h4>Dashboard</h4>
-
-                                <ul role="tablist" class="nav flex-column dashboard-list">
-
-                                <li><a href="#account-details" data-toggle="tab" >Account Details</a></li>
-                                <li><a href="#orders">Orders</a></li>
-                                <li><a href="#order-status">Order Status</a></li>
-                                <li><a href="#address">Address Book</a></li>
-                                <li><button onclick="logcheck.logout()">Logout</a></li>
-                                </ul>
-                                </div>
-                                    <div class="col-md-12 col-lg-10">
-                                
-                             
-                             
-                                
-                            </ul>  
-                            </div>
-                            </div>
-                        </div> -->
-
-
-
-
-
-
-        <!-- Services Section Ends --->
-
-
-
-
-        <!--- Account Details begin
-<div class="tab-pane fade" id="account-details"></div>
-        <h3>Account details </h3> 
-        <div class="login m-0">
-          <div class="login-form-container"> 
-            <div class="account-login-form">
-              <form action="#">
-      
-                <div class="account-input-box">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <label>First Name</label>
-                      <input type="text" name="first-name" id = "firstName" class="form-control">
-                    </div>
-                    <div class="col-md-6">
-                      <label>Last Name</label>
-                      <input type="text" name="last-name" id = "lastName" class="form-control">
-                    </div>
-                    <div class="col-md-6">
-                      <label>Email</label>
-                      <input type="text" name="email-name" id = "email" class="form-control">
-                    </div>
-                    <div class="col-md-6">
-                      <label>Password</label>
-                      <input type="password" name="user-password" id = "password" class="form-control">
-                    </div>
-                    
-                <div class="button-box">
-                  <button class="btn default-btn" type="submit">Edit</button>
-                </div>
-              </form>
-            </div>
-            </div>
-            
-        
-        <!--- Account Details end-->
-
-
-
-        <!--- Address Book begin
-        <div class="tab-pane" id="address"></div>
-        <p>The following addresses will be used on the checkout page by default.</p> 
-        <!--- Address Book end-->
-
-
-
-
-
-
-        <!-- Footer Section Begin -->
-        <footer class="footer spad">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="footer__about">
-                            <div class="footer__about__logo">
-                                <a href="./index.html"><img src="images/shopperLy.png" alt=""></a>
-                            </div>
-                            <ul>
-                                <li>Address: Mellor Labs, University of Otago, Dunedin</li>
-                                <li>Phone: +65 11.188.888</li>
-                                <li>Email: info@shopperly.com</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Useful links & newlestter 
-                    <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-                        <div class="footer__widget">
-                            <h6>Useful Links</h6>
-                            <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">About Our Shop</a></li>
-                                <li><a href="#">Secure Shopping</a></li>
-                                <li><a href="#">Delivery infomation</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Our Sitemap</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="#">Who We Are</a></li>
-                                <li><a href="#">Our Services</a></li>
-                                <li><a href="#">Projects</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Innovation</a></li>
-                                <li><a href="#">Testimonials</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="footer__widget">
-                            <h6>Join Our Newsletter Now</h6>
-                            <p>Get updates about our latest shop and special offers.</p>
-                            <form action="#">
-                                <input type="text" placeholder="Enter your mail">
-                                <button type="submit" class="site-btn">Subscribe</button>
-                            </form>
-                            <div class="footer__widget__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-pinterest"></i></a>
-                            </div>
-                        </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="banner__pic">
+                        <img src="img/banner/NewWorld.jpg" alt="">
                     </div>
                 </div>
-
-                Useful links & newlestter -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="footer__copyright">
-                            <div class="footer__copyright__text">
-                                <p>
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                    Copyright &copy;
-                                    <script>
-                                        document.write(new Date().getFullYear());
-                                    </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                </p>
-                            </div>
-                            <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
-                        </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="banner__pic">
+                        <img src="img/banner/Pakn-Save.jpg" alt="">
                     </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </div>
+    <!-- Banner End -->
+
+
+
+    <!-- Footer Section Begin -->
+    <footer class="footer spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__about__logo">
+                            <a href="./index.html"><img src="images/shopperLy.png" alt=""></a>
+                        </div>
+                        <ul>
+                            <li>Address: Mellor Labs, University of Otago, Dunedin</li>
+                            <li>Phone: +65 11.188.888</li>
+                            <li>Email: info@shopperly.com</li>
+                        </ul>
+                    </div>
+                </div>
+
+            <!-- Useful links & newlestter -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer__copyright">
+                        <div class="footer__copyright__text">
+                            <p>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
         <!-- Footer Section End -->
 
         <!-- Js Plugins -->
