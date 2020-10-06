@@ -41,9 +41,10 @@ var indexControl = (function () {
             for(var j =3; j<6; j++){
                var p =Object.entries(t.val())[i][1][j];
                console.log(p);
-               var img_id = parseInt(p.ProductID)+1
+               var img_id = parseInt(p.ProductID)+1;
                //var url = await firebase.storage().ref("/images/"+shops[i]+"/Product/product"+p.ProductID+".png").getDownloadURL();
-               var img_url ='/images/Products/'+shops[i]+'/product'+p.img_id+'.png';
+               var img_url ='/images/Products/'+shops[i]+'/product'+img_id+'.png';
+               console.log(p.Category + escapeHtml(p.Category));
                 makeHTML(p.Category,p.ProductID,p.ProductName,p.UnitPrice,img_url);
             }
         }
@@ -68,10 +69,17 @@ var indexControl = (function () {
 
          return;
     }
-
+    function escapeHtml(unsafe) {
+        return unsafe
+             .replace(/&/g, "&amp;")
+             .replace(/</g, "&lt;")
+             .replace(/>/g, "&gt;")
+             .replace(/"/g, "&quot;")
+             .replace(/'/g, "&#039;");
+     }
     function makeHTML(label ,pid , name ,  price ,url, unit_price){
         $("#setPopular").append(
-        '<div class="col-lg-3 col-md-4 col-sm-6 mix '+label+'">' +
+        '<div class="col-lg-3 col-md-4 col-sm-6 mix '+escapeHtml(label)+'">' +
         '   <div class="featured__item">'+
         '       <div class="featured__item__pic set-bg" data-setbg="'+url+'">' +
         '           <ul class="featured__item__pic__hover">' +
