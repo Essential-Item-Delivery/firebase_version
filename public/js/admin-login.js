@@ -30,7 +30,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
         btnLogout.classList.remove('hidden');
-        btnLogin.classList.add('hidden');
+
 
     } else {
         // User is signed out.
@@ -41,8 +41,9 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 // function logout
 function funcLogout() {
+    console.log("Button Clicked");
     auth.signOut().then(function() {
-        console.log("You are logged out")
+        console.log("You are logged out");
         location.href = 'admin-login.html';
     }).catch(function(err) {
         alert(err)

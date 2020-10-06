@@ -12,9 +12,9 @@ var datacontrol = (function () {
         var data = await docRef.get().then( function (doc) {
             if (doc.exists) {
                 console.log("Document data:", doc.data());
-                console.log("Document first name:", doc.data().first_name.value);
+                console.log("Document first name:", doc.data().first_name);
 
-                test=  doc.data().first_name.value;
+                test=  doc.data().first_name;
                 return  doc.data();
                 console.log("'!test is : '");
                 console.log(test);
@@ -31,7 +31,7 @@ var datacontrol = (function () {
         console.log('test is : '+test);
         console.log("data : " + data);
 
-        return  data.first_name.value+" "+ data.last_name.value;
+        return  data.first_name+" "+ data.last_name;
       
     }
 
@@ -43,9 +43,9 @@ var datacontrol = (function () {
         var data = await docRef.get().then( function (doc) {
             if (doc.exists) {
                 console.log("Document data:", doc.data());
-                console.log("Document first name:", doc.data().first_name.value);
+                console.log("Document first name:", doc.data().first_name);
 
-                test=  doc.data().first_name.value;
+                test=  doc.data().first_name;
                 return  doc.data();
                 console.log("'!test is : '");
                 console.log(test);
@@ -62,10 +62,9 @@ var datacontrol = (function () {
         console.log('test is : '+test);
         console.log("data : " + data);
 
-        return  data.first_name.value+" "+ data.last_name.value;
+        return  data.first_name+" "+ data.last_name;
     }
 
-    //
     pub.getUserInfo = async function(uid) {
         var docRef = db.collection("users").doc(uid);
         //var test;
@@ -73,10 +72,10 @@ var datacontrol = (function () {
         var data = await docRef.get().then( function (doc) {
             if (doc.exists) {
                 console.log("Document data:", doc.data());
-                console.log("Document first name:", doc.data().first_name.value);
-                console.log("Document last name:", doc.data().last_name.value);
-                console.log("Document email:", doc.data().email.value);
-                console.log("Document address:", doc.data().address.value);
+                console.log("Document first name:", doc.data().first_name);
+                console.log("Document last name:", doc.data().last_name);
+                console.log("Document email:", doc.data().email);
+                console.log("Document address:", doc.data().address);
                 
               
                 return  doc.data();
@@ -91,11 +90,13 @@ var datacontrol = (function () {
             console.log("Error getting document:", error);
         });
 
-        return data.first_name.value+data.last_name.value+data.email.value+data.address.value;
+        return data.first_name+data.last_name+data.email+data.address;
     }
+
 
     //setup public
     pub.setup = function () {
+
 
         return "test";
     };

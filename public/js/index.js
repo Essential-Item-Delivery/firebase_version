@@ -1,3 +1,16 @@
+//to add the append the acccount page when the user is looged in.
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        // User is signed in.
+       // console.log("Account page should be here. logged in" +user);
+        $("#accountAppend").append('<li ><a href="./my-account.html?" >' + "My Account" +'</a></li>');
+    
+        
+    } else {
+        console.log("not logged in");
+    }
+});
+
 /**
  * Created by yzou on 8/7/20.
  */
@@ -28,8 +41,9 @@ var indexControl = (function () {
             for(var j =3; j<6; j++){
                var p =Object.entries(t.val())[i][1][j];
                console.log(p);
+               var img_id = parseInt(p.ProductID)+1
                //var url = await firebase.storage().ref("/images/"+shops[i]+"/Product/product"+p.ProductID+".png").getDownloadURL();
-               var img_url ='/images/Products/'+shops[i]+'/product'+p.ProductID+'.png';
+               var img_url ='/images/Products/'+shops[i]+'/product'+p.img_id+'.png';
                 makeHTML(p.Category,p.ProductID,p.ProductName,p.UnitPrice,img_url);
             }
         }

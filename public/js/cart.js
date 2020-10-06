@@ -20,12 +20,12 @@ var cartmodule = (function () {
         //todo
         var unit_price =$(this).parent().parent().parent().parent().siblings(".featured__item__text").find("h4").text();
         var price =$(this).parent().parent().parent().parent().siblings(".featured__item__text").find("h5").text();
-        
+        var quantity = $(this).parent().parent().parent().parent().siblings(".featured__item__text").find("h2").text();
         var unit =1;
         var url =$(this).parent().parent().parent().parent().data().setbg;
 
         
-        var new_item =new cart_item(name,PID,unit_price,price,unit);
+        var new_item =new cart_item(name,PID,unit_price,price,unit,quantity);
 
         alert(name+PID+" price is :"+price);
        

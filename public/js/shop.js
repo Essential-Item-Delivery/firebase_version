@@ -1,3 +1,27 @@
+// Fo the account page to show up when the user is logged in.
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        // User is signed in.
+       // console.log("Account page should be here. logged in" +user);
+        $("#headerList").append('<li ><a href="./my-account.html?" >' + "My Account" +'</a></li>');
+    
+        
+    } else {
+        console.log("not logged in");
+    }
+});
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        // User is signed in.
+       // console.log("Account page should be here. logged in" +user);
+        $("#accountAppend").append('<li ><a href="./my-account.html?" >' + "My Account" +'</a></li>');
+    
+        
+    } else {
+        console.log("not logged in");
+    }
+});
+
 var shopControl = (function () {
     // Get a reference to the database service
     var db = firebase.database();
@@ -48,7 +72,7 @@ var shopControl = (function () {
                 snapshot.forEach(function (childSnapshot) {
                     console.log(childSnapshot);
                     var name = childSnapshot.key;
-                    $("#CATS").append('<li ><button onClick ="shopControl.departmentProducts('+name+')">' + childSnapshot.key + '</button></li>');
+                    $("#CATS").append('<li ><a href="./shop-grid.html?'+childSnapshot.key+'" >' + childSnapshot.key + '</a></li>');
                     // ...
                 });
             });
@@ -82,7 +106,11 @@ var shopControl = (function () {
         return allproducts;
     }
 
-    function makeHTML(idTag,label ,pid , name ,  price ,url , unit_price){
+    pub.sliderPrice = async function(){
+
+    }
+
+    function makeHTML(idTag,label ,pid , name ,  price ,url , unit_price, quan){
         $("#"+idTag).append(
             '<div class="col-lg-3 col-md-4 col-sm-6 mix '+label+'">' +
             '   <div class="featured__item">'+
@@ -98,6 +126,7 @@ var shopControl = (function () {
             '           <h5>'+price+'</h5>' +
             ' <h4 hidden>'+unit_price+'</h4>'+
             ' <h3 hidden>'+pid+'</h3>'+
+            ' <h2 hidden>'+quan+'</h2>'+
             '       </div>' +
             '   </div>' +
             '</div>' );
@@ -128,17 +157,18 @@ var shopControl = (function () {
              if(use.includes(url)) {
                  for (var j = 0; j < Object.entries(allProducts.val())[i][1].length; j++) {
                      var id = Object.entries(allProducts.val())[i][1][j].ProductID;
+                     var img_id = parseInt(id)+1
                      var name = Object.entries(allProducts.val())[i][1][j].ProductName;
                      var price = Object.entries(allProducts.val())[i][1][j].UnitPrice;
                      var unit_price =Object.entries(allProducts.val())[i][1][j].Price;
 
                     // var img_url = await firebase.storage().ref("/images/"+'CountDown'+"/Product/product"+id+".png").getDownloadURL();
                     // var img_url = "images/Products/"+"Countdown"+"/product"+id+".png";
-                    var img_url ='/images/Products/'+use+'/product'+id+'.png';
+                    var img_url ='/images/Products/'+use+'/product'+img_id+'.png';
                     //console.log(unit_price);
                      num++;
                      // function makeHTML(idTag, label ,pid , name ,  price ,url ){
-                     productControl.makeHtml("#shopItems", "", id, name, price,img_url, unit_price);
+                     productControl.makeHtml("#shopItems", "", id, name, price,img_url, unit_price, 1);
                      $("#numberOfProducts").html("");
                      $("#numberOfProducts").append(num);
                  }

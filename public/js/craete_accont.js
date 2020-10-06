@@ -26,10 +26,10 @@ var account = (function () {
 
             //add to database
             db.collection("users").doc(uid).set({
-               first_name: data[0],
-               last_name: data[1],
-               email: data[2],
-               address: data[3]
+               first_name: data[0].value,
+               last_name: data[1].value,
+               email: data[2].value,
+               address: data[3].value
             })
                .then(function (response) {
                 //  alert("new data created!");

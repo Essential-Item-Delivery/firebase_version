@@ -1,3 +1,5 @@
+var db = firebase.firestore();
+
 //When the user is signed in 
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
@@ -10,6 +12,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         console.log("not logged in");
     }
 });
+
 var checkout = (function () {
 
     //global variables
@@ -104,7 +107,7 @@ var checkout = (function () {
             email: data[2],
             address: data[3],
             uid: uid,
-            cart:  decodeURIComponent(window.localStorage.getItem(encodeURIComponent("cart")))
+            cart: JSON.parse(decodeURIComponent(window.localStorage.getItem(encodeURIComponent("cart"))))
 
          
 
@@ -128,20 +131,63 @@ var checkout = (function () {
 
         return false;
     }
+
     //Function to automaticallly fill the checkout form if the user is logged in
     pub.fill_form = async function(uid){
-        const data = await datacontrol.getUserInfo(uid);
+       // const data = await datacontrol.getUserInfo(uid);
+       
+       var docRef = db.collection("users").doc(uid);
+       //var test;
+
+       var data = await docRef.get().then( function (doc) {
+           if (doc.exists) {
         console.log(uid+"i am the uid");
-        //console.log(data.data().first_name + "i feel like summer");
+        //console.log(data.first_name + "i feel like summer");
         //$("#firstName").hide()
         //$("#firstName").html(data.first_name)
-        
+       // console.log("firstname"+data.first_name.value)
+        $('input')[1].value=doc.data().first_name.value;
+        $('input')[2].value=doc.data().last_name.value;
+        $('input')[4].value=doc.data().address.value;
+        $('input')[10].value=doc.data().email.value;
+         //       console.log("yeyayayy")
+           }
+        });
 
     }
 
+
+
     //setup public
     pub.setup = function () {
+        var value = Localstorage.get("cart");
+
+        if(value===null || value ==="null" || value===""){
+            //cart is empty
+        }else{
+
+            console.log(value);
+            cart= JSON.parse(value);
+            //add new item to cart
+
+            //clear cookie
+            var total = 0;
+            $("#checkoutITEMS").html("");
+            for(var i =0;i < cart.length;i++){
+                console.log(cart[i]);
+                var p = cart[i];
+                total = total + parseInt(p.unit_price);
+                $("#checkoutITEMS").append('<li>'+p.name+' <span>'+parseInt(p.unit_price)+'</span></li>');
+            }
+            //console.log(products);
+           $("#SUBBER").append("$"+total);
+           $("#totaller").append("$"+total);
+        }
+
+
+
         console.log("checkout loaded");
+        //this.fill_form();
 
     };
 
