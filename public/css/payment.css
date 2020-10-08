@@ -1,0 +1,10 @@
+/** PAYMENT CSS */
+
+.paymentContainer {
+    padding: 100px 0 0 0;
+}
+
+.submit-payment-button {
+    margin-top: 10px;
+    fill: #0aad0a
+}
