@@ -4,18 +4,57 @@ var datacontrol = (function () {
     var pub = {};
     var db = firebase.firestore();
 
+    pub.getALLorders = async function () {
+
+        var orders=[];
+
+       await db.collection("orders")
+            .get()
+            .then(function (querySnapshot) {
+                querySnapshot.forEach(function (doc) {
+                    // doc.data() is never undefined for query doc snapshots
+                    orders.push(doc.data());
+                    console.log(doc.id, " => ", doc.data());
+                });
+            })
+            .catch(function (error) {
+                console.log("Error getting documents: ", error);
+            });
+            console.log(orders);
+            return orders;
+    }
+
+    pub.getALLuser = async function () {
+
+        var orders=[];
+
+       await db.collection("users")
+            .get()
+            .then(function (querySnapshot) {
+                querySnapshot.forEach(function (doc) {
+                    // doc.data() is never undefined for query doc snapshots
+                    orders.push(doc.data());
+                    console.log(doc.id, " => ", doc.data());
+                });
+            })
+            .catch(function (error) {
+                console.log("Error getting documents: ", error);
+            });
+            console.log(orders);
+            return orders;
+    }
 
     pub.getUserName = async function (uid) {
         var docRef = db.collection("users").doc(uid);
         var test;
 
-        var data = await docRef.get().then( function (doc) {
+        var data = await docRef.get().then(function (doc) {
             if (doc.exists) {
                 console.log("Document data:", doc.data());
                 console.log("Document first name:", doc.data().first_name);
 
-                test=  doc.data().first_name;
-                return  doc.data();
+                test = doc.data().first_name;
+                return doc.data();
                 console.log("'!test is : '");
                 console.log(test);
             } else {
@@ -28,25 +67,25 @@ var datacontrol = (function () {
             console.log("Error getting document:", error);
         });
 
-        console.log('test is : '+test);
+        console.log('test is : ' + test);
         console.log("data : " + data);
 
-        return  data.first_name+" "+ data.last_name;
-      
+        return data.first_name + " " + data.last_name;
+
     }
 
     //get all info of the uswr this one you can finish it once you added data manually without the user account
-    pub.getAllInfo = async function(uid) {
+    pub.getAllInfo = async function (uid) {
         var docRef = db.collection("users").doc(uid);
         var test;
 
-        var data = await docRef.get().then( function (doc) {
+        var data = await docRef.get().then(function (doc) {
             if (doc.exists) {
                 console.log("Document data:", doc.data());
                 console.log("Document first name:", doc.data().first_name);
 
-                test=  doc.data().first_name;
-                return  doc.data();
+                test = doc.data().first_name;
+                return doc.data();
                 console.log("'!test is : '");
                 console.log(test);
             } else {
@@ -59,27 +98,27 @@ var datacontrol = (function () {
             console.log("Error getting document:", error);
         });
 
-        console.log('test is : '+test);
+        console.log('test is : ' + test);
         console.log("data : " + data);
 
-        return  data.first_name+" "+ data.last_name;
+        return data.first_name + " " + data.last_name;
     }
 
-    pub.getUserInfo = async function(uid) {
+    pub.getUserInfo = async function (uid) {
         var docRef = db.collection("users").doc(uid);
         //var test;
 
-        var data = await docRef.get().then( function (doc) {
+        var data = await docRef.get().then(function (doc) {
             if (doc.exists) {
                 console.log("Document data:", doc.data());
                 console.log("Document first name:", doc.data().first_name);
                 console.log("Document last name:", doc.data().last_name);
                 console.log("Document email:", doc.data().email);
                 console.log("Document address:", doc.data().address);
-                
-              
-                return  doc.data();
-              
+
+
+                return doc.data();
+
             } else {
                 // doc.data() will be undefined in this case
                 //result = "error!!!";
@@ -90,7 +129,7 @@ var datacontrol = (function () {
             console.log("Error getting document:", error);
         });
 
-        return data.first_name+data.last_name+data.email+data.address;
+        return data.first_name + data.last_name + data.email + data.address;
     }
 
 
