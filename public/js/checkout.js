@@ -117,7 +117,10 @@ var checkout = (function () {
                 db.collection("order_user").doc(uid).collection("order_IDs").doc(response.id).set({
                     test:"???"
                  });
-                return false;
+                 Localstorage.clear("cart");
+
+                 window.location.replace("payment.html");
+                return true;
             })
             .catch(function (error) {
                 alert("error messge: " + error.message);
@@ -126,7 +129,7 @@ var checkout = (function () {
             });
 
 
-        console.log("order created for the guest user!");
+       
         // console.log(data);
 
         return false;

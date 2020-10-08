@@ -34,6 +34,7 @@ var account = (function () {
                .then(function (response) {
                 //  alert("new data created!");
                   console.log("new data created!");
+                  window.location.replace("index.html");
                   return true;
                })
                .catch(function (error) {
