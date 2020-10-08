@@ -4,17 +4,11 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.
         console.log("user is logged in" + user);
-        //$("#accountAppend").append(<li><a href="./my-account.html">My Account</a></li>);
         $("#accountAppend").append('<li ><a href="./my-account.html?' + '" >' + '</a></li>');
         myAccount.accountDetails(firebase.auth().currentUser.uid);
-        //checkout.fill_form(firebase.auth().currentUser.uid);
-        //console.log("Calling this function")
 
     } else {
         console.log("not logged in");
-        //$("#my-account.html").remove();
-        // $("#loggerRemove").remove();
-
         console.log("check if the account page is remved")
     }
 });
