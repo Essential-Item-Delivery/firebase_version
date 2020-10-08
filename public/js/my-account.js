@@ -36,29 +36,47 @@ var myAccount = (function () {
 
                 console.log(uid + "i am the uid");
 
-                $('input')[1].value = "i am here"
                 $('input')[1].value = doc.data().first_name;
                 $('input')[2].value = doc.data().last_name;
                 $('input')[3].value = doc.data().email;
                 $('input')[4].value = doc.data().address;
 
-                //updating data in the databse
+
+                //Afetr clicking this button the data will be editable.
                 $("#editButton").click(function () {
                     // alert("The paragraph was clicked.");
+                    $("#firstName").attr('readonly', false);
+                    $("#lastName").attr('readonly', false);
+                    $("#email").attr('readonly', false);
+                    $("#address").attr('readonly', false);
+                    // alert("Successfully updated!");
+
+                });
+                //after clicking this user data will be updated in firestore database and the account details will become red only again.
+                $("#updateButton").click(function () {
                     const newData = {
                         first_name: $('input')[1].value,
+                        //first_name: $('input')[1].value,
                         last_name: $('input')[2].value,
                         email: $('input')[3].value,
                         address: $('input')[4].value,
 
                     }
-                    console.log(newData);
-                    db.collection("users").doc(firebase.auth().currentUser.uid).update(newData);
-                    alert("Successfully updated!");
-                   
+                    console.log(newData, "Here is the new data");
+                    firebase.firestore().collection("users").doc(firebase.auth().currentUser.uid).update(newData);
+
+                    console.log("User info should be updated ")
+                    alert("Account Updated!");
+                    $("#firstName").attr('readonly', true);
+                    $("#lastName").attr('readonly', true);
+                    $("#email").attr('readonly', true);
+                    $("#address").attr('readonly', true);
+
+                    //location.reload();
+
                 });
 
-             
+
             }
         });
 

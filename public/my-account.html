@@ -241,7 +241,6 @@
         <!-- Breadcrumb Section End -->
 
     <!-- Nav tabs -->
-    <div class="spinner"></div>
     <section class="product spad">
         <div class="container">
             <div class="row">
@@ -253,8 +252,6 @@
                             <h4>Dashboard</h4>
 
                             <ul role="tablist" class="nav flex-column dashboard-list">
-
-                                <li><a href="#account-details" data-toggle="tab">Update Account Details</a></li>
                                 <li><a href="#orders" data-toggle="tab"> Orders</a></li>
                                 <li><a href="#order-status" data-toggle="tab">Order Status</a></li>
                                 <li><a href="#address" data-toggle="tab">Address Book</a></li>
@@ -265,70 +262,45 @@
                         </div>
                     </div>
                 </div>
-
-                <section class="contact spad">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                                <div class="contact__widget">
-                                    <span class="fa fa-user" style="background-color:rgb(120, 191, 62);"></span>
-                                    <h4>My Profile</h4>
-                                    <div class="col-md-8">
-                                        
-                                        <input type="text" name="first-name" id="firstName" class="form-control" style="border-collapse: collapse; border: none;"readonly>
-                                        <input type="text" name="last-name" id="lastName" class="form-control"style="border-collapse: collapse; border: none;"readonly>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                                <div class="contact__widget">
-                                    <span class="icon_pin_alt"></span>
-                                    <h4>My Address</h4>
-                                    <input type="text" name="email-name" id="email" class="form-control" style="border-collapse: collapse; border: none;" readonly>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                                <div class="contact__widget">
-                                    <span class="icon_mail_alt"></span>
-                                    <h4>My Email</h4>
-                                    <input type="text" name="email-name" id="email" class="form-control" style="border-collapse: collapse; border: none;" readonly>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- Contact Section End -->
-
-                <!-- Account Details Begin -->
-                <!--  <div class="row"> add this when you want to hide it(tab-pane fade col-lg-9)-->
+               
                 <div class="col-lg-10">
                     <div class="row">
-                        <div class="tab-pane fade col-lg-9" id="account-details" style="background-color:rgb(120, 191, 62);">
-                            <h3>Account details </h3>
+                        <div class="col-md-8" id="account-main-page"f>
+                            <h3 style="text-align-last: left;">My Account</h3>
                             <div class="account-input-box">
                                 <div class="col-md-8">
                                     <!-- <div class="col-md-6"> -->
-                                    <label>First Name</label>
-                                    <input type="text" name="first-name" id="firstName" class="form-control" style="border-collapse: collapse; border: none;">
+                                    <label></label>First Name</label>
+                                    <input type="text" name="first-name" id="firstName" class="form-control"  style="text-align-last: center;"style="border-collapse: collapse; border: none;"readonly>
                                 </div>
                                 <div class="col-md-8">
                                     <label>Last Name</label>
-                                    <input type="text" name="last-name" id="lastName" class="form-control"style="border-collapse: collapse; border: none;">
+                                    <input type="text" name="last-name" id="lastName"style="text-align-last: center;" class="form-control"style="border-collapse: collapse; border: none;"readonly>
                                 </div>
-                                <div class="col-md-8">
+                                <div class="col-md-8" >
                                     <label>Email</label>
-                                    <input type="text" name="email-name" id="email" class="form-control" style="border-collapse: collapse; border: none;" readonly>
+                                    <input type="text" name="email-name" id="email" class="form-control" style="text-align-last: center;" style="border-collapse: collapse; border: none;" readonly>
                                 </div>
                                 <div class="col-md-8">
-                                    <label>Address</label>
-                                    <input type="text" name="user-address" id="address" class="form-control"style="border-collapse: collapse; border: none;">
+                                    <label >Address</label>
+                                    <input type="text" name="user-address" id="address" class="form-control" style="text-align-last: center;" style="border-collapse: collapse; border: none;"readonly>
+                                </div>
+                                <div class="col-md-4">
+                                    <pre></pre>
+                                <div class="row">
+                                    <pre>  </pre>
+                                    <button id = "editButton"class="btn default-btn" type="submit" style="background-color: lightgray;">Edit</button>
+                                    <pre> </pre>
+                                    <button id = "updateButton"class="btn default-btn" type="submit" style="background-color: lightgray;">Update</button>
                                 </div>
                             </div>
-                            <div class="button-box">
-                                <button id = "editButton"  style="background-color: rgb(26, 232, 8);"class="btn default-btn" type="submit">Update</button>
                             </div>
                         </div>
-                        <!-- Account Details End-->
+                    </div>
+                </div>
+
+              
+                <div class="col-lg-10">
                         <!-- Orders Begin-->
                         <div class="tab-pane fade" id="orders">
                             <h3>Orders</h3>
