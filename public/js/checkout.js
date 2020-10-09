@@ -1,23 +1,21 @@
+/**
+ * To add user inforamtion to the checkout form automatically, when logged in.
+ * Also we have functions here, which checks for validation of the user input,
+ * and a function to submit an order details to the firebase.
+ */
 var db = firebase.firestore();
 
-//When the user is signed in 
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        // User is signed in.
-        console.log("user is logged in" +user);
         checkout.fill_form(firebase.auth().currentUser.uid);
-        console.log("Calling this function")
-        
+
     } else {
-        console.log("not logged in");
     }
 });
 
 var checkout = (function () {
 
-    //global variables
     var pub = {};
-    //function to validate user input data at the front end.
     /**
      * Check to email
      * @param textValue
@@ -50,57 +48,39 @@ var checkout = (function () {
     function startsWith(textValue, startValue) {
         return textValue.substring(0, startValue.length) === startValue;
     }
-/**
-     * Check to see if a string is empty.
-     *
-     * Leading and trailing whitespace are ignored.
-     * @param textValue The string to check.
-     * @return True if textValue is not just whitespace, false otherwise.
-     */
+    /**
+         * Check to see if a string is empty.
+         *
+         * Leading and trailing whitespace are ignored.
+         * @param textValue The string to check.
+         * @return True if textValue is not just whitespace, false otherwise.
+         */
     function checkNotEmpty(textValue) {
         return textValue.trim().length > 0;
     }
     function validator(email) {
         if (!checkEmail(email)) {
-            console.log("Email is not in the correct format")
             return false;
 
         }
         return true;
     }
 
-    // function to submit an order details to the firebase.
     pub.submitOrder = function () {
 
-        console.log("submited");
-        var user= firebase.auth().currentUser;
-        if(user===null){
-            var uid ="guest";
-           
-        }else{
+        var user = firebase.auth().currentUser;
+        if (user === null) {
+            var uid = "guest";
+
+        } else {
             var uid = firebase.auth().currentUser.uid;
         }
         console.log(uid);
-        
+
 
         var db = firebase.firestore();
         var data = $('#checkout_form').serializeArray();
-        // $("#firstName").checkNotEmpty();
-        // checkNotEmpty(data[9])
-        console.log(data,"lets see what you got")
-        //add to database
-        //0: {name: "First_Name", value: ""}
-        // 1: {name: "Last_Name", value: ""}
-        // 2: {name: "Country", value: ""}
-        // 3: {name: "Street_Address", value: ""}
-        // 4: {name: "Address", value: ""}
-        // 5: {name: "Town/City", value: ""}
-        // 6: {name: "Country/State", value: ""}
-        // 7: {name: "Postcode", value: ""}
-        // 8: {name: "Phone", value: ""}
-        // 9: {name: "Email", value: ""}
-        // 10: {name: "Account_Password", value: ""}
-        // 11: {name: "Order_Notes", value: ""}
+
         db.collection("orders").add({
             first_name: data[0],
             last_name: data[1],
@@ -109,54 +89,43 @@ var checkout = (function () {
             uid: uid,
             cart: JSON.parse(decodeURIComponent(window.localStorage.getItem(encodeURIComponent("cart"))))
 
-         
+
 
         }).then(function (response) {
-                //  alert("new data created!");
-                console.log("guest order data created!" + response.id);
-                db.collection("order_user").doc(uid).collection("order_IDs").doc(response.id).set({
-                    test:"???"
-                 });
-                 Localstorage.clear("cart");
 
-                 window.location.replace("payment.html");
-                return true;
-            })
+            db.collection("order_user").doc(uid).collection("order_IDs").doc(response.id).set({
+                test: "???"
+            });
+            Localstorage.clear("cart");
+
+            window.location.replace("payment.html");
+            return true;
+        })
             .catch(function (error) {
                 alert("error messge: " + error.message);
-                console.log("error messge: " + error.message);
                 return false;
             });
-
-
-       
-        // console.log(data);
 
         return false;
     }
 
-    //Function to automaticallly fill the checkout form if the user is logged in
-    pub.fill_form = async function(uid){
-       // const data = await datacontrol.getUserInfo(uid);
-       
-       var docRef = db.collection("users").doc(uid);
-       //var test;
+    /**
+     * Function to automaticallly fill the checkout form if the user is logged in
+     */
+    pub.fill_form = async function (uid) {
 
-       var data = await docRef.get().then( function (doc) {
-           if (doc.exists) {
-        console.log(uid+"i am the uid");
-        //console.log(data.first_name + "i feel like summer");
-        //$("#firstName").hide()
-        //$("#firstName").html(data.first_name)
-       // console.log("firstname"+data.first_name.value)
-        $('input')[1].value=doc.data().first_name;
-        $('input')[2].value=doc.data().last_name;
-        $('input')[4].value=doc.data().address;
-        $('input')[10].value=doc.data().email;
-        var email_input =  $('input')[10];
-        email_input.readOnly=true;
-         //       console.log("yeyayayy")
-           }
+        var docRef = db.collection("users").doc(uid);
+
+        var data = await docRef.get().then(function (doc) {
+            if (doc.exists) {
+
+                $('input')[1].value = doc.data().first_name;
+                $('input')[2].value = doc.data().last_name;
+                $('input')[4].value = doc.data().address;
+                $('input')[10].value = doc.data().email;
+                var email_input = $('input')[10];
+                email_input.readOnly = true;
+            }
         });
 
     }
@@ -167,32 +136,23 @@ var checkout = (function () {
     pub.setup = function () {
         var value = Localstorage.get("cart");
 
-        if(value===null || value ==="null" || value===""){
-            //cart is empty
-        }else{
+        if (value === null || value === "null" || value === "") {
+        } else {
 
             console.log(value);
-            cart= JSON.parse(value);
-            //add new item to cart
+            cart = JSON.parse(value);
 
-            //clear cookie
             var total = 0;
             $("#checkoutITEMS").html("");
-            for(var i =0;i < cart.length;i++){
+            for (var i = 0; i < cart.length; i++) {
                 console.log(cart[i]);
                 var p = cart[i];
                 total = total + parseFloat(p.unit_price);
-                $("#checkoutITEMS").append('<li>'+p.name+' <span>'+parseInt(p.unit_price)+'</span></li>');
+                $("#checkoutITEMS").append('<li>' + p.name + ' <span>' + parseInt(p.unit_price) + '</span></li>');
             }
-            //console.log(products);
-           $("#SUBBER").append("$"+total);
-           $("#totaller").append("$"+total);
+            $("#SUBBER").append("$" + total);
+            $("#totaller").append("$" + total);
         }
-
-
-
-        console.log("checkout loaded");
-        //this.fill_form();
 
     };
 
@@ -203,7 +163,6 @@ var checkout = (function () {
 
 
 $(document).ready(checkout.setup);
-//$(document).ready(checkout.submitOrder);
 
 
 
