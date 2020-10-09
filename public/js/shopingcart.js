@@ -1,3 +1,6 @@
+/**
+ * To control the shoppong cart.
+ */
 var cartcontrol = (function () {
 
     //global variables
