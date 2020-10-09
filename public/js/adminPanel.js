@@ -37,7 +37,7 @@ var adminPanel = (function () {
 
         for (var i = 1; i < orders.length; i++) {
             orders[i - 1].first_name;
-            $("#ctable").find("tbody").append(makeHTML4(i, orders[i - 1].first_name + " " + orders[i - 1].last_name, orders[i - 1].first_name, orders[i - 1].address, orders[i - 1].email));
+            $("#ctable").find("tbody").append(makeHTML4(i, orders[i - 1].first_name + " " + orders[i - 1].last_name, orders[i - 1].address, orders[i - 1].email));
         }
 
 
