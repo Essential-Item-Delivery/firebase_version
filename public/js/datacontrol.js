@@ -24,6 +24,55 @@ var datacontrol = (function () {
             return orders;
     }
 
+    pub.getOrderfromUser = async function (uid) {
+
+        var orders=[];
+        var ordersID=[];
+       await db.collection("order_user").doc(uid).collection("order_IDs")
+            .get()
+            .then(function (querySnapshot) {
+                querySnapshot.forEach(function (doc) {
+                    // doc.data() is never undefined for query doc snapshots
+                    ordersID.push(doc.id);
+                    console.log(doc.id, " => ", doc.data());
+                });
+            })
+            .catch(function (error) {
+                console.log("Error getting documents: ", error);
+            });
+
+             var docRef = db.collection("orders").doc(ordersID[0]);
+
+
+             for(var i=0;i<ordersID.length;i++){
+
+
+             }
+            await docRef.get().then(function (doc) {
+                if (doc.exists) {
+                    console.log("Document data:", doc.data());
+                    // console.log("Document first name:", doc.data().first_name);
+                    
+                    orders.push(doc.data());
+
+                    // test = doc.data().first_name;
+                    // return doc.data();
+                    // console.log("'!test is : '");
+                    // console.log(test);
+                } else {
+                    // doc.data() will be undefined in this case
+                    //result = "error!!!";
+                    console.log("No such document!");
+                }
+            }).catch(function (error) {
+                //result = "error!!!";
+                console.log("Error getting document:", error);
+            });
+
+            console.log(orders);
+            return orders;
+    }
+
     pub.getALLuser = async function () {
 
         var orders=[];
