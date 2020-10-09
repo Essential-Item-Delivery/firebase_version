@@ -14,7 +14,7 @@ var datacontrol = (function () {
                 querySnapshot.forEach(function (doc) {
                     // doc.data() is never undefined for query doc snapshots
                     orders.push(doc.data());
-                    console.log(doc.id, " => ", doc.data());
+                    // console.log(doc.id, " => ", doc.data());
                 });
             })
             .catch(function (error) {
@@ -34,7 +34,7 @@ var datacontrol = (function () {
                 querySnapshot.forEach(function (doc) {
                     // doc.data() is never undefined for query doc snapshots
                     ordersID.push(doc.id);
-                    console.log(doc.id, " => ", doc.data());
+                    // console.log(doc.id, " => ", doc.data());
                 });
             })
             .catch(function (error) {
