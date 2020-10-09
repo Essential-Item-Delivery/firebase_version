@@ -35,19 +35,26 @@ var indexControl = (function () {
         //############################
         //get array of all shop name        
         var shops =  Object.keys(t.val());
-
+        var catge=[];
         for(var i =0 ; i<shops.length-1; i++){
             console.log(shops[i]);
-            for(var j =3; j<6; j++){
+            for(var j =4; j<8; j++){
                var p =Object.entries(t.val())[i][1][j];
                console.log(p);
                var img_id = parseInt(p.ProductID)+1;
                //var url = await firebase.storage().ref("/images/"+shops[i]+"/Product/product"+p.ProductID+".png").getDownloadURL();
                var img_url ='/images/Products/'+shops[i]+'/product'+img_id+'.png';
                console.log(p.Category + escapeHtml(p.Category));
-                makeHTML(p.Category,p.ProductID,p.ProductName,p.UnitPrice,img_url);
+               var laber = escapeHtml(p.Category);
+               catge.push(escapeHtml(p.Category));
+              
+                makeHTML(laber,p.ProductID,p.ProductName,p.UnitPrice,img_url);
             }
         }
+        //testing for cates
+        console.log(  Array.from(new Set(catge)));
+       var unique= Array.from(new Set(catge));
+     
         //get array of product use index
         Object.entries(t.val())[0][1];
 
@@ -55,6 +62,14 @@ var indexControl = (function () {
             var bg = $(this).data('setbg');
             $(this).css('background-image', 'url(' + bg + ')');
         });
+
+
+        
+           
+           
+        
+
+
         //get imgs
        // await firebase.storage().ref("/images/CountDown/Product/product1.png").getDownloadURL();
         // final StorageReference storageRef = storage.getReference();
@@ -71,11 +86,12 @@ var indexControl = (function () {
     }
     function escapeHtml(unsafe) {
         return unsafe
-             .replace(/&/g, "&amp;")
-             .replace(/</g, "&lt;")
-             .replace(/>/g, "&gt;")
-             .replace(/"/g, "&quot;")
-             .replace(/'/g, "&#039;");
+            //  .replace(/&/g, "&amp;")
+            //  .replace(/</g, "&lt;")
+            //  .replace(/>/g, "&gt;")
+            //  .replace(/"/g, "&quot;")
+            //  .replace(/'/g, "&#039;")
+             .replace(/ /g, "&nbsp;");
      }
     function makeHTML(label ,pid , name ,  price ,url, unit_price){
         $("#setPopular").append(
@@ -140,11 +156,26 @@ var indexControl = (function () {
 
         // #singel thread 
         //load iteams 
-        await setItems();
+        //await setItems();
         //load cart
         await cartmodule.setup();
         //stop loading spinner
         await setTimeout(hidespinner, 500);
+
+
+
+         /*------------------
+            Gallery filter
+        --------------------*/
+        $('.featured__controls li').on('click', function () {
+            $('.featured__controls li').removeClass('active');
+            $(this).addClass('active');
+        });
+        if ($('.featured__filter').length > 0) {
+            var containerEl = document.querySelector('.featured__filter');
+            var mixer = mixitup(containerEl);
+        }
+
     }
 
     return pub;
