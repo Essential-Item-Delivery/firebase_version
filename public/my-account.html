@@ -258,7 +258,8 @@
 
                             <ul class="nav flex-column dashboard-list">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#orders"> Orders</a>
+                                    <a class="nav-link" id="olink" href="#Orders"> Orders</a>
+                                    <a class="nav-link" id="alink" href="#account"> My account</a>
                                 </li>
                                 <!--<li><a href="#order-status" data-toggle="tab">Order Status</a></li>
                                 <li><a href="#address" data-toggle="tab">Address Book</a></li>-->
@@ -273,8 +274,33 @@
                 </div>
 
                 <div class="col-lg-10">
+
+                    <div class="col-lg-10" >
+                        <!-- Orders Begin-->
+                        <div class="col-md-12" id="orders" >
+                            <h3>Orders</h3>
+                            <div class="table-responsive">
+                                <table class="table boder-b">
+                                    <thead>
+                                        <tr>
+                                            <th>Order ID</th>
+                                            <th>Email</th>
+                                            <th>Status</th>
+                                            <th>Total</th>
+                                            <th>Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div> 
+
+
                     <div class="row">
-                        <div class="col-md-8" id="account-main-page" f>
+                        <div class="col-md-8" id="account-main-page" >
                             <h3 style="text-align-last: left;">My Account</h3>
                             <div class="account-input-box">
                                 <div class="col-md-8">
@@ -320,58 +346,8 @@
                           
 
                 </pre>
-                <div class="col-lg-10">
-                    <!-- Orders Begin-->
-                    <div class="col-md-12" id="orders">
-                        <h3>Orders</h3>
-                        <div class="table-responsive">
-                            <table class="table boder-b">
-                                <thead>
-                                    <tr>
-                                        <th>Order</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
-                                        <th>Total</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>May 10, 2018</td>
-                                        <td>Processing</td>
-                                        <td>$25.00 for 1 item </td>
-                                        <td><a href="cart.html" class="view">view</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>May 10, 2018</td>
-                                        <td>Processing</td>
-                                        <td>$17.00 for 1 item </td>
-                                        <td><a href="cart.html" class="view">view</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>May 10, 2018</td>
-                                        <td>Processing</td>
-                                        <td>$17.00 for 1 item </td>
-                                        <td><a href="cart.html" class="view">view</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>May 10, 2018</td>
-                                        <td>Processing</td>
-                                        <td>$17.00 for 1 item </td>
-                                        <td><a href="cart.html" class="view">view</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <pre>
+                
 
-
-                    </pre>
                     <!-- Orders Ends-->
 
                     <!-- <div class="tab-pane fade" id="address">

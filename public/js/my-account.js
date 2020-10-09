@@ -18,6 +18,44 @@ var myAccount = (function () {
 
     var pub = {};
 
+    function makeHTML5(one,two,three,four,five) {
+
+        return ' <tr>' +
+            '       <th scope="row">'+one+'</th>' +
+            '       <td>'+two+'</td>' +
+            '      <td>'+three+'</td>' +
+            '     <td>'+four+'</td>' +
+            '     <td>'+five+'</td>' +
+            '</tr>';
+    }
+
+    pub.showOrder = async function () {
+        $("#orders").show();
+        $("#account-main-page").hide();
+        var uid  = firebase.auth().currentUser.uid;
+        $("#orders").find("tbody").html("");
+        var orders = await datacontrol.getALLorders();
+       
+        for(var i= 1; i<orders.length;i++){
+            if(uid===orders[i-1].uid){
+                var cart =orders[i-1].cart;
+                var carthtml="<ul>" ;
+                for(var j= 0; j<cart.length;j++){
+                 carthtml+="<li>ID:"+orders[i-1].cart[j].pid +" \t name:"+orders[i-1].cart[j].name+" x "+ orders[i-1].cart[j].unit+"</li>"
+     
+                }
+     
+                 var name =orders[i-1].first_name.value+" "+orders[i-1].last_name.value;
+                 var address =orders[i-1].address.value;
+                 $("#orders").find("tbody").append(makeHTML5(i, name,address ,100, carthtml));
+            }
+          
+        }
+
+        
+    }
+
+
     //Function to automaticallly fill the checkout form if the user is logged in
     pub.accountDetails = async function (uid) {
         // const data = await datacontrol.getUserInfo(uid);
@@ -76,11 +114,17 @@ var myAccount = (function () {
 
     }
 
-
+    pub.showAccount =function(){
+        $("#orders").hide();
+      
+        $("#account-main-page").show();
+    }
 
     //setup function
     pub.setup = function () {
-
+        $("#orders").hide();
+        $("#olink").click(pub.showOrder);
+        $("#alink").click(pub.showAccount);
         //pub.accountDetails();
     };
     return pub;
