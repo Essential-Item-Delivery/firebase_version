@@ -39,7 +39,7 @@ var productControl = (function () {
     }
 
     function searchSet(child) {
-        // alert(child);
+        //  alert(child);
         console.log(child);
         Localstorage.clear("search");
         Localstorage.clear("category");

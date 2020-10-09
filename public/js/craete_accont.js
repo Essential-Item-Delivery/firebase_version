@@ -1,6 +1,8 @@
+/**
+ * For user to create an account and send thier information to the database.
+ */
 var account = (function () {
    'use strict';
-   //global variables
    var pub = {}, submit;
 
    pub.submit = function () {
@@ -11,20 +13,9 @@ var account = (function () {
 
       var data = $('#create_account_form').serializeArray();
 
-      //test: data format
-      // 0: {name: "first_name", value: "qwe"}
-      // 1: {name: "last_name", value: "qwe"}
-      // 2: {name: "email", value: "html@test1.qwe"}
-      // 3: {name: "address", value: "qwe"}
-      // 4: {name: "password", value: "qweqwe"}
-
       auth.createUserWithEmailAndPassword(data[2].value, data[4].value)
          .then(function (response) {
-           // alert("account create success");
-              console.log("account create success");
             var uid = firebase.auth().currentUser.uid;
-
-            //add to database
             db.collection("users").doc(uid).set({
                first_name: data[0].value,
                last_name: data[1].value,
@@ -32,20 +23,12 @@ var account = (function () {
                address: data[3].value
             })
                .then(function (response) {
-                //  alert("new data created!");
-                  console.log("new data created!");
                   window.location.replace("index.html");
                   return true;
                })
                .catch(function (error) {
                   alert("error messge: " + error.message);
-                  console.log("error messge: " + error.message);
                });
-
-
-            console.log("new account created!");
-            console.log("uidis:" + firebase.auth().currentUser.uid);
-            // return false;
          })
          .catch(function (error) {
             alert("error messge: " + error.message);
@@ -53,7 +36,7 @@ var account = (function () {
             return false;
          });
 
-    
+
       console.log(data);
       return false;
 
@@ -64,50 +47,12 @@ var account = (function () {
 
 
 
-      //test: get form data
-      //var data =$('#create_account_form').serializeArray();
-
-
-      //test: firebase database auth::https://firebase.google.com/docs/firestore/quickstart?authuser=0#%E9%94%81%E5%AE%9A%E6%A8%A1%E5%BC%8F
-
-      // Allow read/write access to all users under any conditions
-      // Warning: **NEVER** use this rule set in production; it allows
-      // anyone to overwrite your entire database.
-      // service cloud.firestore {
-      //    match /databases/{database}/documents {
-      //      match /{document=**} {
-      //        allow read, write: if true;
-      //      }
-      //    }
-      //  }
-
-
-
-      // Allow read/write access on all documents to any user signed in to the application
-      // service cloud.firestore {
-      //    match /databases/{database}/documents {
-      //      match /{document=**} {
-      //        allow read, write: if request.auth.uid != null;
-      //      }
-      //    }
-      //  }
-
-      // // Deny read/write access to all users under any conditions
-      // service cloud.firestore {
-      //    match /databases/{database}/documents {
-      //      match /{document=**} {
-      //        allow read, write: if false;
-      //      }
-      //    }
-      //  }
-
    };
 
    return pub;
 
 
 }());
-
 
 
 $(document).ready(account.setup);

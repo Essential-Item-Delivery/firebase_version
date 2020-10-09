@@ -1,11 +1,11 @@
+/**
+ * Uses cookies for local storage.
+ */
 var Cookie = (function () {
 
     var pub = {};
 
     pub.set = function (name, value, hour) {
-
-        //console.log(new Date().getSeconds()) ;
-
 
         var date, expires;
         if (hour) {
@@ -16,14 +16,7 @@ var Cookie = (function () {
         } else {
             expires = "";
         }
-
-       // console.log(name);
-        //console.log(encodeURIComponent(name));
-
-       // var encodename= encodeURIComponent(name);
-
         document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + expires + "; path=/";
-
     };
 
     pub.get = function (name) {
@@ -39,18 +32,13 @@ var Cookie = (function () {
         return null;
     };
 
-
-    pub.showALL= function(){
-        var cookies,cookie,i,nameEq;
-
-        var result="empty";
+    pub.showALL = function () {
+        var cookies, cookie, i, nameEq;
+        var result = "empty";
         cookies = document.cookie.split(";");
-
         for (i = 0; i < cookies.length; i += 1) {
             cookie = cookies[i].trim();
-
-            result+= "\n"+cookie.substring(cookie.name, decodeURIComponent(cookie.length));
-
+            result += "\n" + cookie.substring(cookie.name, decodeURIComponent(cookie.length));
         }
         return result;
 
