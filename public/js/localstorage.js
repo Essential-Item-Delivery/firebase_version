@@ -1,9 +1,11 @@
+/**
+ * This is to stores shopping cart items before we submit it to the databse.
+ */
 var Localstorage = (function () {
 
     var pub = {};
 
     pub.set = function (name, value, hour) {
-
 
         window.localStorage.setItem(encodeURIComponent(name), encodeURIComponent(value));
         var cart =Localstorage.get("cart");
@@ -22,13 +24,11 @@ var Localstorage = (function () {
         nameEq = encodeURIComponent(name);
 
         return decodeURIComponent(window.localStorage.getItem(nameEq));
-
     };
 
 
     pub.showALL= function(){
         var cookies,cookie,i,nameEq;
-
         var result="empty";
         cookies = document.cookie.split(";");
 

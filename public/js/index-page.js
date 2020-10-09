@@ -1,3 +1,6 @@
+/**
+ * Controls the functionality on the index or home page, what to show when the user visit the website.
+ */
 var Carousel = (function () {
     'use strict';
     var pub = {};
@@ -27,11 +30,11 @@ var Carousel = (function () {
 
     pub.setup = function () {
 
-        categoryList.push(new MovieCategory("Classic","images/Metropolis.jpg" , "classic.html"));
+        categoryList.push(new MovieCategory("Classic", "images/Metropolis.jpg", "classic.html"));
 
-        categoryList.push(new MovieCategory("Science Fiction","images/Plan_9_from_Outer_Space.jpg", "scifi.html"));
+        categoryList.push(new MovieCategory("Science Fiction", "images/Plan_9_from_Outer_Space.jpg", "scifi.html"));
 
-        categoryList.push(new MovieCategory("Alfred Hitchcock","images/Vertigo.jpg", "hitchcock.html"));
+        categoryList.push(new MovieCategory("Alfred Hitchcock", "images/Vertigo.jpg", "hitchcock.html"));
         nextCategory();
         setInterval(nextCategory, 2000);
     };
@@ -45,15 +48,9 @@ if (window.addEventListener) {
 
 } else if (window.attachEvent) {
 
-    window.attachEvent("onload",Carousel.setup);
+    window.attachEvent("onload", Carousel.setup);
 
-}else {
+} else {
 
     alert("Could not attach ’MovieCategories.setup’ to the ’window.onload’ event");
 }
-
-
-// if(document.getElementById){
-//     window.onload=Carousel.setup;
-//
-// }
