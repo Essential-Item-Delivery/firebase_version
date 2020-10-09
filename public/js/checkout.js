@@ -181,7 +181,7 @@ var checkout = (function () {
             for(var i =0;i < cart.length;i++){
                 console.log(cart[i]);
                 var p = cart[i];
-                total = total + parseInt(p.unit_price);
+                total = total + parseFloat(p.unit_price);
                 $("#checkoutITEMS").append('<li>'+p.name+' <span>'+parseInt(p.unit_price)+'</span></li>');
             }
             //console.log(products);

@@ -2936,12 +2936,26 @@ ol {
     .container {
         max-width: 1170px;
     }
+    header {
+        background-color: white;
+        position: fixed;
+        top: 0;
+        z-index: 999;
+        width: 100%;
+    }
 }
 
 
 /* Medium Device = 1200px */
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    header {
+        background-color: white;
+        position: fixed;
+        top: 0;
+        z-index: 999;
+        width: 100%;
+    }
     .header__menu ul li {
         margin-right: 45px;
     }
@@ -3564,13 +3578,13 @@ ol {
 
 /* ##############################   header keep top ################################################ */
 
-header {
+/* header {
     background-color: white;
     position: fixed;
     top: 0;
     z-index: 999;
     width: 100%;
-}
+} */
 
 .hero {
     margin-top: 180px;
