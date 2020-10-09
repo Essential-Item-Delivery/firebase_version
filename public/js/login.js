@@ -29,7 +29,7 @@ var login = (function () {
                 location.href = 'index.html';
             })
             .catch(function (error) {
-                $('p').html("<p>error messge: " + error.message + "</p>");
+                $('#message').html("<p>error messge: " + error.message + "</p>");
 
             });
 
