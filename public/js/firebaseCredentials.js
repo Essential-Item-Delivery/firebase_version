@@ -1,5 +1,7 @@
 
- // Your web app's Firebase configuration
+ /**
+  * Your web app's Firebase configuration and initialization.
+  */
  var firebaseConfig = {
     apiKey: "AIzaSyD1YUfUwKlU_Ge1YO0IAL-XtoxyhZ5IPqQ",
     authDomain: "shopperly-application.firebaseapp.com",
@@ -10,6 +12,5 @@
     appId: "1:676747994228:web:679586322f0c01df191d21",
     measurementId: "G-LZJZTDD4E8"
   };
-  // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
