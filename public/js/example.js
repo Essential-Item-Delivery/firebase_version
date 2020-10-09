@@ -1,3 +1,6 @@
+/**
+ * This is jsut an example file, whic shows how a jquery file and the functions can be setup.
+ */
 var name_of_module = (function () {
 
     //global variables
@@ -12,15 +15,12 @@ var name_of_module = (function () {
     pub.functiona = function () {
         firebase.auth().signOut()
             .then(function () {
-                // Sign-out successful.
             }).catch(function (error) {
-                // An error happened.
             });
     }
 
     //setup public
     pub.setup = function () {
-        //console.log("test");
         $('#login_form').submit(create);
 
     };
@@ -28,8 +28,6 @@ var name_of_module = (function () {
     return pub;
 
 }());
-
-
 
 $(document).ready(name_of_module.setup);
 

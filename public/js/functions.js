@@ -1,4 +1,6 @@
-// Get elements
+/**
+ * login with user email and password and make sure user puts the correct email and password.
+ */
 const email = document.getElementById('input-Email');
 const password = document.getElementById('input-Password');
 
@@ -18,6 +20,5 @@ function login() {
         } else {
             alert(errorMessage);
         }
-        console.log(error);
     })
 };
