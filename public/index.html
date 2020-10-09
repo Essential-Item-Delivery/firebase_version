@@ -84,7 +84,7 @@
                 </ul>
             </div>
             <div class="header__top__right__auth" class="divlogin">
-                <a href="signIn.html"><i  class="fa fa-user">Login</i> </a>
+                <a href="signIn.html"><i class="fa fa-user">Login</i> </a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -148,7 +148,8 @@
                                 </ul>
                             </div>-->
                             <div class="header__top__right__auth , divlogin" id="creater">
-                                <a href="createAccount.html" id="createrRemove"><i class="fa fa-user"  > Register </i> </a>
+                                <a href="createAccount.html" id="createrRemove"><i class="fa fa-user"> Register </i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -196,66 +197,6 @@
     <section class="hero">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>All departments</span>
-                        </div>
-                        <ul id="dropper">
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="/shop-grid.html" onsubmit="productControl.searchByName()">
-                                <div class="hero__search__categories" id="categoryList">
-                                </div>
-                                <input type="text" placeholder="What do you need?">
-                                <button type="submit" class="site-btn" id="nameSearch">SEARCH</button>
-                            </form>
-                        </div>
-                        <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="hero__search__phone__text">
-                                <h5>0800 YOUR NUM</h5>
-                                <span>Cust Support: 8am-3pm</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
-                        <div class="hero__text">
-                            <span>SHOPPERLY</span>
-                            <h2>Click & Receive<br />100% For You!</h2>
-                            <p>Straight to your door! No fuss!</p>
-                            <a href="./shop-grid.html" class="primary-btn">SHOP NOW</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Hero Section End -->
-
-    <!-- Featured Section Begin -->
-    <div class="spinner"></div>
-    <section class="featured spad">
-        <div class="container">
-            <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
                         <h2>Featured Product</h2>
@@ -263,14 +204,31 @@
 
                     <div class="featured__controls">
                         <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".oranges">Oranges</li>
+                             <li class="active" data-filter="*">All</li>
+                           <!-- <li data-filter=".oranges">Oranges</li>
                             <li data-filter=".fresh-meat">Fresh Meat</li>
                             <li data-filter=".vegetables">Vegetables</li>
                             <li data-filter=".fastfood">Fastfood</li>
                             <li data-filter=".Pantry">Pantry</li>
-                            <li data-filter=".Fresh&nbsp;Foods&nbsp;Bakery">Fresh Foods & Bakery</li>
-                            <li data-filter=".Make&nbsp;Up">Make Up</li>
+                            <li data-filter=".Fresh&nbsp;Foods&nbsp;Bakery">Fresh Foods &amp; Bakery</li>
+                            <li data-filter=".Make&nbsp;Up">Make Up</li> -->
+
+
+                            <li data-filter=".Fruits">Fruits &amp; Veg</li>
+                            <li data-filter=".Make&nbsp;Up&nbsp;">Make Up</li>
+                            <li data-filter=".Skincare">Skincare &amp; Body Care</li>
+                            <li data-filter=".Fresh">Fresh Foods &amp; Bakery</li>
+                            <li data-filter=".Chilled">Chilled, Frozen &amp;
+                                Desserts</li>
+
+
+                            <!-- <li data-filter=".Chilled,&nbsp;Frozen&nbsp;&amp;&nbsp;Desserts">Chilled, Frozen & Desserts</li> -->
+
+                            <!-- 0: "Fruits & Veg"
+                            1: "Make Up "
+                            2: "Skincare & Body Care"
+                            3: "Fresh Foods & Bakery"
+                            4: "Chilled, Frozen & Desserts" -->
                         </ul>
                     </div>
 
@@ -280,130 +238,233 @@
             <div class="row featured__filter" id="setPopular">
 
 
-                <!-- <div class="col-lg-3 col-md-4 col-sm-6 mix oranges Fresh&nbsp;Foods&nbsp;Bakery">
+
+
+
+
+                <div class="col-lg-3 col-md-4 col-sm-6 mix Fruits">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="https://firebasestorage.googleapis.com/v0/b/shopperly-application.appspot.com/o/images%2FCountDown%2FProduct%2Fproduct1.png?alt=media&token=614a8d8f-0e9d-4414-8ee4-4ec1eef88212">
+                        <div class="featured__item__pic set-bg" data-setbg="/images/Products/CountDown/product5.png"
+                            style="background-image: url(&quot;/images/Products/CountDown/product5.png&quot;);">
                             <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a><i class="fa fa-heart"></i></a></li>
+                                <li><a><i class="fa fa-retweet"></i></a></li>
+                                <li><a><i class="fa fa-shopping-cart"></i></a>
+                                    <p hidden="">4</p>
+                                </li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div> -->
-                <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-2.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h6><a>Fresh Produce Garlic Whole Bulbs</a></h6>
+                            <h5>$2.50/bag</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
+                <div class="col-lg-3 col-md-4 col-sm-6 mix Fruits">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-3.jpg">
+                        <div class="featured__item__pic set-bg" data-setbg="/images/Products/CountDown/product6.png"
+                            style="background-image: url(&quot;/images/Products/CountDown/product6.png&quot;);">
                             <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a><i class="fa fa-heart"></i></a></li>
+                                <li><a><i class="fa fa-retweet"></i></a></li>
+                                <li><a><i class="fa fa-shopping-cart"></i></a>
+                                    <p hidden="">5</p>
+                                </li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h6><a>Fresh Produce Parsnip Prepacked</a></h6>
+                            <h5>$3.99/pk</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix  Make&nbsp;Up">
+                <div class="col-lg-3 col-md-4 col-sm-6 mix Fruits">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-4.jpg">
+                        <div class="featured__item__pic set-bg" data-setbg="/images/Products/CountDown/product7.png"
+                            style="background-image: url(&quot;/images/Products/CountDown/product7.png&quot;);">
                             <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a><i class="fa fa-heart"></i></a></li>
+                                <li><a><i class="fa fa-retweet"></i></a></li>
+                                <li><a><i class="fa fa-shopping-cart"></i></a>
+                                    <p hidden="">6</p>
+                                </li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$31000000.00</h5>
+                            <h6><a>Fresh Produce Capsicum Green</a></h6>
+                            <h5>$3.99/ea</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
+                <div class="col-lg-3 col-md-4 col-sm-6 mix Fruits">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-5.jpg">
+                        <div class="featured__item__pic set-bg" data-setbg="/images/Products/CountDown/product8.png"
+                            style="background-image: url(&quot;/images/Products/CountDown/product8.png&quot;);">
                             <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a><i class="fa fa-heart"></i></a></li>
+                                <li><a><i class="fa fa-retweet"></i></a></li>
+                                <li><a><i class="fa fa-shopping-cart"></i></a>
+                                    <p hidden="">7</p>
+                                </li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h6><a>Fresh Produce Parsely Curly</a></h6>
+                            <h5>$4.00/bunch</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fastfood">
+                <div class="col-lg-3 col-md-4 col-sm-6 mix Make&nbsp;Up&nbsp;">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-6.jpg">
+                        <div class="featured__item__pic set-bg"
+                            data-setbg="/images/Products/LifePharmacy/product209.png"
+                            style="background-image: url(&quot;/images/Products/LifePharmacy/product209.png&quot;);">
                             <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a><i class="fa fa-heart"></i></a></li>
+                                <li><a><i class="fa fa-retweet"></i></a></li>
+                                <li><a><i class="fa fa-shopping-cart"></i></a>
+                                    <p hidden="">208</p>
+                                </li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h6><a>Benefit Brow Blender Tool</a></h6>
+                            <h5>$38.00 </h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
+                <div class="col-lg-3 col-md-4 col-sm-6 mix Skincare">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-7.jpg">
+                        <div class="featured__item__pic set-bg"
+                            data-setbg="/images/Products/LifePharmacy/product210.png"
+                            style="background-image: url(&quot;/images/Products/LifePharmacy/product210.png&quot;);">
                             <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a><i class="fa fa-heart"></i></a></li>
+                                <li><a><i class="fa fa-retweet"></i></a></li>
+                                <li><a><i class="fa fa-shopping-cart"></i></a>
+                                    <p hidden="">209</p>
+                                </li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h6><a>Blackmores Bio Zinc Tablets 84s</a></h6>
+                            <h5>$18.99 </h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
+                <div class="col-lg-3 col-md-4 col-sm-6 mix Skincare">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-8.jpg">
+                        <div class="featured__item__pic set-bg"
+                            data-setbg="/images/Products/LifePharmacy/product211.png"
+                            style="background-image: url(&quot;/images/Products/LifePharmacy/product211.png&quot;);">
                             <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a><i class="fa fa-heart"></i></a></li>
+                                <li><a><i class="fa fa-retweet"></i></a></li>
+                                <li><a><i class="fa fa-shopping-cart"></i></a>
+                                    <p hidden="">210</p>
+                                </li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h6><a>Aveeno Intensive Relief Hand Cream 100g</a></h6>
+                            <h5>$12.49 </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix Skincare">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg"
+                            data-setbg="/images/Products/LifePharmacy/product212.png"
+                            style="background-image: url(&quot;/images/Products/LifePharmacy/product212.png&quot;);">
+                            <ul class="featured__item__pic__hover">
+                                <li><a><i class="fa fa-heart"></i></a></li>
+                                <li><a><i class="fa fa-retweet"></i></a></li>
+                                <li><a><i class="fa fa-shopping-cart"></i></a>
+                                    <p hidden="">211</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a>Bio-Oil Dry Skin Gel 200ml</a></h6>
+                            <h5>$31.99 </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix Fresh">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="/images/Products/NewWorld/product120.png"
+                            style="background-image: url(&quot;/images/Products/NewWorld/product120.png&quot;);">
+                            <ul class="featured__item__pic__hover">
+                                <li><a><i class="fa fa-heart"></i></a></li>
+                                <li><a><i class="fa fa-retweet"></i></a></li>
+                                <li><a><i class="fa fa-shopping-cart"></i></a>
+                                    <p hidden="">119</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a>Produce Carrots kg</a></h6>
+                            <h5>$2.20.kg</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix Chilled">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="/images/Products/NewWorld/product121.png"
+                            style="background-image: url(&quot;/images/Products/NewWorld/product121.png&quot;);">
+                            <ul class="featured__item__pic__hover">
+                                <li><a><i class="fa fa-heart"></i></a></li>
+                                <li><a><i class="fa fa-retweet"></i></a></li>
+                                <li><a><i class="fa fa-shopping-cart"></i></a>
+                                    <p hidden="">120</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a>Butchery Skinless Chicken Breast kg</a></h6>
+                            <h5>$11.99/kg</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix Chilled">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="/images/Products/NewWorld/product122.png"
+                            style="background-image: url(&quot;/images/Products/NewWorld/product122.png&quot;);">
+                            <ul class="featured__item__pic__hover">
+                                <li><a><i class="fa fa-heart"></i></a></li>
+                                <li><a><i class="fa fa-retweet"></i></a></li>
+                                <li><a><i class="fa fa-shopping-cart"></i></a>
+                                    <p hidden="">121</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a>Flora Buttery Spread 500g</a></h6>
+                            <h5>$2.79/ea</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix Chilled">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="/images/Products/NewWorld/product123.png"
+                            style="background-image: url(&quot;/images/Products/NewWorld/product123.png&quot;);">
+                            <ul class="featured__item__pic__hover">
+                                <li><a><i class="fa fa-heart"></i></a></li>
+                                <li><a><i class="fa fa-retweet"></i></a></li>
+                                <li><a><i class="fa fa-shopping-cart"></i></a>
+                                    <p hidden="">122</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a>Pams Crinkle Cut Fries 1kg</a></h6>
+                            <h5>$2.79/ea</h5>
                         </div>
                     </div>
                 </div>
             </div>
 
 
-        </div>
         </div>
     </section>
     <!-- Featured Section End -->
@@ -724,7 +785,9 @@
                                 Copyright &copy;
                                 <script>
                                     document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                </script> All rights reserved | This template is made with <i class="fa fa-heart"
+                                    aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                    target="_blank">Colorlib</a>
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </p>
                         </div>
