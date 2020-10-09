@@ -29,6 +29,8 @@ var login = (function () {
                // console.log(user);
             })
             .catch(function (error) {
+                $('p').html("<p>error messge: "+error.message+"</p>");
+
                console.log("error messge: "+error.message);
             });
 
