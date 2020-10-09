@@ -2,21 +2,21 @@
  * Direct the user to the home page when logged in.
  * Controls the login page by making sure only users with correct password and email can sign in.
  */
-firebase.auth().onAuthStateChanged(function (user) {
+firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
         location.href = 'index.html';
 
-    } else {
-    }
+    } else {}
 });
 
 
 
-var login = (function () {
+var login = (function() {
     'use strict';
     //global variables
-    var pub = {}, submit;
+    var pub = {},
+        submit;
 
     //create new account
     function create() {
@@ -25,11 +25,11 @@ var login = (function () {
         var password = $(this).children('#input-Password').val();
 
         const promise = firebase.auth().signInWithEmailAndPassword(email, password)
-            .then(function (response) {
+            .then(function(response) {
                 location.href = 'index.html';
             })
-            .catch(function (error) {
-                $('p').html("<p>error messge: " + error.message + "</p>");
+            .catch(function(error) {
+                $('p').html("<p>Oh No!: " + error.message + "</p>");
 
             });
 
@@ -39,17 +39,17 @@ var login = (function () {
 
 
     //setup public
-    pub.setup = function () {
+    pub.setup = function() {
         //console.log("test");
         $('#login_form').submit(create);
 
     };
 
-    pub.logout = function () {
+    pub.logout = function() {
         firebase.auth().signOut()
-            .then(function () {
+            .then(function() {
                 // Sign-out successful.
-            }).catch(function (error) {
+            }).catch(function(error) {
                 // An error happened.
             });
     }
@@ -68,19 +68,3 @@ if (window.addEventListener) {
 } else {
     alert("Could not attach ’MovieCategories.setup’ to the ’window.onload’ event");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
